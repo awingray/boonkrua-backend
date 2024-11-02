@@ -1,3 +1,6 @@
+using Boonkrua.Extensions;
+using Boonkrua.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -15,7 +18,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/topic/{id:long}", (long id) =>
     {
-        Console.WriteLine("Test");
+        Console.WriteLine(Topic.CreateRoot(1, "Test").ToJson());
     })
     .WithName("GetTopicById")
     .WithOpenApi();
