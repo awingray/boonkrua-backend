@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Boonkrua.Models;
 
 public abstract record ATopic
@@ -10,6 +12,8 @@ public abstract record ATopic
 public sealed record Topic : ATopic
 {
     public Topic? RootTopic { get; init; }
+
+    [JsonIgnore]
     public List<Topic> ChildTopics { get; init; } = [];
 
     private Topic() { }
@@ -19,15 +23,20 @@ public sealed record Topic : ATopic
         {
             Id = id,
             Title = title,
-            Description = description
+            Description = description,
         };
 
-    public static Topic CreateChild(long id, string title, Topic parentTopic, string? description = null) =>
+    public static Topic CreateChild(
+        long id,
+        string title,
+        Topic parentTopic,
+        string? description = null
+    ) =>
         new()
         {
             Id = id,
             Title = title,
             RootTopic = parentTopic,
-            Description = description
+            Description = description,
         };
 }

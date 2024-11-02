@@ -16,10 +16,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/topic/{id:long}", (long id) =>
-    {
-        Console.WriteLine(Topic.CreateRoot(1, "Test").ToJson());
-    })
+app.MapGet(
+        "/topic/{id:long}",
+        (long id) =>
+        {
+            Console.WriteLine(Topic.CreateRoot(1, "Test").ToJson());
+        }
+    )
     .WithName("GetTopicById")
     .WithOpenApi();
 
