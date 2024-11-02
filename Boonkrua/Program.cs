@@ -20,7 +20,7 @@ app.MapGet(
         "/topic/{id:long}",
         (long id) =>
         {
-            Console.WriteLine(Topic.CreateRoot(1, "Test").ToJson());
+            Console.WriteLine(Topic.CreateParent(1, "Test").ToJson());
         }
     )
     .WithName("GetTopicById")

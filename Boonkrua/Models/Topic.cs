@@ -11,14 +11,14 @@ public abstract record ATopic
 
 public sealed record Topic : ATopic
 {
-    public Topic? RootTopic { get; init; }
+    public Topic? ParentTopic { get; init; }
 
     [JsonIgnore]
     public List<Topic> ChildTopics { get; init; } = [];
 
     private Topic() { }
 
-    public static Topic CreateRoot(long id, string title, string? description = null) =>
+    public static Topic CreateParent(long id, string title, string? description = null) =>
         new()
         {
             Id = id,
@@ -36,7 +36,7 @@ public sealed record Topic : ATopic
         {
             Id = id,
             Title = title,
-            RootTopic = parentTopic,
+            ParentTopic = parentTopic,
             Description = description,
         };
 }
