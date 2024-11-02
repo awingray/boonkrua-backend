@@ -1,6 +1,7 @@
 @Boonkrua_HostAddress = http://localhost:5214
+@id = variable value
 
-GET {{Boonkrua_HostAddress}}/weatherforecast/
+GET {{Boonkrua_HostAddress}}/topic/{{id}}}/
 Accept: application/json
 
 ###
