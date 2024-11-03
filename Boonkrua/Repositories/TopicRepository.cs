@@ -13,6 +13,9 @@ public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
     public async Task<Topic?> GetByIdAsync(long id) =>
         await _col.Find(t => t.Id == id).FirstOrDefaultAsync();
 
+    public async Task<IEnumerable<Topic>> GetAllAsync() =>
+        await (await _col.FindAsync(FilterDefinition<Topic>.Empty)).ToListAsync() ?? [];
+
     public async Task CreateAsync(Topic topic) => await _col.InsertOneAsync(topic);
 
     public async Task UpdateAsync(Topic topic) =>
