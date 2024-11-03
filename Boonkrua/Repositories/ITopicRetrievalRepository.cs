@@ -2,7 +2,7 @@ using Boonkrua.Models;
 
 namespace Boonkrua.Repositories;
 
-internal interface ITopicRepository
+internal interface ITopicRetrievalRepository
 {
     public Task<Topic?> GetTopicById(long id);
 }

@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace Boonkrua.Repositories;
 
-internal class TopicRepository(IMongoDatabase db) : ITopicRepository
+internal class TopicRetrievalRepository(IMongoDatabase db) : ITopicRetrievalRepository
 {
     private readonly IMongoCollection<Topic> _col = db.GetCollection<Topic>(
         nameof(Collections.Topics)

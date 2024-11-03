@@ -21,6 +21,6 @@ public static class ServiceExtensions
 
     public static void ConfigureRepositories(this IServiceCollection services)
     {
-        services.AddSingleton<ITopicRepository, TopicRepository>();
+        services.AddSingleton<ITopicRetrievalRepository, TopicRetrievalRepository>();
     }
 }
