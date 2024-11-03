@@ -2,6 +2,7 @@ using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using Boonkrua.Models.Dto;
 using Boonkrua.Repositories;
+using Boonkrua.Repositories.Topics;
 using MongoDB.Bson;
 using static Microsoft.AspNetCore.Http.Results;
 

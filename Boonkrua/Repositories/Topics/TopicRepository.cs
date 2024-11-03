@@ -1,10 +1,9 @@
 using Boonkrua.Enums;
-using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace Boonkrua.Repositories;
+namespace Boonkrua.Repositories.Topics;
 
 public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
 {

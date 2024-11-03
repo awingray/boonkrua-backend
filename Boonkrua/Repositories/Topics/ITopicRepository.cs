@@ -1,8 +1,7 @@
-using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using MongoDB.Bson;
 
-namespace Boonkrua.Repositories;
+namespace Boonkrua.Repositories.Topics;
 
 public interface ITopicRepository
 {

@@ -1,5 +1,6 @@
 using Boonkrua.Handlers;
 using Boonkrua.Repositories;
+using Boonkrua.Repositories.Topics;
 using MongoDB.Bson;
 
 namespace Boonkrua.Extensions;

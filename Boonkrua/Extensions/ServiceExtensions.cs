@@ -1,4 +1,5 @@
 using Boonkrua.Repositories;
+using Boonkrua.Repositories.Topics;
 using MongoDB.Driver;
 
 namespace Boonkrua.Extensions;
