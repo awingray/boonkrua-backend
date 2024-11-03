@@ -1,10 +1,27 @@
 @Boonkrua_HostAddress = http://localhost:5214
-@id = variable value
+@id = 672735373f5589046696a111
 
-GET {{Boonkrua_HostAddress}}/topic/{{id}}}/
+GET {{Boonkrua_HostAddress}}/topic/{{id}}
 Accept: application/json
 
-GET {{Boonkrua_HostAddress}}/topic/
+GET {{Boonkrua_HostAddress}}/topic
 Accept: application/json
 
-###
+# Create a new parent topic
+POST {{Boonkrua_HostAddress}}/topic/parent
+Content-Type: application/json
+
+{
+  "title": "Sample Parent Topic",
+  "description": "A description of the parent topic",
+  "childTopics": [
+    {
+      "title": "Child Topic 1",
+      "description": "A description of the first child topic"
+    },
+    {
+      "title": "Child Topic 2",
+      "description": "A description of the second child topic"
+    }
+  ]
+}

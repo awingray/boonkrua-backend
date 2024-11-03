@@ -1,3 +1,4 @@
+using Boonkrua.Constants;
 using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using Boonkrua.Models.Dto;
@@ -23,8 +24,8 @@ internal static class TopicHandler
         ITopicRepository repository
     )
     {
-        var entity = Topic.CreateParent(dto.Title, dto.Description);
+        var entity = dto.ToEntity();
         await repository.CreateAsync(entity);
-        return Ok(new { Message = "Parent topic has been created", Data = entity });
+        return Ok(new { Message = TopicMessages.CreateParentSuccess, Data = entity });
     }
 }
