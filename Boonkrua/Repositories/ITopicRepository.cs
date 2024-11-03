@@ -5,5 +5,6 @@ namespace Boonkrua.Repositories;
 public interface ITopicRepository
 {
     public Task<Topic?> GetTopicByIdAsync(long id);
-    public Task CreateTopic(Topic topic);
+    public Task CreateTopicAsync(Topic topic);
+    public Task DeleteTopicAsync(long id);
 }
