@@ -1,3 +1,4 @@
+using Boonkrua.Models;
 using Boonkrua.Repositories;
 using static Microsoft.AspNetCore.Http.Results;
 
@@ -10,4 +11,12 @@ internal static class TopicHandler
 
     internal static async Task<IResult> GetAllTopic(ITopicRepository repository) =>
         Ok(await repository.GetAllAsync());
+
+    internal static async Task<IResult> CreateParentTopic(
+        ParentTopicDto dto,
+        ITopicRepository repository
+    )
+    {
+        return Ok();
+    }
 }

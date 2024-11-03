@@ -4,7 +4,7 @@
 GET {{Boonkrua_HostAddress}}/topic/{{id}}}/
 Accept: application/json
 
-GET {{Boonkrua_HostAddress}}/topic
+GET {{Boonkrua_HostAddress}}/topic/
 Accept: application/json
 
 ###
