@@ -16,23 +16,12 @@ public sealed record Topic : ATopic
 
     private Topic() { }
 
-    public static Topic CreateParent(ObjectId id, string title, string? description = null) =>
-        new()
-        {
-            Id = id,
-            Title = title,
-            Description = description,
-        };
+    public static Topic CreateParent(string title, string? description = null) =>
+        new() { Title = title, Description = description };
 
-    public static Topic CreateChild(
-        ObjectId id,
-        string title,
-        Topic parentTopic,
-        string? description = null
-    ) =>
+    public static Topic CreateChild(string title, Topic parentTopic, string? description = null) =>
         new()
         {
-            Id = id,
             Title = title,
             ParentTopic = parentTopic,
             Description = description,

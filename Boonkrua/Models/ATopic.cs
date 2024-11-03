@@ -7,7 +7,7 @@ public abstract record ATopic
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public required ObjectId Id { get; init; } = ObjectId.GenerateNewId();
+    public ObjectId Id { get; } = ObjectId.GenerateNewId();
 
     [BsonElement("title")]
     public required string Title { get; init; }
