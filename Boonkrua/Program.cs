@@ -1,5 +1,4 @@
-using Boonkrua.Extensions;
-using Boonkrua.Models;
+using Boonkrua.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,13 +15,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet(
-        "/topic/{id:long}",
-        (long id) =>
-        {
-            Console.WriteLine(Topic.CreateParent(1, "Test").ToJson());
-        }
-    )
+app.MapGet("/topic/{id:long}", (long id) => TopicHandler.GetTopicById(id))
     .WithName("GetTopicById")
     .WithOpenApi();
 
