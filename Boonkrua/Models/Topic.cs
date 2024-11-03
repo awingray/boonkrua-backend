@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Boonkrua.Models;
 
-internal sealed record Topic : ATopic
+public sealed record Topic : ATopic
 {
     [BsonIgnoreIfNull]
     [BsonElement("parentTopic")]

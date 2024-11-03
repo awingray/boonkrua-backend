@@ -23,7 +23,7 @@ app.UseHttpsRedirection();
 
 app.MapGet(
         "/topic/{id:long}",
-        async (long id, ITopicRetrievalRepository repository) =>
+        async (long id, ITopicRepository repository) =>
             await TopicHandler.GetTopicById(id, repository)
     )
     .WithName("GetTopicById")

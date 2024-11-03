@@ -4,12 +4,14 @@ using MongoDB.Driver;
 
 namespace Boonkrua.Repositories;
 
-internal class TopicRetrievalRepository(IMongoDatabase db) : ITopicRetrievalRepository
+public class TopicRepository(IMongoDatabase db) : ITopicRepository
 {
     private readonly IMongoCollection<Topic> _col = db.GetCollection<Topic>(
         nameof(Collections.Topics)
     );
 
-    public async Task<Topic?> GetTopicById(long id) =>
+    public async Task<Topic?> GetTopicByIdAsync(long id) =>
         await _col.Find(t => t.Id == id).FirstOrDefaultAsync();
+
+    public async Task CreateTopic(Topic topic) => await _col.InsertOneAsync(topic);
 }
