@@ -20,13 +20,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.MapGet(
-        "/topic/{id:long}",
-        async (long id, ITopicRepository repository) =>
-            await TopicHandler.GetTopicById(id, repository)
-    )
-    .WithName("GetTopicById")
-    .WithOpenApi();
+app.MapTopicEndpoints();
 
 await app.RunAsync();
