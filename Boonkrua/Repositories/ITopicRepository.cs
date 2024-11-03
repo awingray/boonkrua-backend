@@ -1,4 +1,5 @@
 using Boonkrua.Models;
+using Boonkrua.Models.Data;
 using MongoDB.Bson;
 
 namespace Boonkrua.Repositories;

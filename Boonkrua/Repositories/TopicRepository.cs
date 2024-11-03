@@ -1,5 +1,6 @@
 using Boonkrua.Enums;
 using Boonkrua.Models;
+using Boonkrua.Models.Data;
 using MongoDB.Bson;
 using MongoDB.Driver;
 

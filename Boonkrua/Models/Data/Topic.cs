@@ -1,18 +1,17 @@
 using System.Text.Json.Serialization;
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Boonkrua.Models;
+namespace Boonkrua.Models.Data;
 
-public sealed record Topic : ATopic
+public sealed class Topic : ATopic
 {
     [BsonIgnoreIfNull]
     [BsonElement("parentTopic")]
-    public Topic? ParentTopic { get; private init; }
+    public Topic? ParentTopic { get; private set; }
 
     [JsonIgnore]
     [BsonElement("childTopics")]
-    public List<Topic> ChildTopics { get; private init; } = [];
+    public List<Topic> ChildTopics { get; private set; } = [];
 
     private Topic() { }
 

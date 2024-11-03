@@ -1,9 +1,9 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Boonkrua.Models;
+namespace Boonkrua.Models.Data;
 
-public abstract record ATopic
+public abstract class ATopic
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
