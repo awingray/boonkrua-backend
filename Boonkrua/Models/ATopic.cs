@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Boonkrua.Models;
 
-public abstract record ATopic
+internal abstract record ATopic
 {
     [BsonId]
     [BsonRepresentation(BsonType.Int64)]

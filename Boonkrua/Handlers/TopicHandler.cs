@@ -5,10 +5,11 @@ using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Handlers;
 
-public static class TopicHandler
+internal static class TopicHandler
 {
-    internal static IResult GetTopicById(long topicId, ITopicRepository repository)
+    internal static async Task<IResult> GetTopicById(long topicId, ITopicRepository repository)
     {
-        return Ok();
+        var topic = await repository.GetTopicById(topicId);
+        return topic is null ? NotFound() : Ok(topic);
     }
 }
