@@ -25,7 +25,6 @@ public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
             Builders<Topic>
                 .Update.Set(t => t.Title, topic.Title)
                 .Set(t => t.Description, topic.Description)
-                .Set(t => t.ParentTopic, topic.ParentTopic)
                 .Set(t => t.ChildTopics, topic.ChildTopics)
         );
 

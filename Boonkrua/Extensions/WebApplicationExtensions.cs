@@ -26,11 +26,11 @@ public static class WebApplicationExtensions
             .WithOpenApi();
 
         app.MapPost(
-                "topic/parent",
-                async (ParentTopicDto dto, ITopicRepository repository) =>
+                "/topic",
+                async (TopicDto dto, ITopicRepository repository) =>
                     await TopicHandler.CreateParentTopic(dto, repository)
             )
-            .WithName("CreateParentTopic")
+            .WithName("CreateTopic")
             .WithOpenApi();
     }
 }

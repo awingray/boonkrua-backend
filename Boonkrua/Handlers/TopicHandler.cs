@@ -19,10 +19,7 @@ internal static class TopicHandler
     internal static async Task<IResult> GetAllTopic(ITopicRepository repository) =>
         Ok(await repository.GetAllAsync());
 
-    internal static async Task<IResult> CreateParentTopic(
-        ParentTopicDto dto,
-        ITopicRepository repository
-    )
+    internal static async Task<IResult> CreateParentTopic(TopicDto dto, ITopicRepository repository)
     {
         var entity = dto.ToEntity();
         await repository.CreateAsync(entity);

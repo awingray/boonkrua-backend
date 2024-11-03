@@ -8,7 +8,7 @@ GET {{Boonkrua_HostAddress}}/topic
 Accept: application/json
 
 # Create a new parent topic
-POST {{Boonkrua_HostAddress}}/topic/parent
+POST {{Boonkrua_HostAddress}}/topic
 Content-Type: application/json
 
 {
