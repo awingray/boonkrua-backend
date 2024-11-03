@@ -6,5 +6,5 @@ namespace Boonkrua.Handlers;
 internal static class TopicHandler
 {
     internal static async Task<IResult> GetTopicById(long topicId, ITopicRepository repository) =>
-        await repository.GetTopicByIdAsync(topicId) is { } value ? Ok(value) : NotFound();
+        await repository.GetByIdAsync(topicId) is { } value ? Ok(value) : NotFound();
 }
