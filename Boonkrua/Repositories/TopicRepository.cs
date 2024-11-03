@@ -1,5 +1,6 @@
 using Boonkrua.Enums;
 using Boonkrua.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Boonkrua.Repositories;
@@ -10,7 +11,7 @@ public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
         nameof(Collections.Topics)
     );
 
-    public async Task<Topic?> GetByIdAsync(long id) =>
+    public async Task<Topic?> GetByIdAsync(ObjectId id) =>
         await _col.Find(t => t.Id == id).FirstOrDefaultAsync();
 
     public async Task<IEnumerable<Topic>> GetAllAsync() =>
@@ -28,5 +29,5 @@ public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
                 .Set(t => t.ChildTopics, topic.ChildTopics)
         );
 
-    public async Task DeleteAsync(long id) => await _col.DeleteOneAsync(t => t.Id == id);
+    public async Task DeleteAsync(ObjectId id) => await _col.DeleteOneAsync(t => t.Id == id);
 }
