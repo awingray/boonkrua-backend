@@ -2,6 +2,7 @@ using Boonkrua.Constants;
 using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using Boonkrua.Models.Dto;
+using Boonkrua.Models.Response;
 using Boonkrua.Repositories;
 using Boonkrua.Repositories.Topics;
 using MongoDB.Bson;
@@ -23,6 +24,6 @@ internal static class TopicHandler
     {
         var entity = dto.ToEntity();
         await repository.CreateAsync(entity);
-        return Ok(new { Message = TopicMessages.CreateParentSuccess, Data = entity });
+        return Ok(Result<TopicDto>.Create(dto, TopicMessages.CreateParentSuccess));
     }
 }

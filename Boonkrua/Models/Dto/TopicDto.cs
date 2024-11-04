@@ -3,7 +3,7 @@ using Boonkrua.Models.Data;
 
 namespace Boonkrua.Models.Dto;
 
-public record TopicDto : IDto<Topic>
+public sealed record TopicDto : IDto<Topic>
 {
     public required string Title { get; init; }
     public List<TopicDto> ChildTopics { get; init; } = [];
