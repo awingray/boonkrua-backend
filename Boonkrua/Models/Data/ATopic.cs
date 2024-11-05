@@ -1,13 +1,14 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace Boonkrua.Models.Data;
 
 public abstract class ATopic
 {
-    [BsonId]
+    [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
     [BsonRepresentation(BsonType.ObjectId)]
-    public ObjectId Id { get; } = ObjectId.GenerateNewId();
+    public string Id { get; init; } = default!;
 
     [BsonElement("title")]
     public required string Title { get; init; }

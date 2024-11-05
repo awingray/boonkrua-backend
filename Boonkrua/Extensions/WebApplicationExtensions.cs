@@ -12,7 +12,7 @@ public static class WebApplicationExtensions
     {
         app.MapGet(
                 "/topic/{objectId}",
-                async (ObjectId objectId, ITopicRepository repository) =>
+                async (string objectId, ITopicRepository repository) =>
                     await TopicHandler.GetTopicById(objectId, repository)
             )
             .WithName("GetTopicById")
