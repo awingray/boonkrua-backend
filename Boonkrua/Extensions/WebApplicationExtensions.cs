@@ -1,5 +1,6 @@
 using Boonkrua.Handlers;
 using Boonkrua.Models.Dto;
+using Boonkrua.Models.Request;
 using Boonkrua.Repositories;
 using Boonkrua.Repositories.Topics;
 using MongoDB.Bson;
@@ -27,8 +28,8 @@ public static class WebApplicationExtensions
 
         app.MapPost(
                 "/topic",
-                async (TopicDto dto, ITopicRepository repository) =>
-                    await TopicHandler.CreateParentTopic(dto, repository)
+                async (CreateTopicRequest request, ITopicRepository repository) =>
+                    await TopicHandler.CreateParentTopic(request, repository)
             )
             .WithName("CreateTopic")
             .WithOpenApi();

@@ -2,6 +2,7 @@ using Boonkrua.Constants;
 using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using Boonkrua.Models.Dto;
+using Boonkrua.Models.Request;
 using Boonkrua.Models.Response;
 using Boonkrua.Repositories;
 using Boonkrua.Repositories.Topics;
@@ -18,10 +19,13 @@ internal static class TopicHandler
     internal static async Task<IResult> GetAllTopic(ITopicRepository repository) =>
         Ok(await repository.GetAllAsync());
 
-    internal static async Task<IResult> CreateParentTopic(TopicDto dto, ITopicRepository repository)
+    internal static async Task<IResult> CreateParentTopic(
+        CreateTopicRequest request,
+        ITopicRepository repository
+    )
     {
-        var entity = dto.ToEntity();
-        await repository.CreateAsync(entity);
+        var dto = TopicDto.FromRequest(request);
+        await repository.CreateAsync(dto.ToEntity());
         return Ok(Result<TopicDto>.Create(dto, TopicMessages.CreateParentSuccess));
     }
 }
