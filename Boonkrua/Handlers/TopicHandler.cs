@@ -1,4 +1,5 @@
 using Boonkrua.Constants;
+using Boonkrua.Extensions;
 using Boonkrua.Models;
 using Boonkrua.Models.Data;
 using Boonkrua.Models.Dto;
@@ -14,10 +15,15 @@ namespace Boonkrua.Handlers;
 internal static class TopicHandler
 {
     internal static async Task<IResult> GetTopicById(string topicId, ITopicRepository repository) =>
-        await repository.GetByIdAsync(topicId) is { } result ? Ok(result) : NotFound();
+        await repository.GetByIdAsync(topicId) is { } result
+            ? Ok(TopicDto.FromEntity(result))
+            : NotFound();
 
-    internal static async Task<IResult> GetAllTopic(ITopicRepository repository) =>
-        Ok(await repository.GetAllAsync());
+    internal static async Task<IResult> GetAllTopic(ITopicRepository repository)
+    {
+        var topicEntities = await repository.GetAllAsync();
+        return Ok(topicEntities.ToMappedList(TopicDto.FromEntity));
+    }
 
     internal static async Task<IResult> CreateParentTopic(
         CreateTopicRequest request,
