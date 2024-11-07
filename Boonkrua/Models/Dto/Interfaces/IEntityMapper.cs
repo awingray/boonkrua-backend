@@ -1,6 +1,6 @@
 namespace Boonkrua.Models.Dto.Interfaces;
 
-public interface IEntityMapper<out TDto>
+public interface IEntityMapper<in TEntity, out TDto>
 {
-    TDto ToDto();
+    static abstract TDto FromEntity(TEntity entity);
 }

@@ -5,7 +5,10 @@ using Boonkrua.Models.Request;
 
 namespace Boonkrua.Models.Dto;
 
-public sealed record TopicDto : IDtoMapper<Topic>, IRequestMapper<CreateTopicRequest, TopicDto>
+public sealed record TopicDto
+    : IDtoMapper<Topic>,
+        IRequestMapper<CreateTopicRequest, TopicDto>,
+        IEntityMapper<Topic, TopicDto>
 {
     public string? Id { get; init; }
     public required string Title { get; init; }
@@ -23,5 +26,13 @@ public sealed record TopicDto : IDtoMapper<Topic>, IRequestMapper<CreateTopicReq
             Title = request.Title,
             Description = request.Description,
             ChildTopics = request.ChildTopics?.ToMappedList(FromRequest) ?? [],
+        };
+
+    public static TopicDto FromEntity(Topic entity) =>
+        new()
+        {
+            Id = entity.Id,
+            Title = entity.Title,
+            Description = entity.Description,
         };
 }
