@@ -1,13 +1,26 @@
 namespace Boonkrua.Models.Response;
 
-public sealed record Result<T>
+public readonly struct Result<TResult, TError>
 {
-    public T? Data { get; init; }
+    private readonly bool _success;
+    public TResult? Content { get; }
+    public TError? Error { get; }
+    public bool IsSuccessful => _success;
 
-    public string? Message { get; init; }
+    private Result(TResult? result, TError? error, bool success)
+    {
+        Content = result;
+        Error = error;
+        _success = success;
+    }
 
-    private Result() { }
+    public static Result<TResult, TError> Ok(TResult result) => new(result, default, true);
 
-    public static Result<T> Create(T? data, string? message = null) =>
-        new() { Data = data, Message = message };
+    public static Result<TResult, TError> Err(TError error) => new(default, error, false);
+
+    public static implicit operator Result<TResult, TError>(TResult result) =>
+        new(result, default, true);
+
+    public static implicit operator Result<TResult, TError>(TError error) =>
+        new(default, error, false);
 }

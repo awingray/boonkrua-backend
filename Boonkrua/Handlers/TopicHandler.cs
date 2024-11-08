@@ -16,13 +16,17 @@ internal static class TopicHandler
 {
     internal static async Task<IResult> GetTopicById(string topicId, ITopicRepository repository) =>
         await repository.GetByIdAsync(topicId) is { } result
-            ? Ok(TopicDto.FromEntity(result))
+            ? Ok(Result<TopicDto, string>.Ok(TopicDto.FromEntity(result)))
             : NotFound();
 
     internal static async Task<IResult> GetAllTopic(ITopicRepository repository)
     {
         var topicEntities = await repository.GetAllAsync();
-        return Ok(topicEntities.ToMappedList(TopicDto.FromEntity));
+        return Ok(
+            Result<IEnumerable<TopicDto>, string>.Ok(
+                topicEntities.ToMappedList(TopicDto.FromEntity)
+            )
+        );
     }
 
     internal static async Task<IResult> CreateParentTopic(
@@ -32,6 +36,6 @@ internal static class TopicHandler
     {
         var dto = TopicDto.FromRequest(request);
         await repository.CreateAsync(dto.ToEntity());
-        return Ok(Result<TopicDto>.Create(dto, TopicMessages.CreateParentSuccess));
+        return Ok(Result<string, string>.Ok(TopicMessages.CreateParentSuccess));
     }
 }
