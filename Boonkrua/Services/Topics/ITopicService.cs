@@ -8,4 +8,5 @@ public interface ITopicService
     Task<Result<TopicDto, string>> GetByIdAsync(string topicId);
     Task<Result<IEnumerable<TopicDto>, string>> GetAllAsync();
     Task<Result<string, string>> CreateAsync(TopicDto topic);
+    Task<Result<string, string>> UpdateAsync(TopicDto topic);
 }

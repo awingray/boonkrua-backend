@@ -30,4 +30,17 @@ public class TopicService(ITopicRepository repository) : ITopicService
         await _repository.CreateAsync(topic.ToEntity());
         return Result<string, string>.Ok(TopicMessages.CreateSuccess);
     }
+
+    public async Task<Result<string, string>> UpdateAsync(TopicDto topic)
+    {
+        if (topic.Id is null)
+            return Result<string, string>.Err(TopicMessages.NullId);
+
+        var existingTopic = await _repository.GetByIdAsync(topic.Id);
+        if (existingTopic is null)
+            return Result<string, string>.Err(TopicMessages.NotFound);
+
+        await _repository.UpdateAsync(topic.ToEntity());
+        return Result<string, string>.Ok(TopicMessages.UpdateSuccess);
+    }
 }
