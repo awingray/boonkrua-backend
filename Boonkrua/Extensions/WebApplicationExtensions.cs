@@ -1,9 +1,7 @@
 using Boonkrua.Handlers;
-using Boonkrua.Models.Dto;
 using Boonkrua.Models.Request;
-using Boonkrua.Repositories;
-using Boonkrua.Repositories.Topics;
-using MongoDB.Bson;
+using Boonkrua.Services.Topics;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Extensions;
 
@@ -13,23 +11,26 @@ public static class WebApplicationExtensions
     {
         app.MapGet(
                 "/topic/{objectId}",
-                async (string objectId, ITopicRepository repository) =>
-                    await TopicHandler.GetTopicById(objectId, repository)
+                async (string objectId, [FromServices] ITopicService service) =>
+                    await TopicHandler.GetTopicById(objectId, service)
             )
             .WithName("GetTopicById")
             .WithOpenApi();
 
         app.MapGet(
                 "/topic",
-                async (ITopicRepository repository) => await TopicHandler.GetAllTopic(repository)
+                async ([FromServices] ITopicService service) =>
+                    await TopicHandler.GetAllTopic(service)
             )
             .WithName("GetAllTopic")
             .WithOpenApi();
 
         app.MapPost(
                 "/topic",
-                async (CreateTopicRequest request, ITopicRepository repository) =>
-                    await TopicHandler.CreateParentTopic(request, repository)
+                async (
+                    [FromBody] CreateTopicRequest request,
+                    [FromServices] ITopicService service
+                ) => await TopicHandler.CreateParentTopic(request, service)
             )
             .WithName("CreateTopic")
             .WithOpenApi();

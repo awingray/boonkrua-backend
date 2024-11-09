@@ -6,4 +6,7 @@ public static class EnumerableExtensions
         this IEnumerable<TSource> source,
         Func<TSource, TResult> mapper
     ) => source?.Select(mapper).ToList() ?? [];
+
+    public static bool IsNullOrEmpty<T>(this IEnumerable<T>? source) =>
+        source is null || !source.Any();
 }

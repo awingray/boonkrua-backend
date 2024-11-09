@@ -1,6 +1,4 @@
 using Boonkrua.Extensions;
-using Boonkrua.Handlers;
-using Boonkrua.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +8,7 @@ builder.Services.ConfigureMongoDb(
     builder.Configuration.GetSection("MongoDB").GetValue<string>("DatabaseName") ?? nameof(Boonkrua)
 );
 builder.Services.ConfigureRepositories();
+builder.Services.ConfigureServices();
 
 var app = builder.Build();
 

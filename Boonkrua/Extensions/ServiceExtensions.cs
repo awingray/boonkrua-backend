@@ -1,5 +1,5 @@
-using Boonkrua.Repositories;
 using Boonkrua.Repositories.Topics;
+using Boonkrua.Services.Topics;
 using MongoDB.Driver;
 
 namespace Boonkrua.Extensions;
@@ -23,5 +23,10 @@ public static class ServiceExtensions
     public static void ConfigureRepositories(this IServiceCollection services)
     {
         services.AddSingleton<ITopicRepository, TopicRepository>();
+    }
+
+    public static void ConfigureServices(this IServiceCollection services)
+    {
+        services.AddScoped<ITopicService, TopicService>();
     }
 }
