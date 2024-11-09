@@ -22,7 +22,7 @@ public class TopicService(ITopicRepository repository) : ITopicService
     public async Task<Result<IEnumerable<TopicDto>, string>> GetAllAsync()
     {
         var topics = await _repository.GetAllAsync();
-        return topics.ToMappedList(t => TopicDto.FromEntity(t));
+        return topics.ToMappedList(TopicDto.FromEntity);
     }
 
     public async Task<Result<string, string>> CreateAsync(TopicDto topic)

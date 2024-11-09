@@ -23,4 +23,7 @@ public readonly struct Result<TResult, TError>
 
     public static implicit operator Result<TResult, TError>(TError error) =>
         new(default, error, false);
+
+    public TReturn Match<TReturn>(Func<TResult, TReturn> success, Func<TError, TReturn> failure) =>
+        _success ? success(Content!) : failure(Error!);
 }
