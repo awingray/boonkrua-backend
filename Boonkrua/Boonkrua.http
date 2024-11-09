@@ -25,3 +25,14 @@ Content-Type: application/json
     }
   ]
 }
+
+# Update a topic
+PUT {{Boonkrua_HostAddress}}/topic
+Content-Type: application/json
+
+{
+  "id": "672735373f5589046696a111"
+  "title": "Sample Parent Topic",
+  "description": "A description of the parent topic",
+  "childTopics": []
+}

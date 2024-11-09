@@ -1,5 +1,6 @@
 using Boonkrua.Constants;
 using Boonkrua.Enums;
+using Boonkrua.Enums.Errors;
 
 namespace Boonkrua.Models.Error;
 

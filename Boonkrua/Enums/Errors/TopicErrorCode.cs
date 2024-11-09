@@ -1,4 +1,4 @@
-namespace Boonkrua.Enums;
+namespace Boonkrua.Enums.Errors;
 
 public enum TopicErrorCode
 {

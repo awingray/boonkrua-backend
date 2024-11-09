@@ -30,9 +30,19 @@ public static class WebApplicationExtensions
                 async (
                     [FromBody] CreateTopicRequest request,
                     [FromServices] ITopicService service
-                ) => await TopicHandler.CreateParentTopic(request, service)
+                ) => await TopicHandler.CreateTopic(request, service)
             )
             .WithName("CreateTopic")
+            .WithOpenApi();
+
+        app.MapPut(
+                "/topic",
+                async (
+                    [FromBody] UpdateTopicRequest request,
+                    [FromServices] ITopicService service
+                ) => await TopicHandler.UpdateTopic(request, service)
+            )
+            .WithName("UpdateTopic")
             .WithOpenApi();
     }
 }

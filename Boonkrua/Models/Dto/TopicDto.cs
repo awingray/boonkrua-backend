@@ -8,6 +8,7 @@ namespace Boonkrua.Models.Dto;
 public sealed record TopicDto
     : IDtoMapper<Topic>,
         IRequestMapper<CreateTopicRequest, TopicDto>,
+        IRequestMapper<UpdateTopicRequest, TopicDto>,
         IEntityMapper<Topic, TopicDto>
 {
     public string? Id { get; init; }
@@ -23,6 +24,15 @@ public sealed record TopicDto
     public static TopicDto FromRequest(CreateTopicRequest request) =>
         new()
         {
+            Title = request.Title,
+            Description = request.Description,
+            ChildTopics = request.ChildTopics?.ToMappedList(FromRequest) ?? [],
+        };
+
+    public static TopicDto FromRequest(UpdateTopicRequest request) =>
+        new()
+        {
+            Id = request.Id,
             Title = request.Title,
             Description = request.Description,
             ChildTopics = request.ChildTopics?.ToMappedList(FromRequest) ?? [],

@@ -16,13 +16,23 @@ internal static class TopicHandler
         return result.Match(Ok, NotFound);
     }
 
-    internal static async Task<IResult> CreateParentTopic(
+    internal static async Task<IResult> CreateTopic(
         CreateTopicRequest request,
         ITopicService service
     )
     {
         var dto = TopicDto.FromRequest(request);
         var result = await service.CreateAsync(dto);
+        return result.Match(Ok, BadRequest);
+    }
+
+    internal static async Task<IResult> UpdateTopic(
+        UpdateTopicRequest request,
+        ITopicService service
+    )
+    {
+        var dto = TopicDto.FromRequest(request);
+        var result = await service.UpdateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
 }
