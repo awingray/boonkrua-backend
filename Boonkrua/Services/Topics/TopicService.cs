@@ -1,6 +1,7 @@
 using Boonkrua.Constants;
 using Boonkrua.Extensions;
 using Boonkrua.Models.Dto;
+using Boonkrua.Models.Error;
 using Boonkrua.Models.Response;
 using Boonkrua.Repositories.Topics;
 
@@ -10,37 +11,37 @@ public class TopicService(ITopicRepository repository) : ITopicService
 {
     private readonly ITopicRepository _repository = repository;
 
-    public async Task<Result<TopicDto, string>> GetByIdAsync(string topicId)
+    public async Task<Result<TopicDto, TopicError>> GetByIdAsync(string topicId)
     {
         var topic = await _repository.GetByIdAsync(topicId);
         if (topic is null)
-            return TopicMessages.NotFound;
+            return TopicError.NotFound;
 
         return TopicDto.FromEntity(topic);
     }
 
-    public async Task<Result<IEnumerable<TopicDto>, string>> GetAllAsync()
+    public async Task<Result<IEnumerable<TopicDto>, TopicError>> GetAllAsync()
     {
         var topics = await _repository.GetAllAsync();
         return topics.ToMappedList(TopicDto.FromEntity);
     }
 
-    public async Task<Result<string, string>> CreateAsync(TopicDto topic)
+    public async Task<Result<MessageResponse, TopicError>> CreateAsync(TopicDto topic)
     {
         await _repository.CreateAsync(topic.ToEntity());
-        return Result<string, string>.Ok(TopicMessages.CreateSuccess);
+        return MessageResponse.Create(TopicMessages.CreateSuccess);
     }
 
-    public async Task<Result<string, string>> UpdateAsync(TopicDto topic)
+    public async Task<Result<MessageResponse, TopicError>> UpdateAsync(TopicDto topic)
     {
         if (topic.Id is null)
-            return Result<string, string>.Err(TopicMessages.NullId);
+            return TopicError.NullId;
 
         var existingTopic = await _repository.GetByIdAsync(topic.Id);
         if (existingTopic is null)
-            return Result<string, string>.Err(TopicMessages.NotFound);
+            return TopicError.NotFound;
 
         await _repository.UpdateAsync(topic.ToEntity());
-        return Result<string, string>.Ok(TopicMessages.UpdateSuccess);
+        return MessageResponse.Create(TopicMessages.UpdateSuccess);
     }
 }
