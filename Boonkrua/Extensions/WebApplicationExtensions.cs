@@ -1,9 +1,7 @@
 using Boonkrua.Handlers;
-using Boonkrua.Models.Data;
 using Boonkrua.Models.Request;
 using Boonkrua.Services.Topics;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 
 namespace Boonkrua.Extensions;
 
@@ -12,40 +10,27 @@ public static class WebApplicationExtensions
     public static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
-                "/topic/{objectId}",
-                async (string objectId, [FromServices] ITopicService service) =>
-                    await TopicHandler.GetTopicById(objectId, service)
-            )
-            .WithName("GetTopicById")
-            .WithOpenApi();
+            "/topic/{objectId}",
+            async (string objectId, [FromServices] ITopicService service) =>
+                await TopicHandler.GetTopicById(objectId, service)
+        );
 
         app.MapGet(
-                "/topic",
-                async ([FromServices] ITopicService service) =>
-                    await TopicHandler.GetAllTopic(service)
-            )
-            .WithName("GetAllTopic")
-            .WithOpenApi();
+            "/topic",
+            async ([FromServices] ITopicService service) => await TopicHandler.GetAllTopic(service)
+        );
 
         app.MapPost(
-                "/topic",
-                async (
-                    [FromBody] CreateTopicRequest request,
-                    [FromServices] ITopicService service
-                ) => await TopicHandler.CreateTopic(request, service)
-            )
-            .WithName("CreateTopic")
-            .WithOpenApi();
+            "/topic",
+            async ([FromBody] CreateTopicRequest request, [FromServices] ITopicService service) =>
+                await TopicHandler.CreateTopic(request, service)
+        );
 
         app.MapPut(
-                "/topic",
-                async (
-                    [FromBody] UpdateTopicRequest request,
-                    [FromServices] ITopicService service
-                ) => await TopicHandler.UpdateTopic(request, service)
-            )
-            .WithName("UpdateTopic")
-            .WithOpenApi();
+            "/topic",
+            async ([FromBody] UpdateTopicRequest request, [FromServices] ITopicService service) =>
+                await TopicHandler.UpdateTopic(request, service)
+        );
 
         app.MapDelete(
             "/topic/{objectId}",
