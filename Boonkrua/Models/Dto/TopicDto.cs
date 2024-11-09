@@ -11,7 +11,7 @@ public sealed record TopicDto
         IRequestMapper<UpdateTopicRequest, TopicDto>,
         IEntityMapper<Topic, TopicDto>
 {
-    public string? Id { get; init; }
+    public string? Id { get; private init; }
     public required string Title { get; init; }
     public List<TopicDto> ChildTopics { get; init; } = [];
     public string? Description { get; init; }
@@ -19,7 +19,7 @@ public sealed record TopicDto
     private TopicDto() { }
 
     public Topic ToEntity() =>
-        Topic.Create(Title, ChildTopics.ToMappedList(t => t.ToEntity()), Description);
+        Topic.Create(Title, ChildTopics.ToMappedList(t => t.ToEntity()), Description, Id);
 
     public static TopicDto FromRequest(CreateTopicRequest request) =>
         new()

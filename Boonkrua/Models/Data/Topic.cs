@@ -12,12 +12,14 @@ public sealed class Topic : ATopic
     public static Topic Create(
         string title,
         List<Topic>? childTopics = null,
-        string? description = null
+        string? description = null,
+        string? id = null
     ) =>
         new()
         {
             Title = title,
             Description = description,
             ChildTopics = childTopics ?? [],
+            Id = id ?? default!,
         };
 }
