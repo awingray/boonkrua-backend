@@ -1,7 +1,9 @@
 using Boonkrua.Handlers;
+using Boonkrua.Models.Data;
 using Boonkrua.Models.Request;
 using Boonkrua.Services.Topics;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace Boonkrua.Extensions;
 
@@ -44,5 +46,11 @@ public static class WebApplicationExtensions
             )
             .WithName("UpdateTopic")
             .WithOpenApi();
+
+        app.MapDelete(
+            "/topic/{objectId}",
+            async (string objectId, [FromServices] ITopicService service) =>
+                await TopicHandler.DeleteTopic(objectId, service)
+        );
     }
 }

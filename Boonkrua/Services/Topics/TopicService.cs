@@ -44,4 +44,10 @@ public class TopicService(ITopicRepository repository) : ITopicService
         await _repository.UpdateAsync(topic.ToEntity());
         return MessageResponse.Create(TopicMessages.UpdateSuccess);
     }
+
+    public async Task<Result<MessageResponse, TopicError>> DeleteAsync(string id)
+    {
+        await _repository.DeleteAsync(id);
+        return MessageResponse.Create(TopicMessages.DeleteSuccess);
+    }
 }

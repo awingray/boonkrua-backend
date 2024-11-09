@@ -35,4 +35,10 @@ internal static class TopicHandler
         var result = await service.UpdateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
+
+    internal static async Task<IResult> DeleteTopic(string objectId, ITopicService service)
+    {
+        var result = await service.DeleteAsync(objectId);
+        return result.Match(Ok, BadRequest);
+    }
 }
