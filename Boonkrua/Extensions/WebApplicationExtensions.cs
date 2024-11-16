@@ -1,5 +1,4 @@
 using Boonkrua.Handlers;
-using Boonkrua.Models.Request;
 using Boonkrua.Models.Request.Topics;
 using Boonkrua.Services.Topics;
 using Microsoft.AspNetCore.Mvc;
