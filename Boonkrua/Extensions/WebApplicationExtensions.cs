@@ -1,7 +1,9 @@
 using Boonkrua.Handlers;
 using Boonkrua.Models.Request.Topics;
+using Boonkrua.Services;
 using Boonkrua.Services.Topics;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace Boonkrua.Extensions;
 
@@ -36,6 +38,15 @@ public static class WebApplicationExtensions
             "/topic/{objectId}",
             async (string objectId, [FromServices] ITopicService service) =>
                 await TopicHandler.DeleteTopic(objectId, service)
+        );
+
+        app.MapPost(
+            "/topic/{objectId}/notify/{type}",
+            async (
+                string objectId,
+                string type,
+                [FromServices] NotificationOrchestrator orchestrator
+            ) => await TopicHandler.NotifyTopic(objectId, type, orchestrator)
         );
     }
 }
