@@ -2,6 +2,7 @@ using Boonkrua.Factories;
 using Boonkrua.Repositories.Topics;
 using Boonkrua.Services.Notifications;
 using Boonkrua.Services.Topics;
+using Boonkrua.Services.Topics.Interfaces;
 using MongoDB.Driver;
 
 namespace Boonkrua.Extensions;

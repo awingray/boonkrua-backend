@@ -1,9 +1,8 @@
 using Boonkrua.Models.Dto.Topics;
-using Boonkrua.Models.Error;
 using Boonkrua.Models.Error.Topics;
 using Boonkrua.Models.Response;
 
-namespace Boonkrua.Services.Topics;
+namespace Boonkrua.Services.Topics.Interfaces;
 
 public interface ITopicService
 {

@@ -5,6 +5,7 @@ using Boonkrua.Factories;
 using Boonkrua.Models.Dto.Topics;
 using Boonkrua.Models.Request.Topics;
 using Boonkrua.Services.Topics;
+using Boonkrua.Services.Topics.Interfaces;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Handlers;

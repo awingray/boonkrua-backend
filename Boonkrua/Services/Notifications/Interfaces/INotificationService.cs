@@ -1,8 +1,7 @@
-using Boonkrua.Models.Error;
 using Boonkrua.Models.Error.Notifications;
 using Boonkrua.Models.Response;
 
-namespace Boonkrua.Services.Notifications;
+namespace Boonkrua.Services.Notifications.Interfaces;
 
 public interface INotificationService
 {
