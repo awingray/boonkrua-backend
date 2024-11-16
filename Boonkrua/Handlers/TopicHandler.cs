@@ -1,5 +1,6 @@
 using Boonkrua.Models.Dto.Topics;
 using Boonkrua.Models.Request.Topics;
+using Boonkrua.Services;
 using Boonkrua.Services.Topics;
 using static Microsoft.AspNetCore.Http.Results;
 
@@ -39,6 +40,16 @@ internal static class TopicHandler
     internal static async Task<IResult> DeleteTopic(string objectId, ITopicService service)
     {
         var result = await service.DeleteAsync(objectId);
+        return result.Match(Ok, BadRequest);
+    }
+
+    internal static async Task<IResult> NotifyTopic(
+        string objectId,
+        string type,
+        NotificationOrchestrator orchestrator
+    )
+    {
+        var result = await orchestrator.NotifyAsync(objectId, type);
         return result.Match(Ok, BadRequest);
     }
 }

@@ -1,6 +1,6 @@
 using Boonkrua.Constants;
 using Boonkrua.Enums;
-using Boonkrua.Services.Notification;
+using Boonkrua.Services.Notifications;
 
 namespace Boonkrua.Factories;
 

@@ -2,7 +2,7 @@ using Boonkrua.Constants;
 using Boonkrua.Models.Error;
 using Boonkrua.Models.Response;
 
-namespace Boonkrua.Services.Notification;
+namespace Boonkrua.Services.Notifications;
 
 public sealed class DiscordNotificationService(HttpClient client) : INotificationService
 {
