@@ -47,9 +47,5 @@ internal static class TopicHandler
         string objectId,
         string type,
         NotificationOrchestrator orchestrator
-    )
-    {
-        var result = await orchestrator.NotifyAsync(objectId, type);
-        return result.Match(Ok, BadRequest);
-    }
+    ) => await orchestrator.NotifyAsync(objectId, type);
 }
