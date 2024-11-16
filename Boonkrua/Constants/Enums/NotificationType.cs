@@ -1,4 +1,4 @@
-namespace Boonkrua.Enums;
+namespace Boonkrua.Constants.Enums;
 
 public enum NotificationType
 {

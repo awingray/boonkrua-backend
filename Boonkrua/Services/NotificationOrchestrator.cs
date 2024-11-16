@@ -1,5 +1,5 @@
-using Boonkrua.Constants;
-using Boonkrua.Enums;
+using Boonkrua.Constants.Enums;
+using Boonkrua.Constants.Messages;
 using Boonkrua.Extensions;
 using Boonkrua.Factories;
 using Boonkrua.Models.Error;

@@ -1,4 +1,4 @@
-using Boonkrua.Constants;
+using Boonkrua.Constants.Messages;
 
 namespace Boonkrua.Models.Error;
 

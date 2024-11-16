@@ -1,4 +1,4 @@
-namespace Boonkrua.Constants;
+namespace Boonkrua.Constants.Messages;
 
 public static class TopicMessages
 {

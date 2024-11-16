@@ -1,4 +1,4 @@
-using Boonkrua.Constants;
+using Boonkrua.Constants.Messages;
 using Boonkrua.Models.Error;
 using Boonkrua.Models.Response;
 
