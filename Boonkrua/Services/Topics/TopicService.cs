@@ -1,6 +1,7 @@
 using Boonkrua.Constants;
 using Boonkrua.Extensions;
 using Boonkrua.Models.Dto;
+using Boonkrua.Models.Dto.Topics;
 using Boonkrua.Models.Error;
 using Boonkrua.Models.Response;
 using Boonkrua.Repositories.Topics;

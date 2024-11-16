@@ -1,9 +1,9 @@
 using Boonkrua.Extensions;
-using Boonkrua.Models.Data;
+using Boonkrua.Models.Data.Topics;
 using Boonkrua.Models.Dto.Interfaces;
-using Boonkrua.Models.Request;
+using Boonkrua.Models.Request.Topics;
 
-namespace Boonkrua.Models.Dto;
+namespace Boonkrua.Models.Dto.Topics;
 
 public sealed record TopicDto
     : IDtoMapper<Topic>,

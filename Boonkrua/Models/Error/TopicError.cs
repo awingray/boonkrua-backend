@@ -1,10 +1,16 @@
 using Boonkrua.Constants;
-using Boonkrua.Enums.Errors;
 
 namespace Boonkrua.Models.Error;
 
-public record TopicError(TopicErrorCode Code, string Message)
+public record TopicError
 {
-    public static TopicError NullId => new(TopicErrorCode.NullId, TopicMessages.NullId);
-    public static TopicError NotFound => new(TopicErrorCode.NotFound, TopicMessages.NotFound);
+    public string ErrorMessage { get; init; }
+
+    private TopicError(string errorMessage)
+    {
+        ErrorMessage = errorMessage;
+    }
+
+    public static TopicError NullId => new(TopicMessages.NullId);
+    public static TopicError NotFound => new(TopicMessages.NotFound);
 }

@@ -1,4 +1,4 @@
-namespace Boonkrua.Models.Request;
+namespace Boonkrua.Models.Request.Topics;
 
 public sealed record UpdateTopicRequest(
     string Id,

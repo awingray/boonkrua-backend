@@ -1,4 +1,4 @@
-using Boonkrua.Models.Data;
+using Boonkrua.Models.Data.Topics;
 
 namespace Boonkrua.Repositories.Topics;
 
