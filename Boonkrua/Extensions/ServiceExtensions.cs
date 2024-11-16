@@ -1,3 +1,4 @@
+using Boonkrua.Factories;
 using Boonkrua.Repositories.Topics;
 using Boonkrua.Services.Notification;
 using Boonkrua.Services.Topics;
@@ -29,6 +30,10 @@ public static class ServiceExtensions
     public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<ITopicService, TopicService>();
+    }
+
+    public static void ConfigureHttpClients(this IServiceCollection services)
+    {
         services.AddHttpClient<DiscordNotificationService>(
             (sp, client) =>
             {
@@ -36,5 +41,10 @@ public static class ServiceExtensions
                 client.DefaultRequestHeaders.Add("User-Agent", "Boonkrua-NotificationService");
             }
         );
+    }
+
+    public static void ConfigureFactories(this IServiceCollection services)
+    {
+        services.AddSingleton<NotificationServiceFactory>();
     }
 }

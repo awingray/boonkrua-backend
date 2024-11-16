@@ -9,6 +9,8 @@ builder.Services.ConfigureMongoDb(
 );
 builder.Services.ConfigureRepositories();
 builder.Services.ConfigureServices();
+builder.Services.ConfigureFactories();
+builder.Services.ConfigureHttpClients();
 
 var app = builder.Build();
 
