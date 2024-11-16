@@ -2,14 +2,10 @@ using Boonkrua.Constants;
 
 namespace Boonkrua.Models.Error;
 
-public record TopicError
+public sealed record TopicError : AError
 {
-    public string ErrorMessage { get; init; }
-
     private TopicError(string errorMessage)
-    {
-        ErrorMessage = errorMessage;
-    }
+        : base(errorMessage) { }
 
     public static TopicError NullId => new(TopicMessages.NullId);
     public static TopicError NotFound => new(TopicMessages.NotFound);
