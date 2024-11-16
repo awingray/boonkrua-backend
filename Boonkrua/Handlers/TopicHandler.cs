@@ -49,22 +49,10 @@ internal static class TopicHandler
     internal static async Task<IResult> NotifyTopic(
         string objectId,
         string type,
-        ITopicService topicService,
-        NotificationServiceFactory factory
+        ITopicNotificationService service
     )
     {
-        if (!type.TryParse(out NotificationType notificationType))
-            return BadRequest(NotificationMessages.InvalidProvider);
-
-        var topicResult = await topicService.GetByIdAsync(objectId);
-        if (!topicResult.IsSuccessful)
-            return NotFound(topicResult.Error);
-
-        var notificationService = factory.GetService(notificationType);
-        var notificationResult = await notificationService.SendNotificationAsync(
-            topicResult.Content!.ToJson()
-        );
-
-        return notificationResult.Match(Ok, BadRequest);
+        var result = await service.NotifyAsync(objectId, type);
+        return result.Match(Ok, BadRequest);
     }
 }

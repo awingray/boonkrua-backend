@@ -30,6 +30,7 @@ public static class ServiceExtensions
     public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<ITopicService, TopicService>();
+        services.AddScoped<ITopicNotificationService, TopicNotificationService>();
     }
 
     public static void ConfigureHttpClients(this IServiceCollection services)
@@ -45,6 +46,6 @@ public static class ServiceExtensions
 
     public static void ConfigureFactories(this IServiceCollection services)
     {
-        services.AddSingleton<NotificationServiceFactory>();
+        services.AddTransient<NotificationServiceFactory>();
     }
 }

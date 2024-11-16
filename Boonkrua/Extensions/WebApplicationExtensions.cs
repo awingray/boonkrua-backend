@@ -44,9 +44,8 @@ public static class WebApplicationExtensions
             async (
                 string objectId,
                 string type,
-                [FromServices] ITopicService topicService,
-                [FromServices] NotificationServiceFactory factory
-            ) => await TopicHandler.NotifyTopic(objectId, type, topicService, factory)
+                [FromServices] ITopicNotificationService service
+            ) => await TopicHandler.NotifyTopic(objectId, type, service)
         );
     }
 }
