@@ -1,6 +1,9 @@
+using Boonkrua.Constants.Enums;
+using Boonkrua.Constants.Messages;
+using Boonkrua.Extensions;
+using Boonkrua.Factories;
 using Boonkrua.Models.Dto.Topics;
 using Boonkrua.Models.Request.Topics;
-using Boonkrua.Services;
 using Boonkrua.Services.Topics;
 using static Microsoft.AspNetCore.Http.Results;
 
@@ -46,6 +49,22 @@ internal static class TopicHandler
     internal static async Task<IResult> NotifyTopic(
         string objectId,
         string type,
-        NotificationOrchestrator orchestrator
-    ) => await orchestrator.NotifyAsync(objectId, type);
+        ITopicService topicService,
+        NotificationServiceFactory factory
+    )
+    {
+        if (!type.TryParse(out NotificationType notificationType))
+            return BadRequest(NotificationMessages.InvalidProvider);
+
+        var topicResult = await topicService.GetByIdAsync(objectId);
+        if (!topicResult.IsSuccessful)
+            return NotFound(topicResult.Error);
+
+        var notificationService = factory.GetService(notificationType);
+        var notificationResult = await notificationService.SendNotificationAsync(
+            topicResult.Content!.ToJson()
+        );
+
+        return notificationResult.Match(Ok, BadRequest);
+    }
 }

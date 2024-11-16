@@ -1,9 +1,8 @@
+using Boonkrua.Factories;
 using Boonkrua.Handlers;
 using Boonkrua.Models.Request.Topics;
-using Boonkrua.Services;
 using Boonkrua.Services.Topics;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 
 namespace Boonkrua.Extensions;
 
@@ -45,8 +44,9 @@ public static class WebApplicationExtensions
             async (
                 string objectId,
                 string type,
-                [FromServices] NotificationOrchestrator orchestrator
-            ) => await TopicHandler.NotifyTopic(objectId, type, orchestrator)
+                [FromServices] ITopicService topicService,
+                [FromServices] NotificationServiceFactory factory
+            ) => await TopicHandler.NotifyTopic(objectId, type, topicService, factory)
         );
     }
 }

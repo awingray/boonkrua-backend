@@ -1,6 +1,5 @@
 using Boonkrua.Factories;
 using Boonkrua.Repositories.Topics;
-using Boonkrua.Services;
 using Boonkrua.Services.Notifications;
 using Boonkrua.Services.Topics;
 using MongoDB.Driver;
@@ -31,8 +30,6 @@ public static class ServiceExtensions
     public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<ITopicService, TopicService>();
-        services.AddScoped<NotificationOrchestrator>();
-        services.AddTransient<INotificationService, DiscordNotificationService>();
     }
 
     public static void ConfigureHttpClients(this IServiceCollection services)
@@ -48,6 +45,6 @@ public static class ServiceExtensions
 
     public static void ConfigureFactories(this IServiceCollection services)
     {
-        services.AddTransient<NotificationServiceFactory>();
+        services.AddSingleton<NotificationServiceFactory>();
     }
 }
