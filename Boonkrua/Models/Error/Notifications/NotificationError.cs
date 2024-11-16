@@ -1,6 +1,6 @@
 using Boonkrua.Constants.Messages;
 
-namespace Boonkrua.Models.Error;
+namespace Boonkrua.Models.Error.Notifications;
 
 public sealed record NotificationError : AError
 {
@@ -8,6 +8,4 @@ public sealed record NotificationError : AError
         : base(errorMessage) { }
 
     public static NotificationError SendFailure => new(NotificationMessages.SendFailure);
-    public static NotificationError InvalidType => new(NotificationMessages.InvalidProvider);
-    public static NotificationError NoContent => new(NotificationMessages.NoContent);
 }

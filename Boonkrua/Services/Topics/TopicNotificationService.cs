@@ -1,7 +1,10 @@
 using Boonkrua.Constants.Enums;
+using Boonkrua.Constants.Messages;
 using Boonkrua.Extensions;
 using Boonkrua.Factories;
 using Boonkrua.Models.Error;
+using Boonkrua.Models.Error.Notifications;
+using Boonkrua.Models.Error.Topics;
 using Boonkrua.Models.Response;
 using Boonkrua.Repositories.Topics;
 
@@ -15,19 +18,23 @@ public sealed class TopicNotificationService(
     private readonly ITopicRepository _repository = repository;
     private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
 
-    public async Task<Result<MessageResponse, NotificationError>> NotifyAsync(
+    public async Task<Result<MessageResponse, TopicNotificationError>> NotifyAsync(
         string objectId,
         string type
     )
     {
         if (!type.TryParse(out NotificationType notificationType))
-            return NotificationError.InvalidType;
+            return TopicNotificationError.InvalidType;
 
         var topic = await _repository.GetByIdAsync(objectId);
         if (topic is null)
-            return NotificationError.NoContent;
+            return TopicNotificationError.NotFound;
 
         var notificationService = _serviceFactory.GetService(notificationType);
-        return await notificationService.SendNotificationAsync(topic.Title);
+        var result = await notificationService.SendNotificationAsync(topic.Title);
+        if (!result.IsSuccessful)
+            return TopicNotificationError.SendFailure;
+
+        return result.Content!;
     }
 }

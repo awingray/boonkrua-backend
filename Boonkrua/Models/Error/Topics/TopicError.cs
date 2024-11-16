@@ -1,6 +1,6 @@
 using Boonkrua.Constants.Messages;
 
-namespace Boonkrua.Models.Error;
+namespace Boonkrua.Models.Error.Topics;
 
 public sealed record TopicError : AError
 {
