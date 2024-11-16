@@ -8,7 +8,7 @@ using Boonkrua.Repositories.Topics;
 
 namespace Boonkrua.Services.Topics;
 
-public class TopicService(ITopicRepository repository) : ITopicService
+public sealed class TopicService(ITopicRepository repository) : ITopicService
 {
     private readonly ITopicRepository _repository = repository;
 

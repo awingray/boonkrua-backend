@@ -1,4 +1,5 @@
 using Boonkrua.Repositories.Topics;
+using Boonkrua.Services.Notification;
 using Boonkrua.Services.Topics;
 using MongoDB.Driver;
 
@@ -28,5 +29,12 @@ public static class ServiceExtensions
     public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<ITopicService, TopicService>();
+        services.AddHttpClient<DiscordNotificationService>(
+            (sp, client) =>
+            {
+                client.BaseAddress = new Uri("");
+                client.DefaultRequestHeaders.Add("User-Agent", "Boonkrua-NotificationService");
+            }
+        );
     }
 }
