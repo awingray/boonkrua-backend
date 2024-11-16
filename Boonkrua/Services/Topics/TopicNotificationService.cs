@@ -7,6 +7,7 @@ using Boonkrua.Models.Error.Notifications;
 using Boonkrua.Models.Error.Topics;
 using Boonkrua.Models.Response;
 using Boonkrua.Repositories.Topics;
+using Boonkrua.Repositories.Topics.Interfaces;
 using Boonkrua.Services.Topics.Interfaces;
 
 namespace Boonkrua.Services.Topics;

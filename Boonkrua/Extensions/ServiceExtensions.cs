@@ -1,5 +1,6 @@
 using Boonkrua.Factories;
 using Boonkrua.Repositories.Topics;
+using Boonkrua.Repositories.Topics.Interfaces;
 using Boonkrua.Services.Notifications;
 using Boonkrua.Services.Topics;
 using Boonkrua.Services.Topics.Interfaces;
