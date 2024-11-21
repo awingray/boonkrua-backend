@@ -1,4 +1,4 @@
-using Boonkrua.Constants.Enums;
+using Boonkrua.Common.Enums;
 using Boonkrua.Models.Data.Topics;
 using Boonkrua.Repositories.Topics.Interfaces;
 using MongoDB.Driver;

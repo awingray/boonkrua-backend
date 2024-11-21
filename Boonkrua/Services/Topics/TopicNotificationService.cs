@@ -1,4 +1,4 @@
-using Boonkrua.Constants.Enums;
+using Boonkrua.Common.Enums;
 using Boonkrua.Extensions;
 using Boonkrua.Factories;
 using Boonkrua.Models.Error.Topics;

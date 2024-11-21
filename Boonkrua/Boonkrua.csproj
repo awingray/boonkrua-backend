@@ -20,10 +20,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Constants\Messages\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Boonkrua.Common\Boonkrua.Common.csproj" />
     </ItemGroup>
 
