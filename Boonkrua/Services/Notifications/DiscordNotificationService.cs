@@ -1,5 +1,4 @@
-using Boonkrua.Constants.Messages;
-using Boonkrua.Models.Error;
+using Boonkrua.Common.Messages;
 using Boonkrua.Models.Error.Notifications;
 using Boonkrua.Models.Response;
 using Boonkrua.Services.Notifications.Interfaces;

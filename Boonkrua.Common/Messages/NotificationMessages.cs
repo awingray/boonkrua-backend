@@ -1,4 +1,4 @@
-namespace Boonkrua.Constants.Messages;
+namespace Boonkrua.Common.Messages;
 
 public static class NotificationMessages
 {

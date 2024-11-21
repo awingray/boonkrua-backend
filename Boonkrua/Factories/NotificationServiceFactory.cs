@@ -1,5 +1,5 @@
+using Boonkrua.Common.Messages;
 using Boonkrua.Constants.Enums;
-using Boonkrua.Constants.Messages;
 using Boonkrua.Services.Notifications;
 using Boonkrua.Services.Notifications.Interfaces;
 

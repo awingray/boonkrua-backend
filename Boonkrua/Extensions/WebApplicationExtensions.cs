@@ -1,7 +1,5 @@
-using Boonkrua.Factories;
 using Boonkrua.Handlers;
 using Boonkrua.Models.Request.Topics;
-using Boonkrua.Services.Topics;
 using Boonkrua.Services.Topics.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
