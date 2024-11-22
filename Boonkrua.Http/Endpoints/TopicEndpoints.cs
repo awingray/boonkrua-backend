@@ -3,9 +3,9 @@ using Boonkrua.Http.Handlers;
 using Boonkrua.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Boonkrua.Http.Extensions;
+namespace Boonkrua.Http.Endpoints;
 
-public static class WebApplicationExtensions
+public static class TopicEndpoints
 {
     public static void MapTopicEndpoints(this WebApplication app)
     {
