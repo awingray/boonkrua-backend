@@ -5,8 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureMongoDb(
-    builder.Configuration.GetSection("MongoDB").GetValue<string>("DatabaseName")
-        ?? nameof(Boonkrua.Http)
+    builder.Configuration.GetSection("MongoDB").GetValue<string>("DatabaseName") ?? "Boonkrua"
 );
 builder.Services.ConfigureRepositories();
 builder.Services.ConfigureServices();

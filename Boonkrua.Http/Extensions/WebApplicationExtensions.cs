@@ -1,6 +1,6 @@
+using Boonkrua.DataContracts.Request.Topics;
 using Boonkrua.Http.Handlers;
-using Boonkrua.Http.Models.Request.Topics;
-using Boonkrua.Http.Services.Topics.Interfaces;
+using Boonkrua.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Http.Extensions;

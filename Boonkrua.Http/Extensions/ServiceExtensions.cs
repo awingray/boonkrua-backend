@@ -1,9 +1,9 @@
-using Boonkrua.Http.Factories;
-using Boonkrua.Http.Repositories.Topics;
-using Boonkrua.Http.Repositories.Topics.Interfaces;
-using Boonkrua.Http.Services.Notifications;
-using Boonkrua.Http.Services.Topics;
-using Boonkrua.Http.Services.Topics.Interfaces;
+using Boonkrua.Data.Repositories.Topics;
+using Boonkrua.Data.Repositories.Topics.Interfaces;
+using Boonkrua.Service.Factories;
+using Boonkrua.Service.Interfaces;
+using Boonkrua.Service.Notifications;
+using Boonkrua.Service.Topics;
 using MongoDB.Driver;
 
 namespace Boonkrua.Http.Extensions;

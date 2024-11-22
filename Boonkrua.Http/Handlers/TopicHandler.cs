@@ -1,6 +1,6 @@
-using Boonkrua.Http.Models.Dto.Topics;
-using Boonkrua.Http.Models.Request.Topics;
-using Boonkrua.Http.Services.Topics.Interfaces;
+using Boonkrua.DataContracts.Request.Topics;
+using Boonkrua.Service.Interfaces;
+using Boonkrua.Service.Models.Dto.Topics;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Http.Handlers;
