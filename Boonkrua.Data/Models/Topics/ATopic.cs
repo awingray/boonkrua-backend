@@ -2,7 +2,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
 
-namespace Boonkrua.Data.Models.Data.Topics;
+namespace Boonkrua.Data.Models.Topics;
 
 public abstract class ATopic
 {

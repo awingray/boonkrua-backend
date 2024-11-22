@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Boonkrua.Data.Models.Data.Topics;
+namespace Boonkrua.Data.Models.Topics;
 
 public sealed class Topic : ATopic
 {

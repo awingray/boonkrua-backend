@@ -1,5 +1,5 @@
 using Boonkrua.Common.Extensions;
-using Boonkrua.Data.Models.Data.Topics;
+using Boonkrua.Data.Models.Topics;
 using Boonkrua.DataContracts.Request.Topics;
 using Boonkrua.Service.Models.Dto.Interfaces;
 
