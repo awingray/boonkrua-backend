@@ -1,4 +1,4 @@
-namespace Boonkrua.Service.Models.Dto.Interfaces;
+namespace Boonkrua.Service.Models.Dto.Mappers;
 
 public interface IRequestMapper<in TRequest, out TDto>
 {
