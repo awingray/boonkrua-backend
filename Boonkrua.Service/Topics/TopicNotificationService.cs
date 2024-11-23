@@ -4,6 +4,7 @@ using Boonkrua.Data.Repositories.Topics.Interfaces;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Factories;
 using Boonkrua.Service.Interfaces;
+using Boonkrua.Service.Models;
 using Boonkrua.Service.Models.Error.Topics;
 
 namespace Boonkrua.Service.Topics;
@@ -29,7 +30,9 @@ public sealed class TopicNotificationService(
             return TopicNotificationError.NotFound;
 
         var notificationService = _serviceFactory.GetService(notificationType);
-        var result = await notificationService.SendNotificationAsync(topic.Title);
+        var payload = NotificationPayload.Create(topic.Title, string.Empty);
+
+        var result = await notificationService.SendNotificationAsync(payload);
         if (!result.IsSuccessful)
             return TopicNotificationError.SendFailure;
 

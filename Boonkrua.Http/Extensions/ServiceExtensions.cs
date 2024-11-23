@@ -38,9 +38,8 @@ public static class ServiceExtensions
     public static void ConfigureHttpClients(this IServiceCollection services)
     {
         services.AddHttpClient<DiscordNotificationService>(
-            (sp, client) =>
+            (_, client) =>
             {
-                client.BaseAddress = new Uri("");
                 client.DefaultRequestHeaders.Add("User-Agent", "Boonkrua-NotificationService");
             }
         );
