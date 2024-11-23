@@ -1,11 +1,14 @@
 using Boonkrua.Http.Endpoints;
 using Boonkrua.Http.Extensions;
 using Boonkrua.Http.Handlers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.ConfigureKeycloak(builder.Configuration.GetSection("Keycloak"));
 builder.Services.ConfigureMongoDb(
     builder.Configuration.GetSection("MongoDB").GetValue<string>("DatabaseName") ?? nameof(Boonkrua)
 );

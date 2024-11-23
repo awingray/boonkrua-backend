@@ -4,13 +4,29 @@ using Boonkrua.Service.Factories;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Notifications;
 using Boonkrua.Service.Topics;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MongoDB.Driver;
 
 namespace Boonkrua.Http.Extensions;
 
-public static class ServiceExtensions
+internal static class ServiceExtensions
 {
-    public static void ConfigureMongoDb(this IServiceCollection services, string dbName)
+    internal static void ConfigureKeycloak(
+        this IServiceCollection services,
+        IConfigurationSection config
+    )
+    {
+        services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.Authority = config.GetValue<string>("Authority");
+                options.Audience = config.GetValue<string>("Audience");
+                options.RequireHttpsMetadata = false;
+            });
+    }
+
+    internal static void ConfigureMongoDb(this IServiceCollection services, string dbName)
     {
         services.AddSingleton<IMongoClient>(
             new MongoClient(Environment.GetEnvironmentVariable("MONGODB_URI"))
@@ -24,18 +40,18 @@ public static class ServiceExtensions
         });
     }
 
-    public static void ConfigureRepositories(this IServiceCollection services)
+    internal static void ConfigureRepositories(this IServiceCollection services)
     {
         services.AddSingleton<ITopicRepository, TopicRepository>();
     }
 
-    public static void ConfigureServices(this IServiceCollection services)
+    internal static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<ITopicService, TopicService>();
         services.AddScoped<ITopicNotificationService, TopicNotificationService>();
     }
 
-    public static void ConfigureHttpClients(this IServiceCollection services)
+    internal static void ConfigureHttpClients(this IServiceCollection services)
     {
         services.AddHttpClient<DiscordNotificationService>(
             (_, client) =>
@@ -45,7 +61,7 @@ public static class ServiceExtensions
         );
     }
 
-    public static void ConfigureFactories(this IServiceCollection services)
+    internal static void ConfigureFactories(this IServiceCollection services)
     {
         services.AddTransient<NotificationServiceFactory>();
     }
