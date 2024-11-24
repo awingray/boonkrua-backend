@@ -1,12 +1,10 @@
 using Boonkrua.Http.Endpoints;
 using Boonkrua.Http.Extensions;
-using Boonkrua.Http.Handlers;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.ConfigureSwagger();
 
 builder.Services.ConfigureKeycloak(builder.Configuration.GetSection("Keycloak"));
 builder.Services.ConfigureMongoDb(
@@ -25,7 +23,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapTopicEndpoints();
 
 await app.RunAsync();

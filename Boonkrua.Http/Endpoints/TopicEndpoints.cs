@@ -1,6 +1,7 @@
 using Boonkrua.DataContracts.Request.Topics;
 using Boonkrua.Http.Handlers;
 using Boonkrua.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Http.Endpoints;
@@ -10,10 +11,12 @@ public static class TopicEndpoints
     public static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
-            "/topic/{objectId}",
-            async (string objectId, [FromServices] ITopicService service) =>
-                await TopicHandler.GetTopicById(objectId, service)
-        );
+                "/topic/{objectId}",
+                [Authorize]
+                async (string objectId, [FromServices] ITopicService service) =>
+                    await TopicHandler.GetTopicById(objectId, service)
+            )
+            .RequireAuthorization();
 
         app.MapGet(
             "/topic",
