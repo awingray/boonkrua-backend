@@ -1,5 +1,5 @@
+using Boonkrua.Http.Configurations;
 using Boonkrua.Http.Endpoints;
-using Boonkrua.Http.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
