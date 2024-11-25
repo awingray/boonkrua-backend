@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Http.Endpoints;
 
-public static class TopicEndpoints
+public static class TopicEndpoint
 {
     public static void MapTopicEndpoints(this WebApplication app)
     {
