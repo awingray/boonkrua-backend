@@ -1,5 +1,5 @@
+using Boonkrua.Data.Interfaces;
 using Boonkrua.Data.Repositories.Topics;
-using Boonkrua.Data.Repositories.Topics.Interfaces;
 
 namespace Boonkrua.Http.Configurations;
 

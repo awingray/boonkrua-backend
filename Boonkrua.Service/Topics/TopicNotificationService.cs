@@ -1,4 +1,4 @@
-using Boonkrua.Data.Repositories.Topics.Interfaces;
+using Boonkrua.Data.Interfaces;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Factories;
 using Boonkrua.Service.Interfaces;

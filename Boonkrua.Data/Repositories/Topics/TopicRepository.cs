@@ -1,5 +1,5 @@
+using Boonkrua.Data.Interfaces;
 using Boonkrua.Data.Models.Topics;
-using Boonkrua.Data.Repositories.Topics.Interfaces;
 using Boonkrua.Shared.Enums;
 using MongoDB.Driver;
 
