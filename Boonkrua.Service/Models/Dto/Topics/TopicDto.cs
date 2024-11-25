@@ -1,7 +1,7 @@
-using Boonkrua.Common.Extensions;
 using Boonkrua.Data.Models.Topics;
 using Boonkrua.DataContracts.Request.Topics;
 using Boonkrua.Service.Models.Dto.Mappers;
+using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Service.Models.Dto.Topics;
 

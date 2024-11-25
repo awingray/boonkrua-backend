@@ -1,4 +1,4 @@
-namespace Boonkrua.Common.Messages;
+namespace Boonkrua.Shared.Messages;
 
 public static class TopicMessages
 {

@@ -1,11 +1,11 @@
-using Boonkrua.Common.Enums;
-using Boonkrua.Common.Extensions;
 using Boonkrua.Data.Repositories.Topics.Interfaces;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Factories;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models;
 using Boonkrua.Service.Models.Error.Topics;
+using Boonkrua.Shared.Enums;
+using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Service.Topics;
 

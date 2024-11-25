@@ -1,4 +1,4 @@
-using Boonkrua.Common.Messages;
+using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Models.Error.Topics;
 

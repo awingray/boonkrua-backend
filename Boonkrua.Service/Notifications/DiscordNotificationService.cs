@@ -1,9 +1,9 @@
 using System.Net.Http.Json;
-using Boonkrua.Common.Messages;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models;
 using Boonkrua.Service.Models.Error.Notifications;
+using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Notifications;
 

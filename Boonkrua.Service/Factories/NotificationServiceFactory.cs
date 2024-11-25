@@ -1,7 +1,7 @@
-using Boonkrua.Common.Enums;
-using Boonkrua.Common.Messages;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Notifications;
+using Boonkrua.Shared.Enums;
+using Boonkrua.Shared.Messages;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.Service.Factories;

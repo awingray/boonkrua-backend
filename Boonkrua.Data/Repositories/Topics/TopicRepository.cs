@@ -1,6 +1,6 @@
-using Boonkrua.Common.Enums;
 using Boonkrua.Data.Models.Topics;
 using Boonkrua.Data.Repositories.Topics.Interfaces;
+using Boonkrua.Shared.Enums;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Repositories.Topics;

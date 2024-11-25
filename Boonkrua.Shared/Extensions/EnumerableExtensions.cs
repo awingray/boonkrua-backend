@@ -1,4 +1,4 @@
-namespace Boonkrua.Common.Extensions;
+namespace Boonkrua.Shared.Extensions;
 
 public static class EnumerableExtensions
 {

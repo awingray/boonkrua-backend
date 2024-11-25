@@ -1,10 +1,10 @@
-using Boonkrua.Common.Extensions;
-using Boonkrua.Common.Messages;
 using Boonkrua.Data.Repositories.Topics.Interfaces;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models.Dto.Topics;
 using Boonkrua.Service.Models.Error.Topics;
+using Boonkrua.Shared.Extensions;
+using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Topics;
 
