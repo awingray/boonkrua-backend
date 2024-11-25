@@ -13,8 +13,8 @@ public sealed record TopicDto
 {
     public string? Id { get; private init; }
     public required string Title { get; init; }
-    public List<TopicDto> ChildTopics { get; init; } = [];
-    public string? Description { get; init; }
+    public List<TopicDto> ChildTopics { get; private init; } = [];
+    public string? Description { get; private init; }
 
     private TopicDto() { }
 
