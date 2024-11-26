@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Boonkrua.Service.Models.Dto.Topics;
 using Boonkrua.Shared.Extensions;
 

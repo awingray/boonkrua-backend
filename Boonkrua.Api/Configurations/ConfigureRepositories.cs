@@ -1,5 +1,6 @@
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Data.Repositories.Topics;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.Api.Configurations;
 

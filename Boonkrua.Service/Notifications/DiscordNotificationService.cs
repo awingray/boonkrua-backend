@@ -1,4 +1,6 @@
+using System.Net.Http;
 using System.Net.Http.Json;
+using System.Threading.Tasks;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models;

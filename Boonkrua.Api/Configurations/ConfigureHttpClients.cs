@@ -1,4 +1,5 @@
 using Boonkrua.Service.Notifications;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.Api.Configurations;
 

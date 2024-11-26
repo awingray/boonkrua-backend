@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace Boonkrua.Api.Configurations;
@@ -35,7 +36,7 @@ internal static partial class ServiceExtensions
                                 Id = "Bearer",
                             },
                         },
-                        Array.Empty<string>()
+                        []
                     },
                 }
             );

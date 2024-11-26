@@ -1,3 +1,5 @@
+using System;
+
 namespace Boonkrua.DataContracts.Response;
 
 public readonly struct Result<TResult, TError>
