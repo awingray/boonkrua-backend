@@ -10,5 +10,5 @@ public sealed record CreateTopicRequest : IRequestMapper<TopicDto>
     public List<CreateTopicRequest>? ChildTopics { get; init; } = null;
 
     public TopicDto ToDto() =>
-        TopicDto.Create(Title, ChildTopics?.ToMappedList(t => t.ToDto()) ?? [], Description);
+        TopicDto.Create(Title, "", ChildTopics?.ToMappedList(t => t.ToDto()) ?? [], Description);
 }

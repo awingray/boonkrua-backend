@@ -11,5 +11,11 @@ public sealed record UpdateTopicRequest : IRequestMapper<TopicDto>
     public List<CreateTopicRequest>? ChildTopics { get; init; } = null;
 
     public TopicDto ToDto() =>
-        TopicDto.Create(Id, Title, ChildTopics?.ToMappedList(t => t.ToDto()) ?? [], Description);
+        TopicDto.Create(
+            Id,
+            "",
+            Title,
+            ChildTopics?.ToMappedList(t => t.ToDto()) ?? [],
+            Description
+        );
 }
