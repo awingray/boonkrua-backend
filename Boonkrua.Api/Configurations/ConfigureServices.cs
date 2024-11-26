@@ -1,7 +1,7 @@
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Topics;
 
-namespace Boonkrua.Http.Configurations;
+namespace Boonkrua.Api.Configurations;
 
 internal static partial class ServiceExtensions
 {

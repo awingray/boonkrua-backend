@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Http", "Boonkrua.Http\Boonkrua.Http.csproj", "{437CCB68-F374-43B8-8842-84A15ED7C96E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Api", "Boonkrua.Api\Boonkrua.Api.csproj", "{437CCB68-F374-43B8-8842-84A15ED7C96E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Shared", "Boonkrua.Shared\Boonkrua.Shared.csproj", "{B0C36889-7F67-4778-92C1-37889E5D1D02}"
 EndProject

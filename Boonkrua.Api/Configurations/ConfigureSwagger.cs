@@ -1,6 +1,6 @@
 using Microsoft.OpenApi.Models;
 
-namespace Boonkrua.Http.Configurations;
+namespace Boonkrua.Api.Configurations;
 
 internal static partial class ServiceExtensions
 {

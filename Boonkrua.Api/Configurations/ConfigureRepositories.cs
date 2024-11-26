@@ -1,7 +1,7 @@
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Data.Repositories.Topics;
 
-namespace Boonkrua.Http.Configurations;
+namespace Boonkrua.Api.Configurations;
 
 internal static partial class ServiceExtensions
 {

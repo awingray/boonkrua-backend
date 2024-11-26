@@ -3,7 +3,7 @@ using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models.Dto.Topics;
 using static Microsoft.AspNetCore.Http.Results;
 
-namespace Boonkrua.Http.Handlers;
+namespace Boonkrua.Api.Handlers;
 
 internal static class TopicHandler
 {

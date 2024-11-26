@@ -1,10 +1,10 @@
+using Boonkrua.Api.Handlers;
 using Boonkrua.DataContracts.Request.Topics;
-using Boonkrua.Http.Handlers;
 using Boonkrua.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Boonkrua.Http.Endpoints;
+namespace Boonkrua.Api.Endpoints;
 
 public static class TopicEndpoint
 {
