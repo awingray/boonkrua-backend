@@ -1,4 +1,4 @@
-namespace Boonkrua.DataContracts.Response;
+namespace Boonkrua.Shared.Abstractions;
 
 public sealed record Message
 {

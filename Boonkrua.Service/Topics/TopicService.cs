@@ -1,8 +1,8 @@
 using Boonkrua.Data.Interfaces;
-using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models.Dto.Topics;
 using Boonkrua.Service.Models.Error.Topics;
+using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Extensions;
 using Boonkrua.Shared.Messages;
 

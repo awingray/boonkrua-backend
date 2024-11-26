@@ -1,4 +1,4 @@
-namespace Boonkrua.DataContracts.Response;
+namespace Boonkrua.Shared.Abstractions;
 
 public readonly struct Result<TResult, TError>
 {

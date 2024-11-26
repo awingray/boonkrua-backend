@@ -1,9 +1,9 @@
 using Boonkrua.Data.Interfaces;
-using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Factories;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models;
 using Boonkrua.Service.Models.Error.Topics;
+using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
 

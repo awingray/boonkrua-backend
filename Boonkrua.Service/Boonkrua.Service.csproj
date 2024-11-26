@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Boonkrua.Shared\Boonkrua.Shared.csproj" />
-      <ProjectReference Include="..\Boonkrua.DataContracts\Boonkrua.DataContracts.csproj" />
       <ProjectReference Include="..\Boonkrua.Data\Boonkrua.Data.csproj" />
     </ItemGroup>
 
