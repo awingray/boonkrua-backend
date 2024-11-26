@@ -20,7 +20,7 @@ internal static class TopicHandler
         ITopicService service
     )
     {
-        var dto = request.ToDto();
+        var dto = request.ToDto("");
         var result = await service.CreateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
@@ -30,7 +30,7 @@ internal static class TopicHandler
         ITopicService service
     )
     {
-        var dto = request.ToDto();
+        var dto = request.ToDto("");
         var result = await service.UpdateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
