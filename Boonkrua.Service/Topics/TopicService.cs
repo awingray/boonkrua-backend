@@ -27,13 +27,13 @@ public sealed class TopicService(ITopicRepository repository) : ITopicService
         return topics.ToMappedList(TopicDto.FromEntity);
     }
 
-    public async Task<Result<MessageResponse, TopicError>> CreateAsync(TopicDto topic)
+    public async Task<Result<Message, TopicError>> CreateAsync(TopicDto topic)
     {
         await _repository.CreateAsync(topic.ToEntity());
-        return MessageResponse.Create(TopicMessages.CreateSuccess);
+        return Message.Create(TopicMessages.CreateSuccess);
     }
 
-    public async Task<Result<MessageResponse, TopicError>> UpdateAsync(TopicDto topic)
+    public async Task<Result<Message, TopicError>> UpdateAsync(TopicDto topic)
     {
         if (topic.Id is null)
             return TopicError.NullId;
@@ -43,12 +43,12 @@ public sealed class TopicService(ITopicRepository repository) : ITopicService
             return TopicError.NotFound;
 
         await _repository.UpdateAsync(topic.ToEntity());
-        return MessageResponse.Create(TopicMessages.UpdateSuccess);
+        return Message.Create(TopicMessages.UpdateSuccess);
     }
 
-    public async Task<Result<MessageResponse, TopicError>> DeleteAsync(string id)
+    public async Task<Result<Message, TopicError>> DeleteAsync(string id)
     {
         await _repository.DeleteAsync(id);
-        return MessageResponse.Create(TopicMessages.DeleteSuccess);
+        return Message.Create(TopicMessages.DeleteSuccess);
     }
 }

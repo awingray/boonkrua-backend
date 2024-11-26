@@ -11,7 +11,7 @@ public sealed class DiscordNotificationService(HttpClient client) : INotificatio
 {
     private readonly HttpClient _client = client;
 
-    public async Task<Result<MessageResponse, NotificationError>> SendNotificationAsync(
+    public async Task<Result<Message, NotificationError>> SendNotificationAsync(
         NotificationPayload payload
     )
     {
@@ -21,6 +21,6 @@ public sealed class DiscordNotificationService(HttpClient client) : INotificatio
         if (!response.IsSuccessStatusCode)
             return NotificationError.SendFailure;
 
-        return MessageResponse.Create(NotificationMessages.SendSuccess);
+        return Message.Create(NotificationMessages.SendSuccess);
     }
 }

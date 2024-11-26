@@ -17,7 +17,7 @@ public sealed class TopicNotificationService(
     private readonly ITopicRepository _repository = repository;
     private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
 
-    public async Task<Result<MessageResponse, TopicNotificationError>> NotifyAsync(
+    public async Task<Result<Message, TopicNotificationError>> NotifyAsync(
         string objectId,
         string type
     )

@@ -8,7 +8,7 @@ public interface ITopicService
 {
     Task<Result<TopicDto, TopicError>> GetByIdAsync(string topicId);
     Task<Result<IEnumerable<TopicDto>, TopicError>> GetAllAsync();
-    Task<Result<MessageResponse, TopicError>> CreateAsync(TopicDto topic);
-    Task<Result<MessageResponse, TopicError>> UpdateAsync(TopicDto topic);
-    Task<Result<MessageResponse, TopicError>> DeleteAsync(string id);
+    Task<Result<Message, TopicError>> CreateAsync(TopicDto topic);
+    Task<Result<Message, TopicError>> UpdateAsync(TopicDto topic);
+    Task<Result<Message, TopicError>> DeleteAsync(string id);
 }
