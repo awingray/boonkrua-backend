@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Boonkrua.Data.Interfaces;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Factories;

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Boonkrua.DataContracts.Response;
 using Boonkrua.Service.Models.Dto.Topics;
 using Boonkrua.Service.Models.Error.Topics;

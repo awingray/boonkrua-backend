@@ -2,7 +2,6 @@ using Boonkrua.Api.Handlers;
 using Boonkrua.Api.Requests.Topics;
 using Boonkrua.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Api.Endpoints;

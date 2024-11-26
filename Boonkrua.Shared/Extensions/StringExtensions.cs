@@ -1,5 +1,3 @@
-using System;
-
 namespace Boonkrua.Shared.Extensions;
 
 public static class StringExtensions
