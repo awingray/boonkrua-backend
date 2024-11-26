@@ -1,6 +1,5 @@
-using Boonkrua.DataContracts.Request.Topics;
+using Boonkrua.Api.Requests.Topics;
 using Boonkrua.Service.Interfaces;
-using Boonkrua.Service.Models.Dto.Topics;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Api.Handlers;
@@ -21,7 +20,7 @@ internal static class TopicHandler
         ITopicService service
     )
     {
-        var dto = TopicDto.FromRequest(request);
+        var dto = request.ToDto();
         var result = await service.CreateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
@@ -31,7 +30,7 @@ internal static class TopicHandler
         ITopicService service
     )
     {
-        var dto = TopicDto.FromRequest(request);
+        var dto = request.ToDto();
         var result = await service.UpdateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
