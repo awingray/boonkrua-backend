@@ -8,9 +8,7 @@ namespace Boonkrua.Service.Models.Dto.Topics;
 public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto>
 {
     public string? Id { get; private init; }
-
-    [JsonIgnore]
-    public string UserId { get; init; } = string.Empty;
+    public required string UserId { get; init; }
     public required string Title { get; init; }
     public List<TopicDto> ChildTopics { get; private init; } = [];
     public string? Description { get; private init; }
@@ -56,6 +54,7 @@ public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto
             Id = entity.Id,
             UserId = entity.UserId,
             Title = entity.Title,
+            ChildTopics = entity.ChildTopics.ToMappedList(FromEntity),
             Description = entity.Description,
         };
 }
