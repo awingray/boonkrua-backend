@@ -19,35 +19,52 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapGet(
-            "/topic",
-            async ([FromServices] ITopicService service) => await TopicHandler.GetAllTopic(service)
-        );
+                "/topic",
+                [Authorize]
+                async ([FromServices] ITopicService service) =>
+                    await TopicHandler.GetAllTopic(service)
+            )
+            .RequireAuthorization();
 
         app.MapPost(
-            "/topic",
-            async ([FromBody] CreateTopicRequest request, [FromServices] ITopicService service) =>
-                await TopicHandler.CreateTopic(request, service)
-        );
+                "/topic",
+                [Authorize]
+                async (
+                    [FromBody] CreateTopicRequest request,
+                    [FromServices] ITopicService service,
+                    HttpContext context
+                ) => await TopicHandler.CreateTopic(request, service, context)
+            )
+            .RequireAuthorization();
 
         app.MapPut(
-            "/topic",
-            async ([FromBody] UpdateTopicRequest request, [FromServices] ITopicService service) =>
-                await TopicHandler.UpdateTopic(request, service)
-        );
+                "/topic",
+                [Authorize]
+                async (
+                    [FromBody] UpdateTopicRequest request,
+                    [FromServices] ITopicService service,
+                    HttpContext context
+                ) => await TopicHandler.UpdateTopic(request, service, context)
+            )
+            .RequireAuthorization();
 
         app.MapDelete(
-            "/topic/{objectId}",
-            async (string objectId, [FromServices] ITopicService service) =>
-                await TopicHandler.DeleteTopic(objectId, service)
-        );
+                "/topic/{objectId}",
+                [Authorize]
+                async (string objectId, [FromServices] ITopicService service) =>
+                    await TopicHandler.DeleteTopic(objectId, service)
+            )
+            .RequireAuthorization();
 
         app.MapPost(
-            "/topic/{objectId}/notify/{type}",
-            async (
-                string objectId,
-                string type,
-                [FromServices] ITopicNotificationService service
-            ) => await TopicHandler.NotifyTopic(objectId, type, service)
-        );
+                "/topic/{objectId}/notify/{type}",
+                [Authorize]
+                async (
+                    string objectId,
+                    string type,
+                    [FromServices] ITopicNotificationService service
+                ) => await TopicHandler.NotifyTopic(objectId, type, service)
+            )
+            .RequireAuthorization();
     }
 }

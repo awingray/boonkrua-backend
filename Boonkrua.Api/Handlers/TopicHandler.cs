@@ -1,5 +1,6 @@
 using Boonkrua.Api.Requests.Topics;
 using Boonkrua.Service.Interfaces;
+using Boonkrua.Shared.Extensions;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Api.Handlers;
@@ -17,20 +18,30 @@ internal static class TopicHandler
 
     internal static async Task<IResult> CreateTopic(
         CreateTopicRequest request,
-        ITopicService service
+        ITopicService service,
+        HttpContext context
     )
     {
-        var dto = request.ToDto("");
+        var userId = context.User.FindFirst("sub")?.Value;
+        if (userId.IsNullOrEmpty())
+            return Unauthorized();
+
+        var dto = request.ToDto(userId!);
         var result = await service.CreateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
 
     internal static async Task<IResult> UpdateTopic(
         UpdateTopicRequest request,
-        ITopicService service
+        ITopicService service,
+        HttpContext context
     )
     {
-        var dto = request.ToDto("");
+        var userId = context.User.FindFirst("sub")?.Value;
+        if (userId.IsNullOrEmpty())
+            return Unauthorized();
+
+        var dto = request.ToDto(userId!);
         var result = await service.UpdateAsync(dto);
         return result.Match(Ok, BadRequest);
     }
