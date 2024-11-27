@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Boonkrua.Data.Models.Topics;
 using Boonkrua.Service.Models.Dto.Mappers;
 using Boonkrua.Shared.Extensions;
@@ -7,6 +8,8 @@ namespace Boonkrua.Service.Models.Dto.Topics;
 public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto>
 {
     public string? Id { get; private init; }
+
+    [JsonIgnore]
     public required string UserId { get; init; }
     public required string Title { get; init; }
     public List<TopicDto> ChildTopics { get; private init; } = [];
