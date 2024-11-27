@@ -1,6 +1,6 @@
 # Boonkrua 
 
-**Boonkrua** is a modern, scalable API built with **.NET 8**.
+**Boonkrua** is a modern, scalable API built with **.NET 8** along with **Keycloak** and **MongoDB**.
 
 ## Prerequisites  
 
