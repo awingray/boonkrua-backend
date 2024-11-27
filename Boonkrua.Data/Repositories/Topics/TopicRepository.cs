@@ -1,15 +1,12 @@
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Data.Models.Topics;
-using Boonkrua.Shared.Enums;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Repositories.Topics;
 
 public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
 {
-    private readonly IMongoCollection<Topic> _col = db.GetCollection<Topic>(
-        nameof(Collections.Topics)
-    );
+    private readonly IMongoCollection<Topic> _col = db.GetCollection<Topic>(nameof(Topics));
 
     public async Task<Topic?> GetByIdAsync(string id) =>
         await _col.Find(t => t.Id == id).FirstOrDefaultAsync();
