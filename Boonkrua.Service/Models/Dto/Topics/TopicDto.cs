@@ -10,7 +10,7 @@ public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto
     public string? Id { get; private init; }
 
     [JsonIgnore]
-    public required string UserId { get; init; }
+    public string UserId { get; init; } = string.Empty;
     public required string Title { get; init; }
     public List<TopicDto> ChildTopics { get; private init; } = [];
     public string? Description { get; private init; }
