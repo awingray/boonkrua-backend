@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Boonkrua.Api.Requests.Topics;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Shared.Extensions;
@@ -22,7 +23,7 @@ internal static class TopicHandler
         HttpContext context
     )
     {
-        var userId = context.User.FindFirst("sub")?.Value;
+        var userId = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId.IsNullOrEmpty())
             return Unauthorized();
 
@@ -37,7 +38,7 @@ internal static class TopicHandler
         HttpContext context
     )
     {
-        var userId = context.User.FindFirst("sub")?.Value;
+        var userId = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId.IsNullOrEmpty())
             return Unauthorized();
 
