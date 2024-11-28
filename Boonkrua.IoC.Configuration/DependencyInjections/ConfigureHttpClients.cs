@@ -1,10 +1,11 @@
 using Boonkrua.Service.Notifications;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Boonkrua.Api.Configurations;
+namespace Boonkrua.IoC.Configuration.DependencyInjections;
 
-internal static partial class ServiceExtensions
+public static partial class ServiceExtensions
 {
-    internal static void ConfigureHttpClients(this IServiceCollection services)
+    public static void ConfigureHttpClients(this IServiceCollection services)
     {
         services.AddHttpClient<DiscordNotificationService>(
             (_, client) =>

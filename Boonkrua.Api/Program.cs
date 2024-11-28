@@ -1,5 +1,5 @@
-using Boonkrua.Api.Configurations;
 using Boonkrua.Api.Endpoints;
+using Boonkrua.IoC.Configuration.DependencyInjections;
 
 var builder = WebApplication.CreateBuilder(args);
 

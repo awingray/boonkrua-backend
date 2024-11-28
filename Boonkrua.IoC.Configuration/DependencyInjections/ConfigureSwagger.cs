@@ -1,10 +1,11 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace Boonkrua.Api.Configurations;
+namespace Boonkrua.IoC.Configuration.DependencyInjections;
 
-internal static partial class ServiceExtensions
+public static partial class ServiceExtensions
 {
-    internal static void ConfigureSwagger(this IServiceCollection services)
+    public static void ConfigureSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(options =>
         {

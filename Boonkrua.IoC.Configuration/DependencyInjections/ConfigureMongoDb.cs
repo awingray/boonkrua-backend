@@ -1,10 +1,11 @@
+using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 
-namespace Boonkrua.Api.Configurations;
+namespace Boonkrua.IoC.Configuration.DependencyInjections;
 
-internal static partial class ServiceExtensions
+public static partial class ServiceExtensions
 {
-    internal static void ConfigureMongoDb(this IServiceCollection services, string dbName)
+    public static void ConfigureMongoDb(this IServiceCollection services, string dbName)
     {
         services.AddSingleton<IMongoClient>(
             new MongoClient(Environment.GetEnvironmentVariable("MONGODB_URI"))

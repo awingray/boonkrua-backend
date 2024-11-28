@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Boonkrua.Api.Configurations;
+namespace Boonkrua.IoC.Configuration.DependencyInjections;
 
-internal static partial class ServiceExtensions
+public static partial class ServiceExtensions
 {
-    internal static void ConfigureKeycloak(
+    public static void ConfigureKeycloak(
         this IServiceCollection services,
         IConfigurationSection config
     )
