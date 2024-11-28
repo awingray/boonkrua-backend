@@ -10,6 +10,7 @@
     environment:
       - ASPNETCORE_ENVIRONMENT="Development"
       - INFISICAL_TOKEN=${INFISICAL_BOONKRUA_TOKEN}
+      - MONGODB_URI=${MONGODB_URI}
     restart: always
 
   keycloak:
