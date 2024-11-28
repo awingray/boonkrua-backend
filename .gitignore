@@ -6,3 +6,4 @@ riderModule.iml
 .idea/
 Boonkrua.sln.DotSettings.user
 .env
+Boonkrua.Api/.env
