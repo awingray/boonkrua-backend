@@ -9,10 +9,12 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Boonkrua.Api
 
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build ./Boonkrua.Api --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
