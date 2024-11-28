@@ -19,12 +19,6 @@
       <ProjectReference Include="..\Boonkrua.Shared\Boonkrua.Shared.csproj" />
         <ProjectReference Include="..\Boonkrua.Service\Boonkrua.Service.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
     
 
 </Project>
