@@ -8,17 +8,17 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 COPY ["../Boonkrua.sln", "./"]
-COPY ["../Boonkrua.Http/Boonkrua.Http.csproj", "Boonkrua.Http/"]
-COPY ["../Boonkrua.Common/Boonkrua.Common.csproj", "Boonkrua.Common/"]
+COPY ["../Boonkrua.Api/Boonkrua.Api.csproj", "Boonkrua.Api/"]
+COPY ["../Boonkrua.Shared/Boonkrua.Shared.csproj", "Boonkrua.Shared/"]
 COPY ["../Boonkrua.Data/Boonkrua.Data.csproj", "Boonkrua.Data/"]
-COPY ["../Boonkrua.DataContracts/Boonkrua.DataContracts.csproj", "Boonkrua.DataContracts/"]
+COPY ["../Boonkrua.IoC.Configuration/Boonkrua.IoC.Configuration.csproj", "Boonkrua.IoC.Configuration/"]
 COPY ["../Boonkrua.Service/Boonkrua.Service.csproj", "Boonkrua.Service/"]
 
 RUN dotnet restore
 
 COPY ../ .
 
-WORKDIR "/src/Boonkrua.Http"
+WORKDIR "/src/Boonkrua.Api"
 RUN dotnet build -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
@@ -29,4 +29,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENTRYPOINT ["dotnet", "Boonkrua.Http.dll"]
+ENTRYPOINT ["dotnet", "Boonkrua.Api.dll"]
