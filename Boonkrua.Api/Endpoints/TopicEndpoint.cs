@@ -11,7 +11,7 @@ public static class TopicEndpoint
     public static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
-                "/topic/{objectId}",
+                Routes.Topic.GetById,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.GetTopicById(objectId, service)
@@ -19,7 +19,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapGet(
-                "/topic",
+                Routes.Topic.GetAll,
                 [Authorize]
                 async ([FromServices] ITopicService service) =>
                     await TopicHandler.GetAllTopic(service)
@@ -27,7 +27,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                "/topic",
+                Routes.Topic.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateTopicRequest request,
@@ -38,7 +38,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPut(
-                "/topic",
+                Routes.Topic.Update,
                 [Authorize]
                 async (
                     [FromBody] UpdateTopicRequest request,
@@ -49,7 +49,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapDelete(
-                "/topic/{objectId}",
+                Routes.Topic.Delete,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.DeleteTopic(objectId, service)
@@ -57,7 +57,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                "/topic/{objectId}/notify/{type}",
+                Routes.Topic.Notify,
                 [Authorize]
                 async (
                     string objectId,
