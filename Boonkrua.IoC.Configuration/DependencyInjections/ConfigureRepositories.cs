@@ -8,6 +8,6 @@ public static partial class ServiceExtensions
 {
     public static void ConfigureRepositories(this IServiceCollection services)
     {
-        services.AddSingleton<ITopicRepository, TopicRepository>();
+        services.AddScoped<ITopicRepository, TopicRepository>();
     }
 }
