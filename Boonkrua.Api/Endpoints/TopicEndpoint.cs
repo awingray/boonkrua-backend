@@ -1,5 +1,5 @@
 using Boonkrua.Api.Handlers;
-using Boonkrua.Api.Payload.Requests.Topics;
+using Boonkrua.Api.Payloads.Requests.Topics;
 using Boonkrua.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
