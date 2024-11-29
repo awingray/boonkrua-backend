@@ -10,6 +10,6 @@ public sealed class MongoDbContext(IMongoClient client, string dbName)
 
     public IMongoCollection<Topic> Topics => _db.GetCollection<Topic>(nameof(Topics));
 
-    public IMongoCollection<UserNotificationConfig> UserNotificationConfigs =>
-        _db.GetCollection<UserNotificationConfig>(nameof(UserNotificationConfigs));
+    public IMongoCollection<NotificationConfig> NotificationConfigs =>
+        _db.GetCollection<NotificationConfig>(nameof(NotificationConfigs));
 }
