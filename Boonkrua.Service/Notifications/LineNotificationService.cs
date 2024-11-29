@@ -10,7 +10,8 @@ using Microsoft.Extensions.Options;
 namespace Boonkrua.Service.Notifications;
 
 public sealed class LineNotificationService(HttpClient client, IOptions<LineSettings> settings)
-    : INotificationService
+    : ANotificationService,
+        INotificationService
 {
     private readonly HttpClient _client = client;
     private readonly LineSettings _settings = settings.Value;
@@ -25,11 +26,8 @@ public sealed class LineNotificationService(HttpClient client, IOptions<LineSett
             messages = new[] { new { type = "text", text = payload.Message } },
         };
 
-        var response = await _client.PostAsJsonAsync(_settings.PushMessageApi, linePayload);
-
-        if (!response.IsSuccessStatusCode)
-            return NotificationError.SendFailure;
-
-        return Message.Create(NotificationMessages.SendSuccess);
+        return await HandleOperationAsync(
+            () => _client.PostAsJsonAsync(_settings.PushMessageApi, linePayload)
+        );
     }
 }

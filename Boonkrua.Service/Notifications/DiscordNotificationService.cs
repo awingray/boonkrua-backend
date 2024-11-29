@@ -7,7 +7,9 @@ using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Notifications;
 
-public sealed class DiscordNotificationService(HttpClient client) : INotificationService
+public sealed class DiscordNotificationService(HttpClient client)
+    : ANotificationService,
+        INotificationService
 {
     private readonly HttpClient _client = client;
 
@@ -16,11 +18,8 @@ public sealed class DiscordNotificationService(HttpClient client) : INotificatio
     )
     {
         var discordPayload = new { content = payload.Message };
-        var response = await _client.PostAsJsonAsync(payload.Key, discordPayload);
-
-        if (!response.IsSuccessStatusCode)
-            return NotificationError.SendFailure;
-
-        return Message.Create(NotificationMessages.SendSuccess);
+        return await HandleOperationAsync(
+            () => _client.PostAsJsonAsync(payload.Key, discordPayload)
+        );
     }
 }
