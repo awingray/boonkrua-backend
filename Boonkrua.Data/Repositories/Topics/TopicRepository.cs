@@ -1,12 +1,13 @@
+using Boonkrua.Data.Contexts;
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Data.Models.Topics;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Repositories.Topics;
 
-public sealed class TopicRepository(IMongoDatabase db) : ITopicRepository
+public sealed class TopicRepository(MongoDbContext context) : ITopicRepository
 {
-    private readonly IMongoCollection<Topic> _col = db.GetCollection<Topic>(nameof(Topics));
+    private readonly IMongoCollection<Topic> _col = context.Topics;
 
     public async Task<Topic?> GetByIdAsync(string id) =>
         await _col.Find(t => t.Id == id).FirstOrDefaultAsync();

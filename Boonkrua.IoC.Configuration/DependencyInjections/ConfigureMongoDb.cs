@@ -1,3 +1,4 @@
+using Boonkrua.Data.Contexts;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 
@@ -15,7 +16,7 @@ public static partial class ServiceExtensions
             var client =
                 c.GetService<IMongoClient>()
                 ?? throw new InvalidOperationException("MongoClient is null");
-            return client.GetDatabase(dbName);
+            return new MongoDbContext(client, dbName);
         });
     }
 }
