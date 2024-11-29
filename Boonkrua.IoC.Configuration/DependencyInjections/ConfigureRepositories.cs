@@ -1,4 +1,5 @@
 using Boonkrua.Data.Interfaces;
+using Boonkrua.Data.Repositories.Notifications;
 using Boonkrua.Data.Repositories.Topics;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,5 +10,6 @@ public static partial class ServiceExtensions
     public static void ConfigureRepositories(this IServiceCollection services)
     {
         services.AddScoped<ITopicRepository, TopicRepository>();
+        services.AddScoped<INotificationConfigRepository, NotificationConfigRepository>();
     }
 }
