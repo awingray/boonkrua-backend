@@ -48,12 +48,11 @@ public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto
         Topic.Create(Title, UserId, ChildTopics.ToMappedList(t => t.ToEntity()), Description, Id);
 
     public static TopicDto FromEntity(Topic entity) =>
-        new()
-        {
-            Id = entity.Id,
-            UserId = entity.UserId,
-            Title = entity.Title,
-            ChildTopics = entity.ChildTopics.ToMappedList(FromEntity),
-            Description = entity.Description,
-        };
+        Create(
+            entity.Id,
+            entity.UserId,
+            entity.Title,
+            entity.ChildTopics.ToMappedList(FromEntity),
+            entity.Description
+        );
 }

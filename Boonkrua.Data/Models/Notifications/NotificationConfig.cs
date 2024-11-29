@@ -14,10 +14,19 @@ public sealed class NotificationConfig
     public required string UserId { get; init; }
 
     [BsonElement("vendors")]
-    public Vendor[] Vendors { get; private init; } = [];
+    public List<Vendor> Vendors { get; private init; } = [];
 
     private NotificationConfig() { }
 
-    public static NotificationConfig Create(string userId, Vendor[]? vendors = null) =>
-        new() { UserId = userId, Vendors = vendors ?? [] };
+    public static NotificationConfig Create(
+        string userId,
+        List<Vendor>? vendors = null,
+        string? id = null
+    ) =>
+        new()
+        {
+            UserId = userId,
+            Vendors = vendors ?? [],
+            Id = id ?? default!,
+        };
 }
