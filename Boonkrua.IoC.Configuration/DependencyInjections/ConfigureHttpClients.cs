@@ -13,5 +13,7 @@ public static partial class ServiceExtensions
                 client.DefaultRequestHeaders.Add("User-Agent", "Boonkrua-NotificationService");
             }
         );
+
+        services.AddHttpClient<LineNotificationService>((_, client) => { });
     }
 }
