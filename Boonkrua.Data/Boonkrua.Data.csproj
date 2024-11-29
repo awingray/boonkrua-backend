@@ -8,4 +8,8 @@
     <ItemGroup>
       <PackageReference Include="MongoDB.Driver" Version="3.0.0" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Boonkrua.Shared\Boonkrua.Shared.csproj" />
+    </ItemGroup>
 </Project>
