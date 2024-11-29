@@ -2,7 +2,7 @@ using Boonkrua.Api.Interfaces;
 using Boonkrua.Service.Models.Dto.Topics;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Api.Responses.Topics;
+namespace Boonkrua.Api.Payload.Responses.Topics;
 
 public record TopicResponse : IResponseMapper<TopicResponse, TopicDto>
 {

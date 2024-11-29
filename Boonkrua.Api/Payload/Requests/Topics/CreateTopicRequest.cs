@@ -2,7 +2,7 @@ using Boonkrua.Api.Interfaces;
 using Boonkrua.Service.Models.Dto.Topics;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Api.Requests.Topics;
+namespace Boonkrua.Api.Payload.Requests.Topics;
 
 public sealed record CreateTopicRequest : IRequestMapper<TopicDto, string>
 {

@@ -1,6 +1,6 @@
 using System.Security.Claims;
-using Boonkrua.Api.Requests.Topics;
-using Boonkrua.Api.Responses.Topics;
+using Boonkrua.Api.Payload.Requests.Topics;
+using Boonkrua.Api.Payload.Responses.Topics;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Shared.Extensions;
 using static Microsoft.AspNetCore.Http.Results;
