@@ -1,5 +1,5 @@
 using Boonkrua.Data.Models.Notifications;
-using Boonkrua.Service.Models.Dto.Mappers;
+using Boonkrua.Service.Interfaces.Mappers;
 using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Service.Models.Dto.Notification;

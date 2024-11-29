@@ -1,4 +1,4 @@
-namespace Boonkrua.Service.Models.Dto.Mappers;
+namespace Boonkrua.Service.Interfaces.Mappers;
 
 public interface IEntityMapper<in TEntity, out TDto>
 {
