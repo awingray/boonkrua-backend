@@ -8,4 +8,7 @@ public static class NotificationMessages
     public const string InvalidProvider = "Invalid notification provider.";
 
     public const string ConfigNotFound = "Could not find the notification configuration.";
+
+    public const string ConfigCreateSuccess =
+        "The notification configuration was successfully created.";
 }

@@ -3,6 +3,7 @@ using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models.Dto.Notification;
 using Boonkrua.Service.Models.Error.Notifications;
 using Boonkrua.Shared.Abstractions;
+using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Notifications;
 
@@ -11,15 +12,20 @@ public sealed class NotificationConfigService(INotificationConfigRepository repo
 {
     private readonly INotificationConfigRepository _repository = repository;
 
-    public Task<Result<NotificationConfigDto, NotificationConfigError>> GetByUserIdAsync(
+    public async Task<Result<NotificationConfigDto, NotificationConfigError>> GetByUserIdAsync(
         string userId
     )
     {
-        throw new NotImplementedException();
+        var config = await _repository.GetByUserIdAsync(userId);
+        if (config is null)
+            return NotificationConfigError.NotFound;
+
+        return NotificationConfigDto.FromEntity(config);
     }
 
-    public Task<Result<Message, NotificationError>> CreateAsync(NotificationConfigDto dto)
+    public async Task<Result<Message, NotificationError>> CreateAsync(NotificationConfigDto dto)
     {
-        throw new NotImplementedException();
+        await _repository.CreateAsync(dto.ToEntity());
+        return Message.Create(NotificationMessages.ConfigCreateSuccess);
     }
 }

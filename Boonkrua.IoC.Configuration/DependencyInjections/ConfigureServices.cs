@@ -1,4 +1,5 @@
 using Boonkrua.Service.Interfaces;
+using Boonkrua.Service.Notifications;
 using Boonkrua.Service.Topics;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,5 +11,6 @@ public static partial class ServiceExtensions
     {
         services.AddScoped<ITopicService, TopicService>();
         services.AddScoped<ITopicNotificationService, TopicNotificationService>();
+        services.AddScoped<INotificationConfigService, NotificationConfigService>();
     }
 }
