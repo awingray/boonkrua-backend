@@ -4,7 +4,7 @@ namespace Boonkrua.Data.Interfaces;
 
 public interface IUserNotificationRepository
 {
-    Task<UserNotificationConfig?> GetById(string userId);
+    Task<UserNotificationConfig?> GetByUserIdAsync(string userId);
 
-    Task Create(UserNotificationConfig config);
+    Task CreateAsync(UserNotificationConfig config);
 }
