@@ -14,6 +14,7 @@ public sealed class NotificationServiceFactory(IServiceProvider provider)
         type switch
         {
             NotificationType.Discord => _provider.GetRequiredService<DiscordNotificationService>(),
+            NotificationType.Line => _provider.GetRequiredService<LineNotificationService>(),
             _ => throw new ArgumentException(NotificationMessages.InvalidProvider, nameof(type)),
         };
 }
