@@ -1,18 +1,35 @@
+using System.Net.Http.Json;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Models;
 using Boonkrua.Service.Models.Error.Notifications;
 using Boonkrua.Shared.Abstractions;
+using Boonkrua.Shared.Messages;
+using Boonkrua.Shared.Models;
+using Microsoft.Extensions.Options;
 
 namespace Boonkrua.Service.Notifications;
 
-public sealed class LineNotificationService(HttpClient client) : INotificationService
+public sealed class LineNotificationService(HttpClient client, IOptions<LineSettings> settings)
+    : INotificationService
 {
     private readonly HttpClient _client = client;
+    private readonly LineSettings _settings = settings.Value;
 
-    public Task<Result<Message, NotificationError>> SendNotificationAsync(
+    public async Task<Result<Message, NotificationError>> SendNotificationAsync(
         NotificationPayload payload
     )
     {
-        throw new NotImplementedException();
+        var linePayload = new
+        {
+            to = payload.Key,
+            messages = new[] { new { type = "text", text = payload.Message } },
+        };
+
+        var response = await _client.PostAsJsonAsync(_settings.PushMessageApi, linePayload);
+
+        if (!response.IsSuccessStatusCode)
+            return NotificationError.SendFailure;
+
+        return Message.Create(NotificationMessages.SendSuccess);
     }
 }
