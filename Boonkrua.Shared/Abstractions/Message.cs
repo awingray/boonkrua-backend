@@ -1,6 +1,6 @@
 namespace Boonkrua.Shared.Abstractions;
 
-public sealed record Message
+public struct Message
 {
     public string Content { get; }
 
