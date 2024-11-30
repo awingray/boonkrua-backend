@@ -4,13 +4,12 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Payloads.Requests.Notifications;
 
-public sealed record CreateNotificationConfigRequest : IRequestMapper<NotificationConfigDto>
+public sealed record CreateNotificationConfigRequest : IRequestMapper<NotificationConfigDto, string>
 {
-    public required string UserId { get; init; }
     public List<VendorRequest> Vendors { get; init; } = [];
     
-    public NotificationConfigDto ToDto() =>
-        NotificationConfigDto.Create(UserId, Vendors.ToMappedList(v => v.ToDto()));
+    public NotificationConfigDto ToDto(string param) =>
+        NotificationConfigDto.Create(param, Vendors.ToMappedList(v => v.ToDto()));
 }
 
 
