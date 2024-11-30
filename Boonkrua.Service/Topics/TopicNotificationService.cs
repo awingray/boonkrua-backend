@@ -1,8 +1,6 @@
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Service.Factories;
-using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Interfaces.Topics;
-using Boonkrua.Service.Models;
 using Boonkrua.Service.Models.Error.Topics;
 using Boonkrua.Service.Models.Payload;
 using Boonkrua.Shared.Abstractions;

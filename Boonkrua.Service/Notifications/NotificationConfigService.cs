@@ -1,5 +1,4 @@
 using Boonkrua.Data.Interfaces;
-using Boonkrua.Service.Interfaces;
 using Boonkrua.Service.Interfaces.Notifications;
 using Boonkrua.Service.Models.Dto;
 using Boonkrua.Service.Models.Error.Notifications;
