@@ -1,6 +1,7 @@
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Service.Interfaces;
-using Boonkrua.Service.Models.Dto.Notification;
+using Boonkrua.Service.Interfaces.Notifications;
+using Boonkrua.Service.Models.Dto;
 using Boonkrua.Service.Models.Error.Notifications;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Messages;

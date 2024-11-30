@@ -2,7 +2,7 @@ using Boonkrua.Data.Models.Topics;
 using Boonkrua.Service.Interfaces.Mappers;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Service.Models.Dto.Topics;
+namespace Boonkrua.Service.Models.Dto;
 
 public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto>
 {

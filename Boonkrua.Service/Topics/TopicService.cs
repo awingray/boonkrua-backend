@@ -1,6 +1,7 @@
 using Boonkrua.Data.Interfaces;
 using Boonkrua.Service.Interfaces;
-using Boonkrua.Service.Models.Dto.Topics;
+using Boonkrua.Service.Interfaces.Topics;
+using Boonkrua.Service.Models.Dto;
 using Boonkrua.Service.Models.Error.Topics;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Extensions;

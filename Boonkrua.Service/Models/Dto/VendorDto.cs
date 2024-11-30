@@ -2,7 +2,7 @@ using Boonkrua.Data.Models.Notifications;
 using Boonkrua.Service.Interfaces.Mappers;
 using Boonkrua.Shared.Enums;
 
-namespace Boonkrua.Service.Models.Dto.Notification;
+namespace Boonkrua.Service.Models.Dto;
 
 public sealed record VendorDto : IDtoMapper<Vendor>, IEntityMapper<Vendor, VendorDto>
 {

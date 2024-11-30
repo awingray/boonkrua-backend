@@ -2,7 +2,7 @@ using Boonkrua.Data.Models.Notifications;
 using Boonkrua.Service.Interfaces.Mappers;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Service.Models.Dto.Notification;
+namespace Boonkrua.Service.Models.Dto;
 
 public sealed record NotificationConfigDto
     : IEntityMapper<NotificationConfig, NotificationConfigDto>,

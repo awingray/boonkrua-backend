@@ -1,4 +1,4 @@
-namespace Boonkrua.Service.Models;
+namespace Boonkrua.Service.Models.Payload;
 
 public sealed record NotificationPayload
 {

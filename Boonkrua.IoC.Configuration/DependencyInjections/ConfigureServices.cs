@@ -1,4 +1,6 @@
 using Boonkrua.Service.Interfaces;
+using Boonkrua.Service.Interfaces.Notifications;
+using Boonkrua.Service.Interfaces.Topics;
 using Boonkrua.Service.Notifications;
 using Boonkrua.Service.Topics;
 using Microsoft.Extensions.DependencyInjection;

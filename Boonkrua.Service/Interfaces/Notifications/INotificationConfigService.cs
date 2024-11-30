@@ -1,8 +1,8 @@
-using Boonkrua.Service.Models.Dto.Notification;
+using Boonkrua.Service.Models.Dto;
 using Boonkrua.Service.Models.Error.Notifications;
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Service.Interfaces;
+namespace Boonkrua.Service.Interfaces.Notifications;
 
 public interface INotificationConfigService
 {
