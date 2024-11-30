@@ -9,7 +9,6 @@ public sealed record CreateNotificationConfigRequest : IRequestMapper<Notificati
     public required string UserId { get; init; }
     public List<VendorRequest> Vendors { get; init; } = [];
     
-
     public NotificationConfigDto ToDto() =>
         NotificationConfigDto.Create(UserId, Vendors.ToMappedList(v => v.ToDto()));
 }
