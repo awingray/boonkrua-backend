@@ -1,4 +1,4 @@
-namespace Boonkrua.Api;
+namespace Boonkrua.Api.Routes;
 
 public static class Routes
 {
@@ -14,5 +14,14 @@ public static class Routes
         public const string Update = Base;
         public const string Delete = Base + IdSegment;
         public const string Notify = Base + IdSegment + NotifySegment;
+    }
+
+    public static class NotificationConfig
+    {
+        private const string Base = "/config";
+        private const string UserIdSegment = "/{userId}";
+
+        public const string GetByUserId = Base + UserIdSegment;
+        public const string Create = Base;
     }
 }

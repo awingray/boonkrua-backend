@@ -29,5 +29,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapTopicEndpoints();
+app.MapNotificationConfigEndpoints();
 
 await app.RunAsync();

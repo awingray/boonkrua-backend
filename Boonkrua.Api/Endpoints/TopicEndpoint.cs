@@ -11,7 +11,7 @@ public static class TopicEndpoint
     public static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
-                Routes.Topic.GetById,
+                Routes.Routes.Topic.GetById,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.GetTopicById(objectId, service)
@@ -19,7 +19,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapGet(
-                Routes.Topic.GetAll,
+                Routes.Routes.Topic.GetAll,
                 [Authorize]
                 async ([FromServices] ITopicService service) =>
                     await TopicHandler.GetAllTopic(service)
@@ -27,7 +27,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.Topic.Create,
+                Routes.Routes.Topic.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateTopicRequest request,
@@ -38,7 +38,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPut(
-                Routes.Topic.Update,
+                Routes.Routes.Topic.Update,
                 [Authorize]
                 async (
                     [FromBody] UpdateTopicRequest request,
@@ -49,7 +49,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapDelete(
-                Routes.Topic.Delete,
+                Routes.Routes.Topic.Delete,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.DeleteTopic(objectId, service)
@@ -57,7 +57,7 @@ public static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.Topic.Notify,
+                Routes.Routes.Topic.Notify,
                 [Authorize]
                 async (
                     string objectId,
