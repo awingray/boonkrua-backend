@@ -1,4 +1,4 @@
-using System.Security.Claims;
+using Boonkrua.Api.Helpers;
 using Boonkrua.Api.Payload.Responses.Topics;
 using Boonkrua.Api.Payloads.Requests.Topics;
 using Boonkrua.Service.Interfaces.Topics;
@@ -25,33 +25,37 @@ internal static class TopicHandler
         CreateTopicRequest request,
         ITopicService service,
         HttpContext context
-    )
-    {
-        var userId = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userId.IsNullOrEmpty())
-            return Unauthorized();
+    ) =>
+        await UserContextHelper
+            .GetUserId(context)
+            .Match(
+                async userId =>
+                {
+                    var dto = request.ToDto(userId!);
+                    var result = await service.CreateAsync(dto);
 
-        var dto = request.ToDto(userId!);
-        var result = await service.CreateAsync(dto);
-
-        return result.Match(Ok, BadRequest);
-    }
+                    return result.Match(Ok, BadRequest);
+                },
+                Task.FromResult
+            );
 
     internal static async Task<IResult> UpdateTopic(
         UpdateTopicRequest request,
         ITopicService service,
         HttpContext context
-    )
-    {
-        var userId = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userId.IsNullOrEmpty())
-            return Unauthorized();
+    ) =>
+        await UserContextHelper
+            .GetUserId(context)
+            .Match(
+                async userId =>
+                {
+                    var dto = request.ToDto(userId!);
+                    var result = await service.UpdateAsync(dto);
 
-        var dto = request.ToDto(userId!);
-        var result = await service.UpdateAsync(dto);
-
-        return result.Match(Ok, BadRequest);
-    }
+                    return result.Match(Ok, BadRequest);
+                },
+                Task.FromResult
+            );
 
     internal static async Task<IResult> DeleteTopic(string objectId, ITopicService service)
     {

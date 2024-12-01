@@ -1,8 +1,6 @@
-using System.Security.Claims;
 using Boonkrua.Api.Helpers;
 using Boonkrua.Api.Payloads.Requests.Notifications;
 using Boonkrua.Service.Interfaces.Notifications;
-using Boonkrua.Shared.Extensions;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Api.Handlers;
