@@ -6,23 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Api.Endpoints;
 
-public static class TopicEndpoint
+internal static class TopicEndpoint
 {
-    public static void MapTopicEndpoints(this WebApplication app)
+    internal static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
                 Routes.Routes.Topic.GetById,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
-                    await TopicHandler.GetTopicById(objectId, service)
+                    await TopicHandler.GetById(objectId, service)
             )
             .RequireAuthorization();
 
         app.MapGet(
                 Routes.Routes.Topic.GetAll,
                 [Authorize]
-                async ([FromServices] ITopicService service) =>
-                    await TopicHandler.GetAllTopic(service)
+                async ([FromServices] ITopicService service) => await TopicHandler.GetAll(service)
             )
             .RequireAuthorization();
 
@@ -33,7 +32,7 @@ public static class TopicEndpoint
                     [FromBody] CreateTopicRequest request,
                     [FromServices] ITopicService service,
                     HttpContext context
-                ) => await TopicHandler.CreateTopic(request, service, context)
+                ) => await TopicHandler.Create(request, service, context)
             )
             .RequireAuthorization();
 
@@ -44,7 +43,7 @@ public static class TopicEndpoint
                     [FromBody] UpdateTopicRequest request,
                     [FromServices] ITopicService service,
                     HttpContext context
-                ) => await TopicHandler.UpdateTopic(request, service, context)
+                ) => await TopicHandler.Update(request, service, context)
             )
             .RequireAuthorization();
 
@@ -52,7 +51,7 @@ public static class TopicEndpoint
                 Routes.Routes.Topic.Delete,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
-                    await TopicHandler.DeleteTopic(objectId, service)
+                    await TopicHandler.Delete(objectId, service)
             )
             .RequireAuthorization();
 
@@ -63,7 +62,7 @@ public static class TopicEndpoint
                     string objectId,
                     string type,
                     [FromServices] ITopicNotificationService service
-                ) => await TopicHandler.NotifyTopic(objectId, type, service)
+                ) => await TopicHandler.Notify(objectId, type, service)
             )
             .RequireAuthorization();
     }

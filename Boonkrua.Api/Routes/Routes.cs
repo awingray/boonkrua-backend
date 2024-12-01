@@ -1,8 +1,8 @@
 namespace Boonkrua.Api.Routes;
 
-public static class Routes
+internal static class Routes
 {
-    public static class Topic
+    internal static class Topic
     {
         private const string Base = "/topic";
         private const string IdSegment = "/{objectId}";
@@ -16,7 +16,7 @@ public static class Routes
         public const string Notify = Base + IdSegment + NotifySegment;
     }
 
-    public static class NotificationConfig
+    internal static class NotificationConfig
     {
         private const string Base = "/config";
         private const string UserIdSegment = "/{userId}";

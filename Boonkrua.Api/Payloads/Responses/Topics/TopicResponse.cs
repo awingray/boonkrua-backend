@@ -4,7 +4,7 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Payload.Responses.Topics;
 
-public record TopicResponse : IResponseMapper<TopicResponse, TopicDto>
+public sealed record TopicResponse : IResponseMapper<TopicResponse, TopicDto>
 {
     public string? Id { get; init; }
     public required string Title { get; init; }

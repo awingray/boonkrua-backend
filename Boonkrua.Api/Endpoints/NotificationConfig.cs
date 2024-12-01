@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Api.Endpoints;
 
-public static class NotificationConfigEndpoint
+internal static class NotificationConfigEndpoint
 {
-    public static void MapNotificationConfigEndpoints(this WebApplication app)
+    internal static void MapNotificationConfigEndpoints(this WebApplication app)
     {
         app.MapGet(
                 Routes.Routes.NotificationConfig.GetByUserId,
