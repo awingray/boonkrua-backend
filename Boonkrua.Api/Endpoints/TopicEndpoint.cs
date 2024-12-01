@@ -11,7 +11,7 @@ internal static class TopicEndpoint
     internal static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
-                Routes.Routes.Topic.GetById,
+                Routes.ApiRoutes.Topic.GetById,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.GetById(objectId, service)
@@ -19,14 +19,14 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapGet(
-                Routes.Routes.Topic.GetAll,
+                Routes.ApiRoutes.Topic.GetAll,
                 [Authorize]
                 async ([FromServices] ITopicService service) => await TopicHandler.GetAll(service)
             )
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.Routes.Topic.Create,
+                Routes.ApiRoutes.Topic.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateTopicRequest request,
@@ -37,7 +37,7 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPut(
-                Routes.Routes.Topic.Update,
+                Routes.ApiRoutes.Topic.Update,
                 [Authorize]
                 async (
                     [FromBody] UpdateTopicRequest request,
@@ -48,7 +48,7 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapDelete(
-                Routes.Routes.Topic.Delete,
+                Routes.ApiRoutes.Topic.Delete,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.Delete(objectId, service)
@@ -56,7 +56,7 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.Routes.Topic.Notify,
+                Routes.ApiRoutes.Topic.Notify,
                 [Authorize]
                 async (
                     string objectId,

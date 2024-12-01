@@ -11,7 +11,7 @@ internal static class NotificationConfigEndpoint
     internal static void MapNotificationConfigEndpoints(this WebApplication app)
     {
         app.MapGet(
-                Routes.Routes.NotificationConfig.GetByUserId,
+                Routes.ApiRoutes.NotificationConfig.GetByUserId,
                 [Authorize]
                 async (string userId, [FromServices] INotificationConfigService service) =>
                     await NotificationConfigHandler.GetByUserId(userId, service)
@@ -19,7 +19,7 @@ internal static class NotificationConfigEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.Routes.Topic.Create,
+                Routes.ApiRoutes.Topic.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateNotificationConfigRequest request,

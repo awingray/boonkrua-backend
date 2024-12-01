@@ -1,6 +1,6 @@
 namespace Boonkrua.Api.Routes;
 
-internal static class Routes
+internal static class ApiRoutes
 {
     internal static class Topic
     {
