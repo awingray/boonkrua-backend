@@ -3,6 +3,7 @@ using Boonkrua.Api.Payloads.Requests.Notifications;
 using Boonkrua.Service.Interfaces.Notifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ApiRoutes = Boonkrua.Api.Routes.ApiRoutes;
 
 namespace Boonkrua.Api.Endpoints;
 
@@ -19,7 +20,7 @@ internal static class NotificationConfigEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.ApiRoutes.Topic.Create,
+                ApiRoutes.Topic.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateNotificationConfigRequest request,
