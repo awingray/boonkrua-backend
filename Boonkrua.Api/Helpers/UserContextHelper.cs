@@ -6,7 +6,7 @@ namespace Boonkrua.Api.Helpers;
 
 internal static class UserContextHelper
 {
-    public static Result<string, IResult> GetUserId(HttpContext context)
+    internal static Result<string, IResult> GetUserId(HttpContext context)
     {
         var userId = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         return userId.IsNullOrEmpty()
