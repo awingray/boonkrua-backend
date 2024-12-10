@@ -40,7 +40,7 @@ public sealed class TopicNotificationService(
             return TopicNotificationError.NotFoundConfig;
 
         var notificationService = _serviceFactory.GetService(notificationType);
-
+        // TODO: remove thhe place holder
         var payload = NotificationPayload.Create(topic.Title, string.Empty);
 
         var result = await notificationService.SendNotificationAsync(payload);

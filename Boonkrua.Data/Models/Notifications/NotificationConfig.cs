@@ -11,6 +11,7 @@ public sealed class NotificationConfig
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; private init; } = default!;
 
+    // TODO: make sure there is one unique config for each user.
     [BsonElement("userId")]
     public required string UserId { get; init; }
 
