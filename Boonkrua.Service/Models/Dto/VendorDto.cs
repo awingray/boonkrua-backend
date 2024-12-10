@@ -8,14 +8,14 @@ public sealed record VendorDto : IDtoMapper<Vendor>, IEntityMapper<Vendor, Vendo
 {
     public NotificationType Type { get; private init; }
 
-    public Dictionary<string, string> Config { get; private init; } = [];
+    public required string Key { get; init; }
 
     private VendorDto() { }
 
-    public static VendorDto Create(NotificationType type, Dictionary<string, string> config) =>
-        new() { Type = type, Config = config };
+    public static VendorDto Create(NotificationType type, string key) =>
+        new() { Type = type, Key = key };
 
-    public Vendor ToEntity() => Vendor.Create(Type, Config);
+    public Vendor ToEntity() => Vendor.Create(Type, Key);
 
-    public static VendorDto FromEntity(Vendor entity) => Create(entity.Type, entity.Config);
+    public static VendorDto FromEntity(Vendor entity) => Create(entity.Type, entity.Key);
 }

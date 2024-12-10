@@ -10,13 +10,13 @@ public sealed class Vendor
     [BsonRepresentation(BsonType.String)]
     public NotificationType Type { get; private init; }
 
-    [BsonElement("config")]
-    public Dictionary<string, string> Config { get; private init; } = [];
+    [BsonElement("key")]
+    public required string Key { get; init; }
 
     private Vendor() { }
 
-    public static Vendor Create(NotificationType type, Dictionary<string, string>? config = null) =>
-        new() { Type = type, Config = config ?? [] };
+    public static Vendor Create(NotificationType type, string key) =>
+        new() { Type = type, Key = key };
 }
 
 // [BsonKnownTypes(typeof(LineConfig), typeof(DiscordConfig))]

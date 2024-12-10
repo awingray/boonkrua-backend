@@ -35,25 +35,12 @@ public sealed class TopicNotificationService(
         if (userConfigs is null)
             return TopicNotificationError.NotFoundUser;
 
-        var vendorConfig = userConfigs.GetVendorByType(notificationType)?.Config;
+        var vendorConfig = userConfigs.GetVendorByType(notificationType)?.Key;
         if (vendorConfig is null)
             return TopicNotificationError.NotFoundConfig;
 
         var notificationService = _serviceFactory.GetService(notificationType);
-
-        // TODO: make this type safe
-        var payload = notificationType switch
-        {
-            NotificationType.Line => NotificationPayload.Create(
-                topic.Title,
-                vendorConfig["UserId"]
-            ),
-            NotificationType.Discord => NotificationPayload.Create(
-                topic.Title,
-                vendorConfig["WebhookUrl"]
-            ),
-            _ => throw new InvalidOperationException(),
-        };
+        var payload = NotificationPayload.Create(topic.Title, vendorConfig);
 
         var result = await notificationService.SendNotificationAsync(payload);
         if (!result.IsSuccessful)

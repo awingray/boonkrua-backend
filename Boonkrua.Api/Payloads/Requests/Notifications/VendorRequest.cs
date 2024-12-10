@@ -9,7 +9,7 @@ namespace Boonkrua.Api.Payloads.Requests.Notifications;
 public sealed record VendorRequest : IRequestMapper<VendorDto>
 {
     public required string Type { get; init; }
-    public Dictionary<string, string> Config { get; init; } = [];
+    public required string Key { get; init; }
 
     public VendorDto ToDto()
     {
@@ -18,6 +18,6 @@ public sealed record VendorRequest : IRequestMapper<VendorDto>
             throw new InvalidOperationException(NotificationConfigMessages.InvalidNotificationType);
         }
 
-        return VendorDto.Create(type, Config);
+        return VendorDto.Create(type, Key);
     }
 }
