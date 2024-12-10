@@ -18,3 +18,23 @@ public sealed class Vendor
     public static Vendor Create(NotificationType type, Dictionary<string, string>? config = null) =>
         new() { Type = type, Config = config ?? [] };
 }
+
+// [BsonKnownTypes(typeof(LineConfig), typeof(DiscordConfig))]
+// public abstract class VendorConfig(NotificationType type)
+// {
+//     [BsonElement("type")]
+//     [BsonRepresentation(BsonType.String)]
+//     public NotificationType Type { get; init; } = type;
+// }
+//
+// public sealed class LineConfig() : VendorConfig(NotificationType.Line)
+// {
+//     [BsonElement("userId")]
+//     public string? UserId { get; init; }
+// }
+//
+// public sealed class DiscordConfig() : VendorConfig(NotificationType.Discord)
+// {
+//     [BsonElement("webhookUrl")]
+//     public string? WebhookUrl { get; init; }
+// }
