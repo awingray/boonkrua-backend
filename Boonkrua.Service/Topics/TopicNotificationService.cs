@@ -31,9 +31,13 @@ public sealed class TopicNotificationService(
         if (topic is null)
             return TopicNotificationError.NotFound;
 
-        var config = await _configRepository.GetByUserIdAsync(objectId);
-        if (config is null)
-            return TopicNotificationError.InvalidUser;
+        var userConfigs = await _configRepository.GetByUserIdAsync(topic.UserId);
+        if (userConfigs is null)
+            return TopicNotificationError.NotFoundUser;
+
+        var vendorConfig = userConfigs.GetVendorByType(notificationType)?.Config;
+        if (vendorConfig is null)
+            return TopicNotificationError.NotFoundConfig;
 
         var notificationService = _serviceFactory.GetService(notificationType);
 

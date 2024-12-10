@@ -1,3 +1,4 @@
+using Boonkrua.Shared.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
@@ -17,6 +18,8 @@ public sealed class NotificationConfig
     public List<Vendor> Vendors { get; private init; } = [];
 
     private NotificationConfig() { }
+
+    public Vendor? GetVendorByType(NotificationType type) => Vendors.Find(v => v.Type == type);
 
     public static NotificationConfig Create(
         string userId,
