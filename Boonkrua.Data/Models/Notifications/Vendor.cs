@@ -1,4 +1,5 @@
 using Boonkrua.Shared.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Boonkrua.Data.Models.Notifications;
@@ -6,6 +7,7 @@ namespace Boonkrua.Data.Models.Notifications;
 public sealed class Vendor
 {
     [BsonElement("type")]
+    [BsonRepresentation(BsonType.String)]
     public NotificationType Type { get; private init; }
 
     [BsonElement("config")]

@@ -10,11 +10,13 @@ using Boonkrua.Shared.Extensions;
 namespace Boonkrua.Service.Topics;
 
 public sealed class TopicNotificationService(
-    ITopicRepository repository,
+    ITopicRepository topicRepository,
+    INotificationConfigRepository configRepository,
     NotificationServiceFactory serviceFactory
 ) : ITopicNotificationService
 {
-    private readonly ITopicRepository _repository = repository;
+    private readonly ITopicRepository _topicRepository = topicRepository;
+    private readonly INotificationConfigRepository _configRepository = configRepository;
     private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
 
     public async Task<Result<Message, TopicNotificationError>> NotifyAsync(
@@ -25,11 +27,16 @@ public sealed class TopicNotificationService(
         if (!type.TryParse(out NotificationType notificationType))
             return TopicNotificationError.InvalidType;
 
-        var topic = await _repository.GetByIdAsync(objectId);
+        var topic = await _topicRepository.GetByIdAsync(objectId);
         if (topic is null)
             return TopicNotificationError.NotFound;
 
+        var config = await _configRepository.GetByUserIdAsync(objectId);
+        if (config is null)
+            return TopicNotificationError.InvalidUser;
+
         var notificationService = _serviceFactory.GetService(notificationType);
+
         var payload = NotificationPayload.Create(topic.Title, string.Empty);
 
         var result = await notificationService.SendNotificationAsync(payload);
