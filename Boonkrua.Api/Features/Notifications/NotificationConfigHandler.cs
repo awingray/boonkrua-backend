@@ -1,9 +1,9 @@
+using Boonkrua.Api.Features.Notifications.Requests;
 using Boonkrua.Api.Helpers;
-using Boonkrua.Api.Payloads.Requests.Notifications;
 using Boonkrua.Service.Features.Notifications.Interfaces;
 using static Microsoft.AspNetCore.Http.Results;
 
-namespace Boonkrua.Api.Handlers;
+namespace Boonkrua.Api.Features.Notifications;
 
 internal static class NotificationConfigHandler
 {

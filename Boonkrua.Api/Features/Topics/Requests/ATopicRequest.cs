@@ -1,4 +1,4 @@
-namespace Boonkrua.Api.Payloads.Requests.Topics;
+namespace Boonkrua.Api.Features.Topics.Requests;
 
 public record ATopicRequest
 {

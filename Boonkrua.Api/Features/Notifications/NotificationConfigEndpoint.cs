@@ -1,18 +1,16 @@
-using Boonkrua.Api.Handlers;
-using Boonkrua.Api.Payloads.Requests.Notifications;
+using Boonkrua.Api.Features.Notifications.Requests;
 using Boonkrua.Service.Features.Notifications.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ApiRoutes = Boonkrua.Api.Routes.ApiRoutes;
 
-namespace Boonkrua.Api.Endpoints;
+namespace Boonkrua.Api.Features.Notifications;
 
 internal static class NotificationConfigEndpoint
 {
     internal static void MapNotificationConfigEndpoints(this WebApplication app)
     {
         app.MapGet(
-                Routes.ApiRoutes.NotificationConfig.GetByUserId,
+                Routes.NotificationConfig.GetByUserId,
                 [Authorize]
                 async (string userId, [FromServices] INotificationConfigService service) =>
                     await NotificationConfigHandler.GetByUserId(userId, service)
@@ -20,7 +18,7 @@ internal static class NotificationConfigEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                ApiRoutes.NotificationConfig.Create,
+                Routes.NotificationConfig.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateNotificationConfigRequest request,

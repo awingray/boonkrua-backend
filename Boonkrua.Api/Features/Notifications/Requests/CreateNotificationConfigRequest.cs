@@ -2,7 +2,7 @@ using Boonkrua.Api.Interfaces;
 using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Api.Payloads.Requests.Notifications;
+namespace Boonkrua.Api.Features.Notifications.Requests;
 
 public sealed record CreateNotificationConfigRequest : IRequestMapper<NotificationConfigDto, string>
 {

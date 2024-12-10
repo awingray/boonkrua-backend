@@ -1,18 +1,16 @@
-using Boonkrua.Api.Handlers;
-using Boonkrua.Api.Payloads.Requests.Topics;
+using Boonkrua.Api.Features.Topics.Requests;
 using Boonkrua.Service.Features.Topics.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ApiRoutes = Boonkrua.Api.Routes.ApiRoutes;
 
-namespace Boonkrua.Api.Endpoints;
+namespace Boonkrua.Api.Features.Topics;
 
 internal static class TopicEndpoint
 {
     internal static void MapTopicEndpoints(this WebApplication app)
     {
         app.MapGet(
-                ApiRoutes.Topic.GetById,
+                Routes.Topic.GetById,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.GetById(objectId, service)
@@ -20,14 +18,14 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapGet(
-                ApiRoutes.Topic.GetAll,
+                Routes.Topic.GetAll,
                 [Authorize]
                 async ([FromServices] ITopicService service) => await TopicHandler.GetAll(service)
             )
             .RequireAuthorization();
 
         app.MapPost(
-                ApiRoutes.Topic.Create,
+                Routes.Topic.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateTopicRequest request,
@@ -38,7 +36,7 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPut(
-                ApiRoutes.Topic.Update,
+                Routes.Topic.Update,
                 [Authorize]
                 async (
                     [FromBody] UpdateTopicRequest request,
@@ -49,7 +47,7 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapDelete(
-                ApiRoutes.Topic.Delete,
+                Routes.Topic.Delete,
                 [Authorize]
                 async (string objectId, [FromServices] ITopicService service) =>
                     await TopicHandler.Delete(objectId, service)
@@ -57,7 +55,7 @@ internal static class TopicEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                ApiRoutes.Topic.Notify,
+                Routes.Topic.Notify,
                 [Authorize]
                 async (
                     string objectId,

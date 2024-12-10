@@ -1,6 +1,6 @@
-namespace Boonkrua.Api.Routes;
+namespace Boonkrua.Api.Features.Topics;
 
-internal static class ApiRoutes
+internal static partial class Routes
 {
     internal static class Topic
     {
@@ -14,14 +14,5 @@ internal static class ApiRoutes
         public const string Update = Base;
         public const string Delete = Base + IdSegment;
         public const string Notify = Base + IdSegment + NotifySegment;
-    }
-
-    internal static class NotificationConfig
-    {
-        private const string Base = "/config";
-        private const string UserIdSegment = "/{userId}";
-
-        public const string GetByUserId = Base + UserIdSegment;
-        public const string Create = Base;
     }
 }
