@@ -20,7 +20,7 @@ internal static class NotificationConfigEndpoint
             .RequireAuthorization();
 
         app.MapPost(
-                ApiRoutes.Topic.Create,
+                ApiRoutes.NotificationConfig.Create,
                 [Authorize]
                 async (
                     [FromBody] CreateNotificationConfigRequest request,
