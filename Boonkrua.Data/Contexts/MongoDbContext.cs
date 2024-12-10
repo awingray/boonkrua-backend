@@ -15,6 +15,11 @@ public sealed class MongoDbContext(IMongoClient client, string dbName)
 
     public void EnsureIndexes()
     {
+        EnsureNotificationConfigsIndexes();
+    }
+
+    private void EnsureNotificationConfigsIndexes()
+    {
         var indexOptions = new CreateIndexOptions { Unique = true };
         var indexKeys = Builders<NotificationConfig>.IndexKeys.Ascending(config => config.UserId);
         var indexModel = new CreateIndexModel<NotificationConfig>(indexKeys, indexOptions);
