@@ -5,7 +5,7 @@ using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Api.Features.Notifications;
 
-internal static class NotificationConfigHandler
+internal static class Handler
 {
     internal static async Task<IResult> GetByUserId(
         string userId,

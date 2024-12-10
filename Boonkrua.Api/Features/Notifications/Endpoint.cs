@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Boonkrua.Api.Features.Notifications;
 
-internal static class NotificationConfigEndpoint
+internal static class Endpoint
 {
     internal static void MapNotificationConfigEndpoints(this WebApplication app)
     {
@@ -13,7 +13,7 @@ internal static class NotificationConfigEndpoint
                 Routes.NotificationConfig.GetByUserId,
                 [Authorize]
                 async (string userId, [FromServices] INotificationConfigService service) =>
-                    await NotificationConfigHandler.GetByUserId(userId, service)
+                    await Handler.GetByUserId(userId, service)
             )
             .RequireAuthorization();
 
@@ -24,7 +24,7 @@ internal static class NotificationConfigEndpoint
                     [FromBody] CreateNotificationConfigRequest request,
                     [FromServices] INotificationConfigService service,
                     HttpContext context
-                ) => await NotificationConfigHandler.Create(request, service, context)
+                ) => await Handler.Create(request, service, context)
             )
             .RequireAuthorization();
     }
