@@ -7,7 +7,7 @@ public record TopicNotificationError : AError
     private TopicNotificationError(string errorMessage)
         : base(errorMessage) { }
 
-    public static TopicNotificationError InvalidType => new(NotificationMessages.InvalidProvider);
+    public static TopicNotificationError InvalidType => new(NotificationMessages.Invalid.Provider);
 
     public static TopicNotificationError NotFoundUser =>
         new(NotificationConfigMessages.NotFoundUser);
@@ -16,5 +16,5 @@ public record TopicNotificationError : AError
 
     public static TopicNotificationError NotFound => new(TopicMessages.NotFound);
 
-    public static TopicNotificationError SendFailure => new(NotificationMessages.SendFailure);
+    public static TopicNotificationError SendFailure => new(NotificationMessages.Send.Failure);
 }

@@ -14,6 +14,6 @@ public abstract class ANotificationService
         if (!response.IsSuccessStatusCode)
             return NotificationError.SendFailure;
 
-        return Message.Create(NotificationMessages.SendSuccess);
+        return Message.Create(NotificationMessages.Send.Success);
     }
 }

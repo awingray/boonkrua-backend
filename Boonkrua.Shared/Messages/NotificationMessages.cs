@@ -2,8 +2,14 @@ namespace Boonkrua.Shared.Messages;
 
 public static class NotificationMessages
 {
-    public const string SendFailure = "Something went wrong while sending a notification.";
-    public const string SendSuccess = "The notification was successfully sent.";
+    public static class Send
+    {
+        public const string Failure = "Something went wrong while sending a notification.";
+        public const string Success = "The notification was successfully sent.";
+    }
 
-    public const string InvalidProvider = "Invalid notification provider.";
+    public static class Invalid
+    {
+        public const string Provider = "Invalid notification provider.";
+    }
 }
