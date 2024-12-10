@@ -21,7 +21,7 @@ internal static class Endpoint
                 Routes.NotificationConfig.Create,
                 [Authorize]
                 async (
-                    [FromBody] CreateNotificationConfigRequest request,
+                    [FromBody] CreateRequest request,
                     [FromServices] INotificationConfigService service,
                     HttpContext context
                 ) => await Handler.Create(request, service, context)

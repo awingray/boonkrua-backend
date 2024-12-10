@@ -12,17 +12,17 @@ internal static class Handler
     internal static async Task<IResult> GetById(string topicId, ITopicService service)
     {
         var result = await service.GetByIdAsync(topicId);
-        return result.Match(r => Ok(TopicResponse.FromDto(r)), NotFound);
+        return result.Match(r => Ok(Response.FromDto(r)), NotFound);
     }
 
     internal static async Task<IResult> GetAll(ITopicService service)
     {
         var result = await service.GetAllAsync();
-        return result.Match((r) => Ok(r.ToMappedList(TopicResponse.FromDto)), NotFound);
+        return result.Match((r) => Ok(r.ToMappedList(Response.FromDto)), NotFound);
     }
 
     internal static async Task<IResult> Create(
-        CreateTopicRequest request,
+        CreateRequest request,
         ITopicService service,
         HttpContext context
     ) =>
@@ -40,7 +40,7 @@ internal static class Handler
             );
 
     internal static async Task<IResult> Update(
-        UpdateTopicRequest request,
+        UpdateRequest request,
         ITopicService service,
         HttpContext context
     ) =>

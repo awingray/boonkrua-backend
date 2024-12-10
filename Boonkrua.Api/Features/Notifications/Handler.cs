@@ -17,7 +17,7 @@ internal static class Handler
     }
 
     internal static async Task<IResult> Create(
-        CreateNotificationConfigRequest request,
+        CreateRequest request,
         INotificationConfigService service,
         HttpContext context
     ) =>

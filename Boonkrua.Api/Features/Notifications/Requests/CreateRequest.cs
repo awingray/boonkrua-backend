@@ -4,7 +4,7 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Notifications.Requests;
 
-public sealed record CreateNotificationConfigRequest : IRequestMapper<NotificationConfigDto, string>
+public sealed record CreateRequest : IRequestMapper<NotificationConfigDto, string>
 {
     public List<VendorRequest> Vendors { get; init; } = [];
 

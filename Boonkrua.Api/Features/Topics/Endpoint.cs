@@ -28,7 +28,7 @@ internal static class Endpoint
                 Routes.Topic.Create,
                 [Authorize]
                 async (
-                    [FromBody] CreateTopicRequest request,
+                    [FromBody] CreateRequest request,
                     [FromServices] ITopicService service,
                     HttpContext context
                 ) => await Handler.Create(request, service, context)
@@ -39,7 +39,7 @@ internal static class Endpoint
                 Routes.Topic.Update,
                 [Authorize]
                 async (
-                    [FromBody] UpdateTopicRequest request,
+                    [FromBody] UpdateRequest request,
                     [FromServices] ITopicService service,
                     HttpContext context
                 ) => await Handler.Update(request, service, context)
