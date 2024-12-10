@@ -3,7 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
 
-namespace Boonkrua.Data.Models.Notifications;
+namespace Boonkrua.Data.Features.Notifications.Models;
 
 public sealed class NotificationConfig
 {

@@ -1,9 +1,9 @@
 using Boonkrua.Data.Contexts;
-using Boonkrua.Data.Interfaces;
-using Boonkrua.Data.Models.Topics;
+using Boonkrua.Data.Features.Topics.Interfaces;
+using Boonkrua.Data.Features.Topics.Models;
 using MongoDB.Driver;
 
-namespace Boonkrua.Data.Repositories.Topics;
+namespace Boonkrua.Data.Features.Topics.Repositories;
 
 public sealed class TopicRepository(MongoDbContext context) : ITopicRepository
 {

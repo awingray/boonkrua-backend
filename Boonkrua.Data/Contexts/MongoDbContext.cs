@@ -1,5 +1,5 @@
-using Boonkrua.Data.Models.Notifications;
-using Boonkrua.Data.Models.Topics;
+using Boonkrua.Data.Features.Notifications.Models;
+using Boonkrua.Data.Features.Topics.Models;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Contexts;

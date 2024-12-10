@@ -1,4 +1,4 @@
-using Boonkrua.Data.Models.Topics;
+using Boonkrua.Data.Features.Topics.Models;
 using Boonkrua.Service.Interfaces.Mappers;
 using Boonkrua.Shared.Extensions;
 

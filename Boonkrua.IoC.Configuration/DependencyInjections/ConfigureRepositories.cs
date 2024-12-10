@@ -1,6 +1,7 @@
-using Boonkrua.Data.Interfaces;
-using Boonkrua.Data.Repositories.Notifications;
-using Boonkrua.Data.Repositories.Topics;
+using Boonkrua.Data.Features.Notifications.Interfaces;
+using Boonkrua.Data.Features.Notifications.Repositories;
+using Boonkrua.Data.Features.Topics.Interfaces;
+using Boonkrua.Data.Features.Topics.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.IoC.Configuration.DependencyInjections;

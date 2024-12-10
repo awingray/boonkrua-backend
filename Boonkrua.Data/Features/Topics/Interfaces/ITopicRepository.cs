@@ -1,6 +1,6 @@
-using Boonkrua.Data.Models.Topics;
+using Boonkrua.Data.Features.Topics.Models;
 
-namespace Boonkrua.Data.Interfaces;
+namespace Boonkrua.Data.Features.Topics.Interfaces;
 
 public interface ITopicRepository
 {

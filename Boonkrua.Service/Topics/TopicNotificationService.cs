@@ -1,4 +1,5 @@
-using Boonkrua.Data.Interfaces;
+using Boonkrua.Data.Features.Notifications.Interfaces;
+using Boonkrua.Data.Features.Topics.Interfaces;
 using Boonkrua.Service.Factories;
 using Boonkrua.Service.Interfaces.Topics;
 using Boonkrua.Service.Models.Error.Topics;

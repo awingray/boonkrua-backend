@@ -1,4 +1,4 @@
-using Boonkrua.Data.Models.Notifications;
+using Boonkrua.Data.Features.Notifications.Models;
 using Boonkrua.Service.Interfaces.Mappers;
 using Boonkrua.Shared.Extensions;
 

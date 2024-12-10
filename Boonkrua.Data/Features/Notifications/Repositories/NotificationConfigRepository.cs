@@ -1,9 +1,9 @@
 using Boonkrua.Data.Contexts;
-using Boonkrua.Data.Interfaces;
-using Boonkrua.Data.Models.Notifications;
+using Boonkrua.Data.Features.Notifications.Interfaces;
+using Boonkrua.Data.Features.Notifications.Models;
 using MongoDB.Driver;
 
-namespace Boonkrua.Data.Repositories.Notifications;
+namespace Boonkrua.Data.Features.Notifications.Repositories;
 
 public class NotificationConfigRepository(MongoDbContext context) : INotificationConfigRepository
 {
