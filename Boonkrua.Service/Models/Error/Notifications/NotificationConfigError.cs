@@ -7,5 +7,8 @@ public sealed record NotificationConfigError : AError
     private NotificationConfigError(string errorMessage)
         : base(errorMessage) { }
 
-    public static NotificationConfigError NotFound => new(NotificationMessages.ConfigNotFound);
+    public static NotificationConfigError NotFound => new(NotificationConfigMessages.NotFound);
+
+    public static NotificationConfigError Duplicate =>
+        new(NotificationConfigMessages.AlreadyExists);
 }

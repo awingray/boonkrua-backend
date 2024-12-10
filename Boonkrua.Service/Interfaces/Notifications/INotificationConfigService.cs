@@ -8,7 +8,7 @@ public interface INotificationConfigService
 {
     Task<Result<NotificationConfigDto, NotificationConfigError>> GetByUserIdAsync(string userId);
 
-    Task<Result<Message, NotificationError>> CreateAsync(NotificationConfigDto dto);
+    Task<Result<Message, NotificationConfigError>> CreateAsync(NotificationConfigDto dto);
 
     //TODO: add the rest of cruds, Update, Delete
 }

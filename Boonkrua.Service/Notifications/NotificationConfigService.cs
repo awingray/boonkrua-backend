@@ -23,9 +23,15 @@ public sealed class NotificationConfigService(INotificationConfigRepository repo
         return NotificationConfigDto.FromEntity(config);
     }
 
-    public async Task<Result<Message, NotificationError>> CreateAsync(NotificationConfigDto dto)
+    public async Task<Result<Message, NotificationConfigError>> CreateAsync(
+        NotificationConfigDto dto
+    )
     {
+        var config = await _repository.GetByUserIdAsync(dto.UserId);
+        if (config is not null)
+            return NotificationConfigError.Duplicate;
+
         await _repository.CreateAsync(dto.ToEntity());
-        return Message.Create(NotificationMessages.ConfigCreateSuccess);
+        return Message.Create(NotificationConfigMessages.CreateSuccess);
     }
 }
