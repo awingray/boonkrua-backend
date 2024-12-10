@@ -1,6 +1,6 @@
 using Boonkrua.Api.Helpers;
 using Boonkrua.Api.Payloads.Requests.Notifications;
-using Boonkrua.Service.Interfaces.Notifications;
+using Boonkrua.Service.Features.Notifications.Interfaces;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Api.Handlers;

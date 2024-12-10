@@ -1,5 +1,5 @@
 using Boonkrua.Api.Interfaces;
-using Boonkrua.Service.Models.Dto;
+using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Payloads.Requests.Notifications;

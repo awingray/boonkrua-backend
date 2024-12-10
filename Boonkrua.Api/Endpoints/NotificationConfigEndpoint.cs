@@ -1,6 +1,6 @@
 using Boonkrua.Api.Handlers;
 using Boonkrua.Api.Payloads.Requests.Notifications;
-using Boonkrua.Service.Interfaces.Notifications;
+using Boonkrua.Service.Features.Notifications.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiRoutes = Boonkrua.Api.Routes.ApiRoutes;

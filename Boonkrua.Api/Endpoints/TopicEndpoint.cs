@@ -1,6 +1,6 @@
 using Boonkrua.Api.Handlers;
 using Boonkrua.Api.Payloads.Requests.Topics;
-using Boonkrua.Service.Interfaces.Topics;
+using Boonkrua.Service.Features.Topics.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ApiRoutes = Boonkrua.Api.Routes.ApiRoutes;

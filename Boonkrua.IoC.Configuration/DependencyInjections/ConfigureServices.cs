@@ -1,7 +1,7 @@
-using Boonkrua.Service.Interfaces.Notifications;
-using Boonkrua.Service.Interfaces.Topics;
-using Boonkrua.Service.Notifications;
-using Boonkrua.Service.Topics;
+using Boonkrua.Service.Features.Notifications;
+using Boonkrua.Service.Features.Notifications.Interfaces;
+using Boonkrua.Service.Features.Topics;
+using Boonkrua.Service.Features.Topics.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.IoC.Configuration.DependencyInjections;
