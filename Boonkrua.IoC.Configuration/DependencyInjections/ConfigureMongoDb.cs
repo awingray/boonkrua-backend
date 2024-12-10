@@ -16,7 +16,10 @@ public static partial class ServiceExtensions
             var client =
                 c.GetService<IMongoClient>()
                 ?? throw new InvalidOperationException("MongoClient is null");
-            return new MongoDbContext(client, dbName);
+
+            var context = new MongoDbContext(client, dbName);
+            context.EnsureIndexes();
+            return context;
         });
     }
 }

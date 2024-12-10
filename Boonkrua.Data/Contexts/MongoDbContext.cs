@@ -12,4 +12,13 @@ public sealed class MongoDbContext(IMongoClient client, string dbName)
 
     public IMongoCollection<NotificationConfig> NotificationConfigs =>
         _db.GetCollection<NotificationConfig>(nameof(NotificationConfigs));
+
+    public void EnsureIndexes()
+    {
+        var indexOptions = new CreateIndexOptions { Unique = true };
+        var indexKeys = Builders<NotificationConfig>.IndexKeys.Ascending(config => config.UserId);
+        var indexModel = new CreateIndexModel<NotificationConfig>(indexKeys, indexOptions);
+
+        NotificationConfigs.Indexes.CreateOne(indexModel);
+    }
 }
