@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace Boonkrua.Data.Contexts;
 
-public sealed class MongoDbContext(IMongoClient client, string dbName)
+public sealed class BoonkruaContext(IMongoClient client, string dbName)
 {
     private readonly IMongoDatabase _db = client.GetDatabase(dbName);
 

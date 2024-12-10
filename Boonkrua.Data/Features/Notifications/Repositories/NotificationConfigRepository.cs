@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace Boonkrua.Data.Features.Notifications.Repositories;
 
-public class NotificationConfigRepository(MongoDbContext context) : INotificationConfigRepository
+public class NotificationConfigRepository(BoonkruaContext context) : INotificationConfigRepository
 {
     private readonly IMongoCollection<NotificationConfig> _col = context.NotificationConfigs;
 
