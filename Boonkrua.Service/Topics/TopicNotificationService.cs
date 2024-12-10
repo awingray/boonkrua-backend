@@ -40,8 +40,20 @@ public sealed class TopicNotificationService(
             return TopicNotificationError.NotFoundConfig;
 
         var notificationService = _serviceFactory.GetService(notificationType);
-        // TODO: remove the place holder
-        var payload = NotificationPayload.Create(topic.Title, string.Empty);
+
+        // TODO: make this type safe
+        var payload = notificationType switch
+        {
+            NotificationType.Line => NotificationPayload.Create(
+                topic.Title,
+                vendorConfig["UserId"]
+            ),
+            NotificationType.Discord => NotificationPayload.Create(
+                topic.Title,
+                vendorConfig["WebhookUrl"]
+            ),
+            _ => throw new InvalidOperationException(),
+        };
 
         var result = await notificationService.SendNotificationAsync(payload);
         if (!result.IsSuccessful)
