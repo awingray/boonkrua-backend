@@ -30,7 +30,7 @@ public sealed class TopicService(ITopicRepository repository) : ITopicService
     public async Task<Result<Message, TopicError>> CreateAsync(TopicDto topic)
     {
         await _repository.CreateAsync(topic.ToEntity());
-        return Message.Create(TopicMessages.CreateSuccess);
+        return Message.Create(TopicMessages.Create.Success);
     }
 
     public async Task<Result<Message, TopicError>> UpdateAsync(TopicDto topic)
@@ -43,12 +43,12 @@ public sealed class TopicService(ITopicRepository repository) : ITopicService
             return TopicError.NotFound;
 
         await _repository.UpdateAsync(topic.ToEntity());
-        return Message.Create(TopicMessages.UpdateSuccess);
+        return Message.Create(TopicMessages.Update.Success);
     }
 
     public async Task<Result<Message, TopicError>> DeleteAsync(string id)
     {
         await _repository.DeleteAsync(id);
-        return Message.Create(TopicMessages.DeleteSuccess);
+        return Message.Create(TopicMessages.Delete.Success);
     }
 }

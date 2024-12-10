@@ -32,6 +32,6 @@ public sealed class NotificationConfigService(INotificationConfigRepository repo
             return NotificationConfigError.Duplicate;
 
         await _repository.CreateAsync(dto.ToEntity());
-        return Message.Create(NotificationConfigMessages.CreateSuccess);
+        return Message.Create(NotificationConfigMessages.Create.Success);
     }
 }

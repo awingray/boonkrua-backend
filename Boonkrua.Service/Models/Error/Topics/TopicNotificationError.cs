@@ -10,11 +10,12 @@ public record TopicNotificationError : AError
     public static TopicNotificationError InvalidType => new(NotificationMessages.Invalid.Provider);
 
     public static TopicNotificationError NotFoundUser =>
-        new(NotificationConfigMessages.NotFoundUser);
+        new(NotificationConfigMessages.NotFound.User);
 
-    public static TopicNotificationError NotFoundConfig => new(NotificationConfigMessages.NotFound);
+    public static TopicNotificationError NotFoundConfig =>
+        new(NotificationConfigMessages.NotFound.Config);
 
-    public static TopicNotificationError NotFound => new(TopicMessages.NotFound);
+    public static TopicNotificationError NotFound => new(TopicMessages.NotFound.Topic);
 
     public static TopicNotificationError SendFailure => new(NotificationMessages.Send.Failure);
 }

@@ -15,7 +15,9 @@ public sealed record VendorRequest : IRequestMapper<VendorDto>
     {
         if (!Type.TryParse(out NotificationType type))
         {
-            throw new InvalidOperationException(NotificationConfigMessages.InvalidNotificationType);
+            throw new InvalidOperationException(
+                NotificationConfigMessages.Invalid.NotificationType
+            );
         }
 
         return VendorDto.Create(type, Key);
