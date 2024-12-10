@@ -2,7 +2,7 @@ using Boonkrua.Api.Interfaces;
 using Boonkrua.Service.Models.Dto;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Api.Payload.Responses.Topics;
+namespace Boonkrua.Api.Payloads.Responses.Topics;
 
 public sealed record TopicResponse : IResponseMapper<TopicResponse, TopicDto>
 {
