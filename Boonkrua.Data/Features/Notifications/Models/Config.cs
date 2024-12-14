@@ -19,7 +19,7 @@ public sealed class Config
 
     private Config() { }
 
-    public Vendor? GetVendorByType(NotificationType type) => Vendors.Find(v => v.Type == type);
+    public string? GetKeyByType(NotificationType type) => Vendors.Find(v => v.Type == type)?.Key;
 
     public static Config Create(string userId, List<Vendor>? vendors = null, string? id = null) =>
         new()
