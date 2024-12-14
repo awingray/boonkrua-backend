@@ -1,6 +1,6 @@
 namespace Boonkrua.Api.Features.Notifications;
 
-internal static partial class Routes
+internal static class Routes
 {
     internal static class NotificationConfig
     {

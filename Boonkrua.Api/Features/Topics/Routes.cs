@@ -1,6 +1,6 @@
 namespace Boonkrua.Api.Features.Topics;
 
-internal static partial class Routes
+internal static class Routes
 {
     internal static class Topic
     {
