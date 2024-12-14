@@ -5,7 +5,7 @@ using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace Boonkrua.Data.Features.Notifications.Models;
 
-public sealed class NotificationConfig
+public sealed class Config
 {
     [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
     [BsonRepresentation(BsonType.ObjectId)]
@@ -17,15 +17,11 @@ public sealed class NotificationConfig
     [BsonElement("vendors")]
     public List<Vendor> Vendors { get; private init; } = [];
 
-    private NotificationConfig() { }
+    private Config() { }
 
     public Vendor? GetVendorByType(NotificationType type) => Vendors.Find(v => v.Type == type);
 
-    public static NotificationConfig Create(
-        string userId,
-        List<Vendor>? vendors = null,
-        string? id = null
-    ) =>
+    public static Config Create(string userId, List<Vendor>? vendors = null, string? id = null) =>
         new()
         {
             UserId = userId,

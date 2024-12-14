@@ -13,12 +13,12 @@ namespace Boonkrua.Service.Features.Topics;
 
 public sealed class TopicNotificationService(
     ITopicRepository topicRepository,
-    INotificationConfigRepository configRepository,
+    IConfigRepository configRepository,
     NotificationServiceFactory serviceFactory
 ) : ITopicNotificationService
 {
     private readonly ITopicRepository _topicRepository = topicRepository;
-    private readonly INotificationConfigRepository _configRepository = configRepository;
+    private readonly IConfigRepository _configRepository = configRepository;
     private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
 
     public async Task<Result<Message, TopicNotificationError>> NotifyAsync(

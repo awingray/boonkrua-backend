@@ -5,9 +5,9 @@ namespace Boonkrua.Service.Features.Notifications.Interfaces;
 
 public interface INotificationConfigService
 {
-    Task<Result<NotificationConfigDto, NotificationConfigError>> GetByUserIdAsync(string userId);
+    Task<Result<ConfigDto, ConfigError>> GetByUserIdAsync(string userId);
 
-    Task<Result<Message, NotificationConfigError>> CreateAsync(NotificationConfigDto dto);
+    Task<Result<Message, ConfigError>> CreateAsync(ConfigDto dto);
 
     //TODO: add the rest of cruds, Update, Delete
 }

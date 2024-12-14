@@ -10,8 +10,8 @@ public sealed class BoonkruaContext(IMongoClient client, string dbName)
 
     public IMongoCollection<Topic> Topics => _db.GetCollection<Topic>(nameof(Topics));
 
-    public IMongoCollection<NotificationConfig> NotificationConfigs =>
-        _db.GetCollection<NotificationConfig>(nameof(NotificationConfigs));
+    public IMongoCollection<Config> NotificationConfigs =>
+        _db.GetCollection<Config>(nameof(NotificationConfigs));
 
     public void EnsureIndexes()
     {
@@ -21,8 +21,8 @@ public sealed class BoonkruaContext(IMongoClient client, string dbName)
     private void EnsureNotificationConfigsIndexes()
     {
         var indexOptions = new CreateIndexOptions { Unique = true };
-        var indexKeys = Builders<NotificationConfig>.IndexKeys.Ascending(config => config.UserId);
-        var indexModel = new CreateIndexModel<NotificationConfig>(indexKeys, indexOptions);
+        var indexKeys = Builders<Config>.IndexKeys.Ascending(config => config.UserId);
+        var indexModel = new CreateIndexModel<Config>(indexKeys, indexOptions);
 
         NotificationConfigs.Indexes.CreateOne(indexModel);
     }

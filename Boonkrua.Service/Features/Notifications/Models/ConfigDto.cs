@@ -4,9 +4,9 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Service.Features.Notifications.Models;
 
-public sealed record NotificationConfigDto
-    : IEntityMapper<NotificationConfig, NotificationConfigDto>,
-        IDtoMapper<NotificationConfig>
+public sealed record ConfigDto
+    : IEntityMapper<Config, ConfigDto>,
+        IDtoMapper<Config>
 {
     public string? Id { get; init; }
 
@@ -14,9 +14,9 @@ public sealed record NotificationConfigDto
 
     public List<VendorDto> Vendors { get; init; } = [];
 
-    private NotificationConfigDto() { }
+    private ConfigDto() { }
 
-    public static NotificationConfigDto Create(
+    public static ConfigDto Create(
         string userId,
         List<VendorDto>? vendors = null,
         string? id = null
@@ -28,9 +28,8 @@ public sealed record NotificationConfigDto
             Id = id,
         };
 
-    public static NotificationConfigDto FromEntity(NotificationConfig entity) =>
+    public static ConfigDto FromEntity(Config entity) =>
         Create(entity.UserId, entity.Vendors.ToMappedList(VendorDto.FromEntity), entity.Id);
 
-    public NotificationConfig ToEntity() =>
-        NotificationConfig.Create(UserId, Vendors.ToMappedList(v => v.ToEntity()), Id);
+    public Config ToEntity() => Config.Create(UserId, Vendors.ToMappedList(v => v.ToEntity()), Id);
 }

@@ -6,29 +6,25 @@ using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Features.Notifications;
 
-public sealed class NotificationConfigService(INotificationConfigRepository repository)
+public sealed class NotificationConfigService(IConfigRepository repository)
     : INotificationConfigService
 {
-    private readonly INotificationConfigRepository _repository = repository;
+    private readonly IConfigRepository _repository = repository;
 
-    public async Task<Result<NotificationConfigDto, NotificationConfigError>> GetByUserIdAsync(
-        string userId
-    )
+    public async Task<Result<ConfigDto, ConfigError>> GetByUserIdAsync(string userId)
     {
         var config = await _repository.GetByUserIdAsync(userId);
         if (config is null)
-            return NotificationConfigError.NotFound;
+            return ConfigError.NotFound;
 
-        return NotificationConfigDto.FromEntity(config);
+        return ConfigDto.FromEntity(config);
     }
 
-    public async Task<Result<Message, NotificationConfigError>> CreateAsync(
-        NotificationConfigDto dto
-    )
+    public async Task<Result<Message, ConfigError>> CreateAsync(ConfigDto dto)
     {
         var config = await _repository.GetByUserIdAsync(dto.UserId);
         if (config is not null)
-            return NotificationConfigError.Duplicate;
+            return ConfigError.Duplicate;
 
         await _repository.CreateAsync(dto.ToEntity());
         return Message.Create(NotificationConfigMessages.Create.Success);
