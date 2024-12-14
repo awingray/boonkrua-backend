@@ -1,6 +1,6 @@
 namespace Boonkrua.Shared.Messages;
 
-public static class NotificationConfigMessages
+public static class ConfigMessages
 {
     public static class NotFound
     {

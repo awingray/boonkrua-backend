@@ -26,6 +26,6 @@ public sealed class ConfigService(IConfigRepository repository) : IConfigService
             return ConfigError.Duplicate;
 
         await _repository.CreateAsync(dto.ToEntity());
-        return Message.Create(NotificationConfigMessages.Create.Success);
+        return Message.Create(ConfigMessages.Create.Success);
     }
 }

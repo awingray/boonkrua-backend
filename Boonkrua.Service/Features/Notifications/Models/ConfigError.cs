@@ -8,7 +8,7 @@ public sealed record ConfigError : AError
     private ConfigError(string errorMessage)
         : base(errorMessage) { }
 
-    public static ConfigError NotFound => new(NotificationConfigMessages.NotFound.Config);
+    public static ConfigError NotFound => new(ConfigMessages.NotFound.Config);
 
-    public static ConfigError Duplicate => new(NotificationConfigMessages.AlreadyExists.Config);
+    public static ConfigError Duplicate => new(ConfigMessages.AlreadyExists.Config);
 }
