@@ -13,12 +13,12 @@ using NotificationError = Boonkrua.Service.Features.Topics.Models.NotificationEr
 namespace Boonkrua.Service.Features.Topics;
 
 public sealed class NotificationService(
-    ITopicRepository topicRepository,
+    IRepository topicRepository,
     IConfigRepository configRepository,
     NotificationServiceFactory serviceFactory
 ) : INotificationService
 {
-    private readonly ITopicRepository _topicRepository = topicRepository;
+    private readonly IRepository _topicRepository = topicRepository;
     private readonly IConfigRepository _configRepository = configRepository;
     private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
 

@@ -7,9 +7,9 @@ using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Features.Topics;
 
-public sealed class Service(ITopicRepository repository) : IService
+public sealed class Service(IRepository repository) : IService
 {
-    private readonly ITopicRepository _repository = repository;
+    private readonly IRepository _repository = repository;
 
     public async Task<Result<TopicDto, TopicError>> GetByIdAsync(string topicId)
     {

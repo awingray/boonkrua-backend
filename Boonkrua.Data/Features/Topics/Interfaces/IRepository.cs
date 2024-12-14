@@ -2,7 +2,7 @@ using Boonkrua.Data.Features.Topics.Models;
 
 namespace Boonkrua.Data.Features.Topics.Interfaces;
 
-public interface ITopicRepository
+public interface IRepository
 {
     public Task<Topic?> GetByIdAsync(string id);
     public Task<IEnumerable<Topic>> GetAllAsync();
