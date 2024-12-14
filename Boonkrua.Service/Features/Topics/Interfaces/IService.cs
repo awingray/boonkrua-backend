@@ -3,7 +3,7 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Service.Features.Topics.Interfaces;
 
-public interface ITopicService
+public interface IService
 {
     Task<Result<TopicDto, TopicError>> GetByIdAsync(string topicId);
     Task<Result<IEnumerable<TopicDto>, TopicError>> GetAllAsync();

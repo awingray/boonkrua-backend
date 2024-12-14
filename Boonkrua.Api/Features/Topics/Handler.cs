@@ -9,13 +9,13 @@ namespace Boonkrua.Api.Features.Topics;
 
 internal static class Handler
 {
-    internal static async Task<IResult> GetById(string topicId, ITopicService service)
+    internal static async Task<IResult> GetById(string topicId, IService service)
     {
         var result = await service.GetByIdAsync(topicId);
         return result.Match(r => Ok(Response.FromDto(r)), NotFound);
     }
 
-    internal static async Task<IResult> GetAll(ITopicService service)
+    internal static async Task<IResult> GetAll(IService service)
     {
         var result = await service.GetAllAsync();
         return result.Match((r) => Ok(r.ToMappedList(Response.FromDto)), NotFound);
@@ -23,7 +23,7 @@ internal static class Handler
 
     internal static async Task<IResult> Create(
         CreateRequest request,
-        ITopicService service,
+        IService service,
         HttpContext context
     ) =>
         await UserContextHelper
@@ -41,7 +41,7 @@ internal static class Handler
 
     internal static async Task<IResult> Update(
         UpdateRequest request,
-        ITopicService service,
+        IService service,
         HttpContext context
     ) =>
         await UserContextHelper
@@ -57,7 +57,7 @@ internal static class Handler
                 Task.FromResult
             );
 
-    internal static async Task<IResult> Delete(string objectId, ITopicService service)
+    internal static async Task<IResult> Delete(string objectId, IService service)
     {
         var result = await service.DeleteAsync(objectId);
         return result.Match(Ok, BadRequest);
@@ -66,7 +66,7 @@ internal static class Handler
     internal static async Task<IResult> Notify(
         string objectId,
         string type,
-        ITopicNotificationService service
+        INotificationService service
     )
     {
         var result = await service.NotifyAsync(objectId, type);

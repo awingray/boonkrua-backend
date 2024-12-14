@@ -11,11 +11,11 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Service.Features.Topics;
 
-public sealed class TopicNotificationService(
+public sealed class NotificationService(
     ITopicRepository topicRepository,
     IConfigRepository configRepository,
     NotificationServiceFactory serviceFactory
-) : ITopicNotificationService
+) : INotificationService
 {
     private readonly ITopicRepository _topicRepository = topicRepository;
     private readonly IConfigRepository _configRepository = configRepository;

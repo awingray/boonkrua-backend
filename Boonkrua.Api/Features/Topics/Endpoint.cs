@@ -12,7 +12,7 @@ internal static class Endpoint
         app.MapGet(
                 Routes.Topic.GetById,
                 [Authorize]
-                async (string objectId, [FromServices] ITopicService service) =>
+                async (string objectId, [FromServices] IService service) =>
                     await Handler.GetById(objectId, service)
             )
             .RequireAuthorization();
@@ -20,7 +20,7 @@ internal static class Endpoint
         app.MapGet(
                 Routes.Topic.GetAll,
                 [Authorize]
-                async ([FromServices] ITopicService service) => await Handler.GetAll(service)
+                async ([FromServices] IService service) => await Handler.GetAll(service)
             )
             .RequireAuthorization();
 
@@ -29,7 +29,7 @@ internal static class Endpoint
                 [Authorize]
                 async (
                     [FromBody] CreateRequest request,
-                    [FromServices] ITopicService service,
+                    [FromServices] IService service,
                     HttpContext context
                 ) => await Handler.Create(request, service, context)
             )
@@ -40,7 +40,7 @@ internal static class Endpoint
                 [Authorize]
                 async (
                     [FromBody] UpdateRequest request,
-                    [FromServices] ITopicService service,
+                    [FromServices] IService service,
                     HttpContext context
                 ) => await Handler.Update(request, service, context)
             )
@@ -49,7 +49,7 @@ internal static class Endpoint
         app.MapDelete(
                 Routes.Topic.Delete,
                 [Authorize]
-                async (string objectId, [FromServices] ITopicService service) =>
+                async (string objectId, [FromServices] IService service) =>
                     await Handler.Delete(objectId, service)
             )
             .RequireAuthorization();
@@ -57,11 +57,8 @@ internal static class Endpoint
         app.MapPost(
                 Routes.Topic.Notify,
                 [Authorize]
-                async (
-                    string objectId,
-                    string type,
-                    [FromServices] ITopicNotificationService service
-                ) => await Handler.Notify(objectId, type, service)
+                async (string objectId, string type, [FromServices] INotificationService service) =>
+                    await Handler.Notify(objectId, type, service)
             )
             .RequireAuthorization();
     }
