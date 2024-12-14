@@ -6,8 +6,7 @@ using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Features.Notifications;
 
-public sealed class NotificationConfigService(IConfigRepository repository)
-    : INotificationConfigService
+public sealed class ConfigService(IConfigRepository repository) : IConfigService
 {
     private readonly IConfigRepository _repository = repository;
 

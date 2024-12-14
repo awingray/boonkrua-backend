@@ -8,9 +8,9 @@ public static partial class ServiceExtensions
 {
     public static void ConfigureHttpClients(this IServiceCollection services)
     {
-        services.AddHttpClient<DiscordNotificationService>();
+        services.AddHttpClient<DiscordService>();
 
-        services.AddHttpClient<LineNotificationService>(
+        services.AddHttpClient<LineService>(
             (_, client) =>
             {
                 client.DefaultRequestHeaders.Authorization =

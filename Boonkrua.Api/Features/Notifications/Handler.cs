@@ -7,10 +7,7 @@ namespace Boonkrua.Api.Features.Notifications;
 
 internal static class Handler
 {
-    internal static async Task<IResult> GetByUserId(
-        string userId,
-        INotificationConfigService service
-    )
+    internal static async Task<IResult> GetByUserId(string userId, IConfigService service)
     {
         var result = await service.GetByUserIdAsync(userId);
         return result.Match(Ok, NotFound);
@@ -18,7 +15,7 @@ internal static class Handler
 
     internal static async Task<IResult> Create(
         CreateRequest request,
-        INotificationConfigService service,
+        IConfigService service,
         HttpContext context
     ) =>
         await UserContextHelper

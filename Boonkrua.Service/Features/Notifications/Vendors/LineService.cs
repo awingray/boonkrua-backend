@@ -7,8 +7,8 @@ using Microsoft.Extensions.Options;
 
 namespace Boonkrua.Service.Features.Notifications.Vendors;
 
-public sealed class LineNotificationService(HttpClient client, IOptions<LineSettings> settings)
-    : ANotificationService,
+public sealed class LineService(HttpClient client, IOptions<LineSettings> settings)
+    : AService,
         INotificationService
 {
     private readonly HttpClient _client = client;

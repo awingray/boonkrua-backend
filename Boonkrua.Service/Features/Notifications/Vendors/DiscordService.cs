@@ -5,9 +5,7 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Service.Features.Notifications.Vendors;
 
-public sealed class DiscordNotificationService(HttpClient client)
-    : ANotificationService,
-        INotificationService
+public sealed class DiscordService(HttpClient client) : AService, INotificationService
 {
     private readonly HttpClient _client = client;
 

@@ -12,6 +12,6 @@ public static partial class ServiceExtensions
     {
         services.AddScoped<ITopicService, TopicService>();
         services.AddScoped<ITopicNotificationService, TopicNotificationService>();
-        services.AddScoped<INotificationConfigService, NotificationConfigService>();
+        services.AddScoped<IConfigService, ConfigService>();
     }
 }

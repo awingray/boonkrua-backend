@@ -3,7 +3,7 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Service.Features.Notifications.Interfaces;
 
-public interface INotificationConfigService
+public interface IConfigService
 {
     Task<Result<ConfigDto, ConfigError>> GetByUserIdAsync(string userId);
 

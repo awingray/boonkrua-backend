@@ -4,7 +4,7 @@ using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Features.Notifications.Vendors;
 
-public abstract class ANotificationService
+public abstract class AService
 {
     protected static async Task<Result<Message, NotificationError>> HandleOperationAsync(
         Func<Task<HttpResponseMessage>> func
