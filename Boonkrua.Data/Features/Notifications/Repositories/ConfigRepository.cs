@@ -7,7 +7,7 @@ namespace Boonkrua.Data.Features.Notifications.Repositories;
 
 public class ConfigRepository(BoonkruaContext context) : IConfigRepository
 {
-    private readonly IMongoCollection<Config> _col = context.NotificationConfigs;
+    private readonly IMongoCollection<Config> _col = context.Configs;
 
     public async Task<Config?> GetByUserIdAsync(string userId) =>
         await _col.Find(c => c.UserId == userId).FirstOrDefaultAsync();
