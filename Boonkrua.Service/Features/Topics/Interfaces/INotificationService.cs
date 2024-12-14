@@ -5,5 +5,5 @@ namespace Boonkrua.Service.Features.Topics.Interfaces;
 
 public interface INotificationService
 {
-    Task<Result<Message, TopicNotificationError>> NotifyAsync(string objectId, string type);
+    Task<Result<Message, NotificationError>> NotifyAsync(string objectId, string type);
 }

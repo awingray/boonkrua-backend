@@ -8,6 +8,7 @@ using Boonkrua.Service.Features.Topics.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
+using NotificationError = Boonkrua.Service.Features.Topics.Models.NotificationError;
 
 namespace Boonkrua.Service.Features.Topics;
 
@@ -21,32 +22,29 @@ public sealed class NotificationService(
     private readonly IConfigRepository _configRepository = configRepository;
     private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
 
-    public async Task<Result<Message, TopicNotificationError>> NotifyAsync(
-        string objectId,
-        string type
-    )
+    public async Task<Result<Message, NotificationError>> NotifyAsync(string objectId, string type)
     {
         if (!type.TryParse(out NotificationType notificationType))
-            return TopicNotificationError.InvalidType;
+            return NotificationError.InvalidType;
 
         var topic = await _topicRepository.GetByIdAsync(objectId);
         if (topic is null)
-            return TopicNotificationError.NotFound;
+            return NotificationError.NotFound;
 
         var userConfigs = await _configRepository.GetByUserIdAsync(topic.UserId);
         if (userConfigs is null)
-            return TopicNotificationError.NotFoundUser;
+            return NotificationError.NotFoundUser;
 
         var vendorConfig = userConfigs.GetKeyByType(notificationType);
         if (vendorConfig is null)
-            return TopicNotificationError.NotFoundConfig;
+            return NotificationError.NotFoundConfig;
 
         var notificationService = _serviceFactory.GetService(notificationType);
         var payload = NotificationPayload.Create(topic.Title, vendorConfig);
 
         var result = await notificationService.SendNotificationAsync(payload);
         if (!result.IsSuccessful)
-            return TopicNotificationError.SendFailure;
+            return NotificationError.SendFailure;
 
         return result.Content!;
     }
