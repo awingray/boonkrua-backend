@@ -1,4 +1,3 @@
-using Boonkrua.Service.Features.Notifications;
 using Boonkrua.Service.Features.Notifications.Factories;
 using Microsoft.Extensions.DependencyInjection;
 

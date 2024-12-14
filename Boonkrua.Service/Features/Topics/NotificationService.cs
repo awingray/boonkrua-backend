@@ -1,10 +1,8 @@
 using Boonkrua.Data.Features.Notifications.Interfaces;
 using Boonkrua.Data.Features.Topics.Interfaces;
-using Boonkrua.Service.Features.Notifications;
 using Boonkrua.Service.Features.Notifications.Factories;
 using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Service.Features.Topics.Interfaces;
-using Boonkrua.Service.Features.Topics.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
