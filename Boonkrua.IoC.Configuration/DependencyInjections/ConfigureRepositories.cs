@@ -9,7 +9,7 @@ public static partial class ServiceExtensions
 {
     public static void ConfigureRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IRepository, Repository>();
+        services.AddScoped<ITopicRepository, TopicRepository>();
         services.AddScoped<ConfigRepository, ConfigRepository>();
     }
 }

@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace Boonkrua.Data.Features.Topics.Repositories;
 
-public sealed class Repository(BoonkruaContext context) : IRepository
+public sealed class TopicRepository(BoonkruaContext context) : ITopicRepository
 {
     private readonly IMongoCollection<Topic> _col = context.Topics;
 
