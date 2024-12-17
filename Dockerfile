@@ -11,7 +11,7 @@ COPY ["Boonkrua.sln", "./"]
 COPY ["Boonkrua.Api/Boonkrua.Api.csproj", "Boonkrua.Api/"]
 COPY ["Boonkrua.Shared/Boonkrua.Shared.csproj", "Boonkrua.Shared/"]
 COPY ["Boonkrua.Data/Boonkrua.Data.csproj", "Boonkrua.Data/"]
-COPY ["Boonkrua.Service/Boonkrua.Service.csproj", "Boonkrua.Service/"]
+COPY ["Boonkrua.Services/Boonkrua.Service.csproj", "Boonkrua.Services/"]
 COPY ["Boonkrua.IoC.Configuration/Boonkrua.IoC.Configuration.csproj", "Boonkrua.IoC.Configuration/"]
 
 
