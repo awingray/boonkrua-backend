@@ -2,7 +2,8 @@ using Boonkrua.Data.Features.Notifications.Interfaces;
 using Boonkrua.Service.Features.Notifications.Interfaces;
 using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Shared.Abstractions;
-using Boonkrua.Shared.Messages;
+using Boonkrua.Shared.Extensions;
+using static Boonkrua.Shared.Messages.ConfigMessages;
 
 namespace Boonkrua.Service.Features.Notifications;
 
@@ -26,6 +27,6 @@ public sealed class ConfigService(IConfigRepository repository) : IConfigService
             return ConfigError.Duplicate;
 
         await _repository.CreateAsync(dto.ToEntity());
-        return Message.Create(ConfigMessages.Create.Success);
+        return Create.Success.AsMessage();
     }
 }

@@ -3,7 +3,7 @@ using Boonkrua.Service.Features.Topics.Interfaces;
 using Boonkrua.Service.Features.Topics.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Extensions;
-using Boonkrua.Shared.Messages;
+using static Boonkrua.Shared.Messages.TopicMessages;
 
 namespace Boonkrua.Service.Features.Topics;
 
@@ -29,7 +29,7 @@ public sealed class Service(IRepository repository) : IService
     public async Task<Result<Message, TopicError>> CreateAsync(TopicDto topic)
     {
         await _repository.CreateAsync(topic.ToEntity());
-        return Message.Create(TopicMessages.Create.Success);
+        return Create.Success.AsMessage();
     }
 
     public async Task<Result<Message, TopicError>> UpdateAsync(TopicDto topic)
@@ -42,12 +42,12 @@ public sealed class Service(IRepository repository) : IService
             return TopicError.NotFound;
 
         await _repository.UpdateAsync(topic.ToEntity());
-        return Message.Create(TopicMessages.Update.Success);
+        return Update.Success.AsMessage();
     }
 
     public async Task<Result<Message, TopicError>> DeleteAsync(string id)
     {
         await _repository.DeleteAsync(id);
-        return Message.Create(TopicMessages.Delete.Success);
+        return Delete.Success.AsMessage();
     }
 }
