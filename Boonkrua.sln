@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Api", "Boonkrua.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Shared", "Boonkrua.Shared\Boonkrua.Shared.csproj", "{B0C36889-7F67-4778-92C1-37889E5D1D02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Service", "Boonkrua.Service\Boonkrua.Service.csproj", "{4D03CAC1-FFB7-4E3F-A1A8-FB92267A1F0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Services", "Boonkrua.Services\Boonkrua.Services.csproj", "{4D03CAC1-FFB7-4E3F-A1A8-FB92267A1F0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boonkrua.Data", "Boonkrua.Data\Boonkrua.Data.csproj", "{0F41ADF4-04CD-4BEE-AF63-8313118D5ABD}"
 EndProject

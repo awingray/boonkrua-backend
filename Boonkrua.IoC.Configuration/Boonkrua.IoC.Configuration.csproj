@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Boonkrua.Service\Boonkrua.Service.csproj" />
+      <ProjectReference Include="..\Boonkrua.Services\Boonkrua.Services.csproj" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Boonkrua.Data\Boonkrua.Data.csproj" />

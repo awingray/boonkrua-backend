@@ -1,4 +1,4 @@
-using Boonkrua.Service.Features.Notifications.Factories;
+using Boonkrua.Services.Features.Notifications.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.IoC.Configuration.DependencyInjections;

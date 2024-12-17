@@ -17,7 +17,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Boonkrua.IoC.Configuration\Boonkrua.IoC.Configuration.csproj" />
       <ProjectReference Include="..\Boonkrua.Shared\Boonkrua.Shared.csproj" />
-        <ProjectReference Include="..\Boonkrua.Service\Boonkrua.Service.csproj" />
+        <ProjectReference Include="..\Boonkrua.Services\Boonkrua.Services.csproj" />
     </ItemGroup>
     
 

@@ -1,0 +1,21 @@
+using System.Net.Http.Json;
+using Boonkrua.Services.Features.Notifications.Interfaces;
+using Boonkrua.Services.Features.Notifications.Models;
+using Boonkrua.Shared.Abstractions;
+
+namespace Boonkrua.Services.Features.Notifications.Vendors;
+
+public sealed class DiscordService(HttpClient client) : AService, INotificationService
+{
+    private readonly HttpClient _client = client;
+
+    public async Task<Result<Message, NotificationError>> SendNotificationAsync(
+        NotificationPayload payload
+    )
+    {
+        var discordPayload = new { content = payload.Message };
+        return await HandleOperationAsync(
+            () => _client.PostAsJsonAsync(payload.Key, discordPayload)
+        );
+    }
+}

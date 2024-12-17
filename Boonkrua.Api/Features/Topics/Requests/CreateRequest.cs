@@ -1,5 +1,5 @@
 using Boonkrua.Api.Interfaces;
-using Boonkrua.Service.Features.Topics.Models;
+using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Topics.Requests;

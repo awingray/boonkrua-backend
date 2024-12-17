@@ -1,7 +1,7 @@
 using Boonkrua.Api.Features.Topics.Requests;
 using Boonkrua.Api.Features.Topics.Responses;
 using Boonkrua.Api.Helpers;
-using Boonkrua.Service.Features.Topics.Interfaces;
+using Boonkrua.Services.Features.Topics.Interfaces;
 using Boonkrua.Shared.Extensions;
 using static Microsoft.AspNetCore.Http.Results;
 
