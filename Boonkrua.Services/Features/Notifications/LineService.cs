@@ -5,7 +5,7 @@ using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Models;
 using Microsoft.Extensions.Options;
 
-namespace Boonkrua.Services.Features.Notifications.Vendors;
+namespace Boonkrua.Services.Features.Notifications;
 
 public sealed class LineService(HttpClient client, IOptions<LineSettings> settings)
     : AService,

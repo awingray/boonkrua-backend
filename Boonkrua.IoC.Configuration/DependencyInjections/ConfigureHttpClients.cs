@@ -1,4 +1,4 @@
-using Boonkrua.Services.Features.Notifications.Vendors;
+using Boonkrua.Services.Features.Notifications;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 

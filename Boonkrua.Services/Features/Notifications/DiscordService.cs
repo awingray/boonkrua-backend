@@ -3,7 +3,7 @@ using Boonkrua.Services.Features.Notifications.Interfaces;
 using Boonkrua.Services.Features.Notifications.Models;
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Services.Features.Notifications.Vendors;
+namespace Boonkrua.Services.Features.Notifications;
 
 public sealed class DiscordService(HttpClient client) : AService, INotificationService
 {
