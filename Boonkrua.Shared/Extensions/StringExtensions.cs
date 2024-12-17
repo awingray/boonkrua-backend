@@ -10,5 +10,5 @@ public static class StringExtensions
 
     public static bool IsNullOrEmpty(this string? value) => string.IsNullOrEmpty(value);
 
-    public static Message AsMessage(this string value) => value;
+    public static Message ToMessage(this string value) => value;
 }

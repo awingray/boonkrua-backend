@@ -34,7 +34,7 @@ public sealed class ConfigService(IConfigRepository repository) : IConfigService
         if (vendorConfig is null)
             return ConfigError.NotFoundUser;
 
-        return vendorConfig.AsMessage();
+        return vendorConfig.ToMessage();
     }
 
     public async Task<Result<Message, ConfigError>> CreateAsync(ConfigDto dto)
