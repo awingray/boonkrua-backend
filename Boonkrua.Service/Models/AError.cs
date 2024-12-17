@@ -4,5 +4,5 @@ namespace Boonkrua.Service.Models;
 
 public abstract record AError(Message ErrMessage)
 {
-    public string ErrorMessage => ErrMessage.ToString();
+    public string ErrorMessage => ErrMessage;
 }
