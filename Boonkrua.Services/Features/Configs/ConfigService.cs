@@ -21,7 +21,7 @@ public sealed class ConfigService(IConfigRepository repository) : IConfigService
         return ConfigDto.FromEntity(config);
     }
 
-    public async Task<Result<Message, ConfigError>> GetVendorKeyByTypeAsync(
+    public async Task<Result<string, ConfigError>> GetVendorKeyByTypeAsync(
         string userId,
         NotificationType type
     )
@@ -34,7 +34,7 @@ public sealed class ConfigService(IConfigRepository repository) : IConfigService
         if (vendorConfig is null)
             return ConfigError.NotFoundUser;
 
-        return vendorConfig.ToMessage();
+        return vendorConfig;
     }
 
     public async Task<Result<Message, ConfigError>> CreateAsync(ConfigDto dto)

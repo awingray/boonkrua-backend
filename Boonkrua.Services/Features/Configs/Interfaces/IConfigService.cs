@@ -8,10 +8,7 @@ public interface IConfigService
 {
     Task<Result<ConfigDto, ConfigError>> GetByUserIdAsync(string userId);
 
-    Task<Result<Message, ConfigError>> GetVendorKeyByTypeAsync(
-        string userId,
-        NotificationType type
-    );
+    Task<Result<string, ConfigError>> GetVendorKeyByTypeAsync(string userId, NotificationType type);
 
     Task<Result<Message, ConfigError>> CreateAsync(ConfigDto dto);
 
