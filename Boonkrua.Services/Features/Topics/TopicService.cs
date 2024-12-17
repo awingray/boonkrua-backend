@@ -7,7 +7,7 @@ using static Boonkrua.Shared.Messages.TopicMessages;
 
 namespace Boonkrua.Services.Features.Topics;
 
-public sealed class Service(IRepository repository) : IService
+public sealed class TopicService(IRepository repository) : ITopicService
 {
     private readonly IRepository _repository = repository;
 

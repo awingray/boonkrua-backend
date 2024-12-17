@@ -12,7 +12,7 @@ internal static class Endpoint
         app.MapGet(
                 Routes.Topic.GetById,
                 [Authorize]
-                async (string objectId, [FromServices] IService service) =>
+                async (string objectId, [FromServices] ITopicService service) =>
                     await Handler.GetById(objectId, service)
             )
             .RequireAuthorization();
@@ -20,7 +20,7 @@ internal static class Endpoint
         app.MapGet(
                 Routes.Topic.GetAll,
                 [Authorize]
-                async ([FromServices] IService service) => await Handler.GetAll(service)
+                async ([FromServices] ITopicService service) => await Handler.GetAll(service)
             )
             .RequireAuthorization();
 
@@ -29,7 +29,7 @@ internal static class Endpoint
                 [Authorize]
                 async (
                     [FromBody] CreateRequest request,
-                    [FromServices] IService service,
+                    [FromServices] ITopicService service,
                     HttpContext context
                 ) => await Handler.Create(request, service, context)
             )
@@ -40,7 +40,7 @@ internal static class Endpoint
                 [Authorize]
                 async (
                     [FromBody] UpdateRequest request,
-                    [FromServices] IService service,
+                    [FromServices] ITopicService service,
                     HttpContext context
                 ) => await Handler.Update(request, service, context)
             )
@@ -49,7 +49,7 @@ internal static class Endpoint
         app.MapDelete(
                 Routes.Topic.Delete,
                 [Authorize]
-                async (string objectId, [FromServices] IService service) =>
+                async (string objectId, [FromServices] ITopicService service) =>
                     await Handler.Delete(objectId, service)
             )
             .RequireAuthorization();

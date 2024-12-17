@@ -3,7 +3,7 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Services.Features.Configs.Interfaces;
 
-public interface IService
+public interface IConfigService
 {
     Task<Result<ConfigDto, ConfigError>> GetByUserIdAsync(string userId);
 
