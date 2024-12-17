@@ -1,10 +1,9 @@
 using Boonkrua.Service.Features.Configs.Models;
-using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Service.Features.Configs.Interfaces;
 
-public interface IConfigService
+public interface IService
 {
     Task<Result<ConfigDto, ConfigError>> GetByUserIdAsync(string userId);
 

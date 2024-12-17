@@ -1,5 +1,3 @@
-using Boonkrua.Shared.Extensions;
-
 namespace Boonkrua.Shared.Abstractions;
 
 public readonly struct Result<TResult, TError>

@@ -6,7 +6,7 @@ using static Boonkrua.Shared.Messages.ConfigMessages;
 
 namespace Boonkrua.Service.Features.Configs;
 
-public sealed class ConfigService(IConfigRepository repository) : IConfigService
+public sealed class Service(IConfigRepository repository) : IService
 {
     private readonly IConfigRepository _repository = repository;
 

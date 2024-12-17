@@ -1,6 +1,5 @@
 using Boonkrua.Api.Interfaces;
 using Boonkrua.Service.Features.Configs.Models;
-using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Notifications.Requests;
