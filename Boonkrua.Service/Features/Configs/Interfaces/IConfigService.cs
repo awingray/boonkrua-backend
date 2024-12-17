@@ -1,7 +1,8 @@
+using Boonkrua.Service.Features.Configs.Models;
 using Boonkrua.Service.Features.Notifications.Models;
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Service.Features.Notifications.Interfaces;
+namespace Boonkrua.Service.Features.Configs.Interfaces;
 
 public interface IConfigService
 {

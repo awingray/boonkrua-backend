@@ -1,5 +1,6 @@
 using Boonkrua.Api.Features.Notifications.Requests;
 using Boonkrua.Api.Helpers;
+using Boonkrua.Service.Features.Configs.Interfaces;
 using Boonkrua.Service.Features.Notifications.Interfaces;
 using static Microsoft.AspNetCore.Http.Results;
 

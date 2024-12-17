@@ -2,7 +2,7 @@ using Boonkrua.Service.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Messages;
 
-namespace Boonkrua.Service.Features.Notifications.Models;
+namespace Boonkrua.Service.Features.Configs.Models;
 
 public sealed record ConfigError : AError
 {

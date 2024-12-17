@@ -2,11 +2,9 @@ using Boonkrua.Data.Features.Notifications.Models;
 using Boonkrua.Service.Interfaces;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Service.Features.Notifications.Models;
+namespace Boonkrua.Service.Features.Configs.Models;
 
-public sealed record ConfigDto
-    : IEntityMapper<Config, ConfigDto>,
-        IDtoMapper<Config>
+public sealed record ConfigDto : IEntityMapper<Config, ConfigDto>, IDtoMapper<Config>
 {
     public string? Id { get; init; }
 

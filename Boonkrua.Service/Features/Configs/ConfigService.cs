@@ -1,11 +1,10 @@
 using Boonkrua.Data.Features.Notifications.Interfaces;
-using Boonkrua.Service.Features.Notifications.Interfaces;
-using Boonkrua.Service.Features.Notifications.Models;
+using Boonkrua.Service.Features.Configs.Interfaces;
+using Boonkrua.Service.Features.Configs.Models;
 using Boonkrua.Shared.Abstractions;
-using Boonkrua.Shared.Extensions;
 using static Boonkrua.Shared.Messages.ConfigMessages;
 
-namespace Boonkrua.Service.Features.Notifications;
+namespace Boonkrua.Service.Features.Configs;
 
 public sealed class ConfigService(IConfigRepository repository) : IConfigService
 {

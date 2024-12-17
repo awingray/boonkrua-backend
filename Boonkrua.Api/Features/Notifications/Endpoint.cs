@@ -1,4 +1,5 @@
 using Boonkrua.Api.Features.Notifications.Requests;
+using Boonkrua.Service.Features.Configs.Interfaces;
 using Boonkrua.Service.Features.Notifications.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
