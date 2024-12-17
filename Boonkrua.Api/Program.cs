@@ -1,4 +1,4 @@
-using Boonkrua.Api.Features.Notifications;
+using Boonkrua.Api.Features.Configs;
 using Boonkrua.Api.Features.Topics;
 using Boonkrua.IoC.Configuration.DependencyInjections;
 using Boonkrua.Shared.Models;

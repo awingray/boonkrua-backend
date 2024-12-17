@@ -4,7 +4,7 @@ using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
 using Boonkrua.Shared.Messages;
 
-namespace Boonkrua.Api.Features.Notifications.Requests;
+namespace Boonkrua.Api.Features.Configs.Requests;
 
 public sealed record VendorRequest : IRequestMapper<VendorDto>
 {

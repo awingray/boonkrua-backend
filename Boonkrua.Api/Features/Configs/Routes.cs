@@ -1,4 +1,4 @@
-namespace Boonkrua.Api.Features.Notifications;
+namespace Boonkrua.Api.Features.Configs;
 
 internal static class Routes
 {

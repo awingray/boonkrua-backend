@@ -1,9 +1,9 @@
-using Boonkrua.Api.Features.Notifications.Requests;
+using Boonkrua.Api.Features.Configs.Requests;
 using Boonkrua.Api.Helpers;
 using Boonkrua.Services.Features.Configs.Interfaces;
 using static Microsoft.AspNetCore.Http.Results;
 
-namespace Boonkrua.Api.Features.Notifications;
+namespace Boonkrua.Api.Features.Configs;
 
 internal static class Handler
 {
