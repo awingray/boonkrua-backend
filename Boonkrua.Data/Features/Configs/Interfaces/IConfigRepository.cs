@@ -1,6 +1,6 @@
-using Boonkrua.Data.Features.Notifications.Models;
+using Boonkrua.Data.Features.Configs.Models;
 
-namespace Boonkrua.Data.Features.Notifications.Interfaces;
+namespace Boonkrua.Data.Features.Configs.Interfaces;
 
 public interface IConfigRepository
 {

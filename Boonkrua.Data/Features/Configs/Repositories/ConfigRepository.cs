@@ -1,11 +1,11 @@
 using Boonkrua.Data.Contexts;
-using Boonkrua.Data.Features.Notifications.Interfaces;
-using Boonkrua.Data.Features.Notifications.Models;
+using Boonkrua.Data.Features.Configs.Interfaces;
+using Boonkrua.Data.Features.Configs.Models;
 using MongoDB.Driver;
 
-namespace Boonkrua.Data.Features.Notifications.Repositories;
+namespace Boonkrua.Data.Features.Configs.Repositories;
 
-public class ConfigRepository(BoonkruaContext context) : IConfigRepository
+public sealed class ConfigRepository(BoonkruaContext context) : IConfigRepository
 {
     private readonly IMongoCollection<Config> _col = context.Configs;
 

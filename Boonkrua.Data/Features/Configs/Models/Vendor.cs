@@ -2,7 +2,7 @@ using Boonkrua.Shared.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Boonkrua.Data.Features.Notifications.Models;
+namespace Boonkrua.Data.Features.Configs.Models;
 
 public sealed class Vendor
 {

@@ -1,4 +1,4 @@
-using Boonkrua.Data.Features.Notifications.Interfaces;
+using Boonkrua.Data.Features.Configs.Interfaces;
 using Boonkrua.Services.Features.Configs.Interfaces;
 using Boonkrua.Services.Features.Configs.Models;
 using Boonkrua.Shared.Abstractions;
