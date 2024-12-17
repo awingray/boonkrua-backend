@@ -17,6 +17,7 @@ public static partial class ServiceExtensions
                 c.GetService<IMongoClient>()
                 ?? throw new InvalidOperationException("MongoClient is null");
 
+            var db = client.GetDatabase(dbName);
             var context = new BoonkruaContext(client, dbName);
             context.EnsureIndexes();
             return context;
