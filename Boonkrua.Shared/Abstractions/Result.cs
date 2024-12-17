@@ -1,3 +1,5 @@
+using Boonkrua.Shared.Extensions;
+
 namespace Boonkrua.Shared.Abstractions;
 
 public readonly struct Result<TResult, TError>
@@ -18,11 +20,9 @@ public readonly struct Result<TResult, TError>
 
     public static Result<TResult, TError> Err(TError error) => new(default, error, false);
 
-    public static implicit operator Result<TResult, TError>(TResult result) =>
-        new(result, default, true);
+    public static implicit operator Result<TResult, TError>(TResult result) => Ok(result);
 
-    public static implicit operator Result<TResult, TError>(TError error) =>
-        new(default, error, false);
+    public static implicit operator Result<TResult, TError>(TError error) => Err(error);
 
     public TReturn Match<TReturn>(Func<TResult, TReturn> success, Func<TError, TReturn> failure) =>
         _success ? success(Content!) : failure(Error!);
