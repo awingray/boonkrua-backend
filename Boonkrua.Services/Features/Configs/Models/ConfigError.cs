@@ -11,5 +11,7 @@ public sealed record ConfigError : AError
 
     public static ConfigError NotFound => new(ConfigMessages.NotFound.Config);
 
+    public static ConfigError NotFoundUser => new(ConfigMessages.NotFound.User);
+
     public static ConfigError Duplicate => new(ConfigMessages.AlreadyExists.Config);
 }
