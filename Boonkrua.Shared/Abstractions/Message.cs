@@ -11,6 +11,4 @@ public readonly struct Message
     public static implicit operator Message(string message) => new(message);
 
     public static implicit operator string(Message message) => message.Content;
-
-    public override string ToString() => Content;
 }
