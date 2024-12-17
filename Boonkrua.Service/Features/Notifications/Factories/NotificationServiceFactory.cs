@@ -15,6 +15,9 @@ public sealed class NotificationServiceFactory(IServiceProvider provider)
         {
             NotificationType.Discord => _provider.GetRequiredService<DiscordService>(),
             NotificationType.Line => _provider.GetRequiredService<LineService>(),
-            _ => throw new ArgumentException(NotificationMessages.Invalid.Provider, nameof(type)),
+            _ => throw new ArgumentException(
+                NotificationMessages.Invalid.Provider.ToString(),
+                nameof(type)
+            ),
         };
 }

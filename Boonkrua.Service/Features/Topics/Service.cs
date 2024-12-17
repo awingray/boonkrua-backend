@@ -29,7 +29,7 @@ public sealed class Service(IRepository repository) : IService
     public async Task<Result<Message, TopicError>> CreateAsync(TopicDto topic)
     {
         await _repository.CreateAsync(topic.ToEntity());
-        return Create.Success.AsMessage();
+        return Create.Success;
     }
 
     public async Task<Result<Message, TopicError>> UpdateAsync(TopicDto topic)
@@ -42,12 +42,12 @@ public sealed class Service(IRepository repository) : IService
             return TopicError.NotFound;
 
         await _repository.UpdateAsync(topic.ToEntity());
-        return Update.Success.AsMessage();
+        return Update.Success;
     }
 
     public async Task<Result<Message, TopicError>> DeleteAsync(string id)
     {
         await _repository.DeleteAsync(id);
-        return Delete.Success.AsMessage();
+        return Delete.Success;
     }
 }

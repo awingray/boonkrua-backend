@@ -1,11 +1,12 @@
 using Boonkrua.Service.Models;
+using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Service.Features.Topics.Models;
 
 public record NotificationError : AError
 {
-    private NotificationError(string errorMessage)
+    private NotificationError(Message errorMessage)
         : base(errorMessage) { }
 
     public static NotificationError InvalidType => new(NotificationMessages.Invalid.Provider);
