@@ -4,10 +4,10 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Topics.Requests;
 
-public sealed record UpdateRequest : ARequest, IRequestMapper<TopicDto, string>
+public sealed record TopicUpdateRequest : ATopicRequest, IRequestMapper<TopicDto, string>
 {
     public required string Id { get; init; }
-    public List<UpdateRequest>? ChildTopics { get; init; } = null;
+    public List<TopicUpdateRequest>? ChildTopics { get; init; } = null;
 
     public TopicDto ToDto(string param) =>
         TopicDto.Create(

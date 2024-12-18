@@ -22,7 +22,7 @@ internal static class Handler
     }
 
     internal static async Task<IResult> Create(
-        CreateRequest request,
+        TopicCreateRequest request,
         ITopicService service,
         HttpContext context
     ) =>
@@ -40,7 +40,7 @@ internal static class Handler
             );
 
     internal static async Task<IResult> Update(
-        UpdateRequest request,
+        TopicUpdateRequest request,
         ITopicService service,
         HttpContext context
     ) =>

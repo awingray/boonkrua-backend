@@ -28,7 +28,7 @@ internal static class Endpoint
                 Routes.Topic.Create,
                 [Authorize]
                 async (
-                    [FromBody] CreateRequest request,
+                    [FromBody] TopicCreateRequest request,
                     [FromServices] ITopicService service,
                     HttpContext context
                 ) => await Handler.Create(request, service, context)
@@ -39,7 +39,7 @@ internal static class Endpoint
                 Routes.Topic.Update,
                 [Authorize]
                 async (
-                    [FromBody] UpdateRequest request,
+                    [FromBody] TopicUpdateRequest request,
                     [FromServices] ITopicService service,
                     HttpContext context
                 ) => await Handler.Update(request, service, context)
@@ -55,11 +55,11 @@ internal static class Endpoint
             .RequireAuthorization();
 
         app.MapPost(
-                Routes.Topic.Notify,
-                [Authorize]
-                async (string objectId, string type, [FromServices] INotificationService service) =>
-                    await Handler.Notify(objectId, type, service)
-            )
-            .RequireAuthorization();
+            Routes.Topic.Notify,
+            // [Authorize]
+            async (string objectId, string type, [FromServices] INotificationService service) =>
+                await Handler.Notify(objectId, type, service)
+        );
+        //.RequireAuthorization();
     }
 }

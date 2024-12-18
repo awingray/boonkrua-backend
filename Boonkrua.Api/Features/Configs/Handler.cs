@@ -14,7 +14,7 @@ internal static class Handler
     }
 
     internal static async Task<IResult> Create(
-        CreateRequest request,
+        ConfigCreateRequest request,
         IConfigService configService,
         HttpContext context
     ) =>

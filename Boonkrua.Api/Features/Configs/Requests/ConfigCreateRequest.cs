@@ -4,7 +4,7 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Configs.Requests;
 
-public sealed record CreateRequest : IRequestMapper<ConfigDto, string>
+public sealed record ConfigCreateRequest : IRequestMapper<ConfigDto, string>
 {
     public List<VendorRequest> Vendors { get; init; } = [];
 

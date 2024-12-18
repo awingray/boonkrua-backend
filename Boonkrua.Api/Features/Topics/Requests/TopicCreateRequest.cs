@@ -4,9 +4,9 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Topics.Requests;
 
-public sealed record CreateRequest : ARequest, IRequestMapper<TopicDto, string>
+public sealed record TopicCreateRequest : ATopicRequest, IRequestMapper<TopicDto, string>
 {
-    public List<CreateRequest>? ChildTopics { get; init; } = null;
+    public List<TopicCreateRequest>? ChildTopics { get; init; } = null;
 
     public TopicDto ToDto(string param) =>
         TopicDto.Create(
