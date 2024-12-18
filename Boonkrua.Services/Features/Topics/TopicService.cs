@@ -20,7 +20,7 @@ public sealed class TopicService(ITopicRepository repository) : ITopicService
         return TopicDto.FromEntity(topic);
     }
 
-    public async Task<Result<IEnumerable<TopicDto>, TopicError>> GetAllAsync()
+    public async Task<Result<List<TopicDto>, TopicError>> GetAllAsync()
     {
         var topics = await _repository.GetAllAsync();
         return topics.ToMappedList(TopicDto.FromEntity);
