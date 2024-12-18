@@ -2,7 +2,12 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Services.Models;
 
-public abstract record AError(Message ErrMessage)
+public abstract record AError
 {
-    public string ErrorMessage => ErrMessage;
+    protected AError(Message errMessage)
+    {
+        ErrorMessage = errMessage;
+    }
+
+    public string ErrorMessage { get; init; }
 }

@@ -66,7 +66,7 @@ internal static class Handler
     internal static async Task<IResult> Notify(
         string objectId,
         string type,
-        INotificationService service
+        ITopicNotificationService service
     )
     {
         var result = await service.NotifyAsync(objectId, type);

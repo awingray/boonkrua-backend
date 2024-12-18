@@ -5,21 +5,19 @@ using Boonkrua.Services.Features.Notifications.Factories;
 using Boonkrua.Services.Features.Notifications.Interfaces;
 using Boonkrua.Services.Features.Notifications.Models;
 using Boonkrua.Services.Features.Topics.Interfaces;
+using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Services.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
-using INotificationService = Boonkrua.Services.Features.Topics.Interfaces.INotificationService;
 
 namespace Boonkrua.Services.Features.Topics;
 
-using NotificationError = Models.NotificationError;
-
-public sealed class NotificationService(
+public sealed class TopicNotificationService(
     ITopicService topicService,
     IConfigService configService,
     INotificationDispatcher dispatcher
-) : INotificationService
+) : ITopicNotificationService
 {
     private readonly ITopicService _topicService = topicService;
     private readonly IConfigService _configService = configService;
@@ -28,7 +26,7 @@ public sealed class NotificationService(
     public async Task<Result<Message, AError>> NotifyAsync(string objectId, string type)
     {
         if (!type.TryParse(out NotificationType notificationType))
-            return NotificationError.InvalidType;
+            return TopicNotificationError.InvalidType;
 
         var topic = await _topicService.GetByIdAsync(objectId);
         if (!topic.IsSuccessful)

@@ -4,7 +4,7 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Services.Features.Topics.Interfaces;
 
-public interface INotificationService
+public interface ITopicNotificationService
 {
     Task<Result<Message, AError>> NotifyAsync(string objectId, string type);
 }

@@ -55,11 +55,14 @@ internal static class Endpoint
             .RequireAuthorization();
 
         app.MapPost(
-            Routes.Topic.Notify,
-            // [Authorize]
-            async (string objectId, string type, [FromServices] INotificationService service) =>
-                await Handler.Notify(objectId, type, service)
-        );
-        //.RequireAuthorization();
+                Routes.Topic.Notify,
+                [Authorize]
+                async (
+                    string objectId,
+                    string type,
+                    [FromServices] ITopicNotificationService service
+                ) => await Handler.Notify(objectId, type, service)
+            )
+            .RequireAuthorization();
     }
 }
