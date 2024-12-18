@@ -1,9 +1,7 @@
-using Boonkrua.Data.Features.Configs.Interfaces;
-using Boonkrua.Data.Features.Topics.Interfaces;
 using Boonkrua.Services.Features.Configs.Interfaces;
-using Boonkrua.Services.Features.Notifications.Factories;
 using Boonkrua.Services.Features.Notifications.Interfaces;
 using Boonkrua.Services.Features.Notifications.Models;
+using Boonkrua.Services.Features.Orchestrators.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;
 using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Services.Models;
@@ -11,13 +9,13 @@ using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
 
-namespace Boonkrua.Services.Features.Topics;
+namespace Boonkrua.Services.Features.Orchestrators;
 
-public sealed class TopicNotificationService(
+public sealed class TopicNotificationOrchestrator(
     ITopicService topicService,
     IConfigService configService,
     INotificationDispatcher dispatcher
-) : ITopicNotificationService
+) : ITopicNotificationOrchestrator
 {
     private readonly ITopicService _topicService = topicService;
     private readonly IConfigService _configService = configService;

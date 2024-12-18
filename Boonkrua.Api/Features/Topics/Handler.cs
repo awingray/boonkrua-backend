@@ -1,6 +1,7 @@
 using Boonkrua.Api.Features.Topics.Requests;
 using Boonkrua.Api.Features.Topics.Responses;
 using Boonkrua.Api.Helpers;
+using Boonkrua.Services.Features.Orchestrators.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;
 using Boonkrua.Shared.Extensions;
 using static Microsoft.AspNetCore.Http.Results;
@@ -66,7 +67,7 @@ internal static class Handler
     internal static async Task<IResult> Notify(
         string objectId,
         string type,
-        ITopicNotificationService service
+        ITopicNotificationOrchestrator service
     )
     {
         var result = await service.NotifyAsync(objectId, type);

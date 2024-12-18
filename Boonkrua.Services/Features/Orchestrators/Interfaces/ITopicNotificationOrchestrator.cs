@@ -1,10 +1,9 @@
-using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Services.Models;
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Services.Features.Topics.Interfaces;
+namespace Boonkrua.Services.Features.Orchestrators.Interfaces;
 
-public interface ITopicNotificationService
+public interface ITopicNotificationOrchestrator
 {
     Task<Result<Message, AError>> NotifyAsync(string objectId, string type);
 }

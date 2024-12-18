@@ -1,4 +1,5 @@
 using Boonkrua.Api.Features.Topics.Requests;
+using Boonkrua.Services.Features.Orchestrators.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -60,7 +61,7 @@ internal static class Endpoint
                 async (
                     string objectId,
                     string type,
-                    [FromServices] ITopicNotificationService service
+                    [FromServices] ITopicNotificationOrchestrator service
                 ) => await Handler.Notify(objectId, type, service)
             )
             .RequireAuthorization();
