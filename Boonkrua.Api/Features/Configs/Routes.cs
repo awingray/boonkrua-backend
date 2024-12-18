@@ -2,7 +2,7 @@ namespace Boonkrua.Api.Features.Configs;
 
 internal static class Routes
 {
-    internal static class NotificationConfig
+    internal static class Config
     {
         private const string Base = "/config";
         private const string UserIdSegment = "/{userId}";
