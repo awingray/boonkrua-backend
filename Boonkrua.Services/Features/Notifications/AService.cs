@@ -1,6 +1,6 @@
+using Boonkrua.Services.Features.Notifications.Messages;
 using Boonkrua.Services.Features.Notifications.Models;
 using Boonkrua.Shared.Abstractions;
-using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Services.Features.Notifications;
 

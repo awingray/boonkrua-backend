@@ -3,7 +3,7 @@ using Boonkrua.Services.Features.Topics.Interfaces;
 using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Extensions;
-using static Boonkrua.Shared.Messages.TopicMessages;
+using static Boonkrua.Services.Features.Topics.Messages.TopicMessages;
 
 namespace Boonkrua.Services.Features.Topics;
 

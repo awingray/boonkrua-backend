@@ -1,6 +1,6 @@
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Shared.Messages;
+namespace Boonkrua.Services.Features.Notifications.Messages;
 
 public static class NotificationMessages
 {

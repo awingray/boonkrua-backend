@@ -4,7 +4,7 @@ using Boonkrua.Services.Features.Configs.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
-using static Boonkrua.Shared.Messages.ConfigMessages;
+using static Boonkrua.Services.Features.Configs.Messages.ConfigMessages;
 
 namespace Boonkrua.Services.Features.Configs;
 

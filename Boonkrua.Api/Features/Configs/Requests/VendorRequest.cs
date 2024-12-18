@@ -1,8 +1,8 @@
 using Boonkrua.Api.Interfaces;
+using Boonkrua.Services.Features.Configs.Messages;
 using Boonkrua.Services.Features.Configs.Models;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
-using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Api.Features.Configs.Requests;
 

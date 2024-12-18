@@ -1,6 +1,6 @@
+using Boonkrua.Services.Features.Topics.Messages;
 using Boonkrua.Services.Models;
 using Boonkrua.Shared.Abstractions;
-using Boonkrua.Shared.Messages;
 
 namespace Boonkrua.Services.Features.Topics.Models;
 

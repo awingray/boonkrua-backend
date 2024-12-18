@@ -1,6 +1,6 @@
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Shared.Messages;
+namespace Boonkrua.Services.Features.Configs.Messages;
 
 public static class ConfigMessages
 {
