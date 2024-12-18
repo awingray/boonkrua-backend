@@ -6,8 +6,6 @@ public readonly struct Message
 
     private Message(string message) => Content = message;
 
-    public static Message Create(string message) => new(message);
-
     public static implicit operator Message(string message) => new(message);
 
     public static implicit operator string(Message message) => message.Content;
