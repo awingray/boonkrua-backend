@@ -25,6 +25,6 @@ public sealed class Topic : ATopic
             UserId = userId,
             Description = description,
             ChildTopics = childTopics ?? [],
-            Id = id ?? default!,
+            Id = id ?? null!,
         };
 }

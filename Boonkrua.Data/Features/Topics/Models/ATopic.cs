@@ -8,7 +8,7 @@ public abstract class ATopic
 {
     [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; protected init; } = default!;
+    public string Id { get; protected init; } = null!;
 
     [BsonElement("title")]
     public required string Title { get; init; }
