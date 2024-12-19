@@ -2,7 +2,7 @@ using Boonkrua.Services.Features.Notifications.Messages;
 using Boonkrua.Services.Models;
 using Boonkrua.Shared.Abstractions;
 
-namespace Boonkrua.Services.Features.Topics.Models;
+namespace Boonkrua.Services.Features.Orchestrators.Models;
 
 public record TopicNotificationError : AError
 {

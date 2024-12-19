@@ -3,11 +3,11 @@ using Boonkrua.Services.Features.Notifications.Interfaces;
 using Boonkrua.Services.Features.Notifications.Models;
 using Boonkrua.Services.Features.Orchestrators.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;
-using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Services.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
+using Error = Boonkrua.Services.Features.Orchestrators.Models.TopicNotificationError;
 
 namespace Boonkrua.Services.Features.Orchestrators;
 
@@ -24,7 +24,7 @@ public sealed class TopicNotificationOrchestrator(
     public async Task<Result<Message, AError>> NotifyAsync(string objectId, string type)
     {
         if (!type.TryParse(out NotificationType notificationType))
-            return TopicNotificationError.InvalidType;
+            return Error.InvalidType;
 
         var topic = await _topicService.GetByIdAsync(objectId);
         if (!topic.IsSuccessful)
