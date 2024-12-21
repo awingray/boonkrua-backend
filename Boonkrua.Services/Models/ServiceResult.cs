@@ -2,7 +2,7 @@ using Boonkrua.Shared.Abstractions;
 
 namespace Boonkrua.Services.Models;
 
-public class ServiceResult<TContent>
+public readonly struct ServiceResult<TContent>
 {
     private readonly Result<TContent, AError> _result;
 
