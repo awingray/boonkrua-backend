@@ -11,11 +11,8 @@ public sealed class DiscordService(HttpClient client) : AService, INotificationS
 
     public async Task<Result<Message, NotificationError>> SendNotificationAsync(
         NotificationPayload payload
-    )
-    {
-        var discordPayload = new { content = payload.Message };
-        return await HandleOperationAsync(
-            () => _client.PostAsJsonAsync(payload.Key, discordPayload)
+    ) =>
+        await HandleOperationAsync(
+            () => _client.PostAsJsonAsync(payload.Key, payload.ToDiscordPayload())
         );
-    }
 }

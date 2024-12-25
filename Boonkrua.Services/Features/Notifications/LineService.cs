@@ -16,16 +16,8 @@ public sealed class LineService(HttpClient client, IOptions<LineSettings> settin
 
     public async Task<Result<Message, NotificationError>> SendNotificationAsync(
         NotificationPayload payload
-    )
-    {
-        var linePayload = new
-        {
-            to = payload.Key,
-            messages = new[] { new { type = "text", text = payload.Message } },
-        };
-
-        return await HandleOperationAsync(
-            () => _client.PostAsJsonAsync(_settings.PushMessageApi, linePayload)
+    ) =>
+        await HandleOperationAsync(
+            () => _client.PostAsJsonAsync(_settings.PushMessageApi, payload.ToLinePayload())
         );
-    }
 }
