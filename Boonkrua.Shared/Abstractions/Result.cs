@@ -1,6 +1,6 @@
 namespace Boonkrua.Shared.Abstractions;
 
-public readonly struct Result<TResult, TError>
+public class Result<TResult, TError>
 {
     private readonly bool _success;
     public TResult? Content { get; }

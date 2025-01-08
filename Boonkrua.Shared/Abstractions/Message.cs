@@ -2,7 +2,7 @@ namespace Boonkrua.Shared.Abstractions;
 
 public readonly struct Message
 {
-    public string Content { get; }
+    private string Content { get; }
 
     private Message(string message) => Content = message;
 
