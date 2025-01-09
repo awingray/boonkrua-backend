@@ -1,3 +1,4 @@
+using Boonkrua.Api.Features.Topics.Mappers;
 using Boonkrua.Api.Features.Topics.Requests;
 using Boonkrua.Api.Features.Topics.Responses;
 using Boonkrua.Api.Helpers;
@@ -13,13 +14,13 @@ internal static class Handler
     internal static async Task<IResult> GetById(string topicId, ITopicService service)
     {
         var result = await service.GetByIdAsync(topicId);
-        return result.Match(r => Ok(Response.FromDto(r)), NotFound);
+        return result.Match(r => Ok(TopicResponseMapper.FromDto(r)), NotFound);
     }
 
     internal static async Task<IResult> GetAll(ITopicService service)
     {
         var result = await service.GetAllAsync();
-        return result.Match((r) => Ok(r.ToMappedList(Response.FromDto)), NotFound);
+        return result.Match((r) => Ok(r.ToMappedList(TopicResponseMapper.FromDto)), NotFound);
     }
 
     internal static async Task<IResult> Create(
