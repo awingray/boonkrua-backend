@@ -1,5 +1,6 @@
 using Boonkrua.Data.Features.Configs.Interfaces;
 using Boonkrua.Services.Features.Configs.Interfaces;
+using Boonkrua.Services.Features.Configs.Mappers;
 using Boonkrua.Services.Features.Configs.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Enums;
@@ -18,7 +19,7 @@ public sealed class ConfigService(IConfigRepository repository) : IConfigService
         if (config is null)
             return Error.NotFound;
 
-        return ConfigDto.FromEntity(config);
+        return ConfigDtoMapper.FromEntity(config);
     }
 
     public async Task<Result<string, Error>> GetVendorKeyByTypeAsync(

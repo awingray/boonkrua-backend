@@ -1,10 +1,8 @@
-using Boonkrua.Data.Features.Configs.Models;
-using Boonkrua.Services.Interfaces;
 using Boonkrua.Shared.Enums;
 
 namespace Boonkrua.Services.Features.Configs.Models;
 
-public sealed record VendorDto : IDtoMapper<Vendor>, IEntityMapper<Vendor, VendorDto>
+public sealed record VendorDto
 {
     public NotificationType Type { get; private init; }
 
@@ -14,8 +12,4 @@ public sealed record VendorDto : IDtoMapper<Vendor>, IEntityMapper<Vendor, Vendo
 
     public static VendorDto Create(NotificationType type, string key) =>
         new() { Type = type, Key = key };
-
-    public Vendor ToEntity() => Vendor.Create(Type, Key);
-
-    public static VendorDto FromEntity(Vendor entity) => Create(entity.Type, entity.Key);
 }
