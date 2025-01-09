@@ -9,7 +9,7 @@ public sealed class Config
 {
     [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; private init; } = default!;
+    public string Id { get; private init; } = null!;
 
     [BsonElement("userId")]
     public required string UserId { get; init; }
@@ -26,6 +26,6 @@ public sealed class Config
         {
             UserId = userId,
             Vendors = vendors ?? [],
-            Id = id ?? default!,
+            Id = id ?? null!,
         };
 }
