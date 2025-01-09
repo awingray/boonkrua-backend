@@ -1,5 +1,6 @@
 using Boonkrua.Data.Features.Topics.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;
+using Boonkrua.Services.Features.Topics.Mappers;
 using Boonkrua.Services.Features.Topics.Models;
 using Boonkrua.Shared.Abstractions;
 using Boonkrua.Shared.Extensions;
@@ -18,13 +19,13 @@ public sealed class TopicService(ITopicRepository repository) : ITopicService
         if (topic is null)
             return Error.NotFound;
 
-        return TopicDto.FromEntity(topic);
+        return TopicDtoMapper.FromEntity(topic);
     }
 
     public async Task<Result<List<TopicDto>, Error>> GetAllAsync()
     {
         var topics = await _repository.GetAllAsync();
-        return topics.ToMappedList(TopicDto.FromEntity);
+        return topics.ToMappedList(TopicDtoMapper.FromEntity);
     }
 
     public async Task<Result<Message, Error>> CreateAsync(TopicDto topic)

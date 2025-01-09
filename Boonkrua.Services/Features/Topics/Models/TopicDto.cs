@@ -4,7 +4,7 @@ using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Services.Features.Topics.Models;
 
-public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto>
+public sealed record TopicDto
 {
     public string? Id { get; private init; }
     public required string UserId { get; init; }
@@ -43,16 +43,4 @@ public sealed record TopicDto : IDtoMapper<Topic>, IEntityMapper<Topic, TopicDto
             Description = description,
             ChildTopics = childTopics,
         };
-
-    public Topic ToEntity() =>
-        Topic.Create(Title, UserId, ChildTopics.ToMappedList(t => t.ToEntity()), Description, Id);
-
-    public static TopicDto FromEntity(Topic entity) =>
-        Create(
-            entity.Id,
-            entity.UserId,
-            entity.Title,
-            entity.ChildTopics.ToMappedList(FromEntity),
-            entity.Description
-        );
 }
