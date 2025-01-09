@@ -7,7 +7,7 @@ using Boonkrua.Shared.Extensions;
 using static Boonkrua.Services.Features.Topics.Messages.TopicMessages;
 using Error = Boonkrua.Services.Features.Topics.Models.TopicError;
 
-namespace Boonkrua.Services.Features.Topics;
+namespace Boonkrua.Services.Features.Topics.Services;
 
 public sealed class TopicService(ITopicRepository repository) : ITopicService
 {

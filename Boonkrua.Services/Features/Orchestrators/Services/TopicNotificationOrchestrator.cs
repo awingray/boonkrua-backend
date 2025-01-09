@@ -9,7 +9,7 @@ using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Extensions;
 using Error = Boonkrua.Services.Features.Orchestrators.Models.TopicNotificationError;
 
-namespace Boonkrua.Services.Features.Orchestrators;
+namespace Boonkrua.Services.Features.Orchestrators.Services;
 
 public sealed class TopicNotificationOrchestrator(
     ITopicService topicService,

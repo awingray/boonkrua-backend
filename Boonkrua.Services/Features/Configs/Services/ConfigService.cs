@@ -7,7 +7,7 @@ using Boonkrua.Shared.Enums;
 using static Boonkrua.Services.Features.Configs.Messages.ConfigMessages;
 using Error = Boonkrua.Services.Features.Configs.Models.ConfigError;
 
-namespace Boonkrua.Services.Features.Configs;
+namespace Boonkrua.Services.Features.Configs.Services;
 
 public sealed class ConfigService(IConfigRepository repository) : IConfigService
 {
