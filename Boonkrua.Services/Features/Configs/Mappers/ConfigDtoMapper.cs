@@ -1,6 +1,5 @@
 using Boonkrua.Data.Features.Configs.Models;
 using Boonkrua.Services.Features.Configs.Models;
-using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Services.Features.Configs.Mappers;
 

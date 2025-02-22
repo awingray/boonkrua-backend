@@ -1,6 +1,5 @@
 using Boonkrua.Api.Features.Topics.Responses;
 using Boonkrua.Services.Features.Topics.Models;
-using Boonkrua.Shared.Extensions;
 
 namespace Boonkrua.Api.Features.Topics.Mappers;
 
