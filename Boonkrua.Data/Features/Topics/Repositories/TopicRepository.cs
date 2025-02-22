@@ -1,11 +1,11 @@
-using Boonkrua.Data.Contexts;
 using Boonkrua.Data.Features.Topics.Interfaces;
 using Boonkrua.Data.Features.Topics.Models;
+using Boonkrua.Data.Interfaces;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Features.Topics.Repositories;
 
-public sealed class TopicRepository(BoonkruaContext context) : ITopicRepository
+public sealed class TopicRepository(IBoonkruaContext context) : ITopicRepository
 {
     private readonly IMongoCollection<Topic> _col = context.Topics;
 

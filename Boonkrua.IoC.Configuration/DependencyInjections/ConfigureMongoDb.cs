@@ -1,4 +1,5 @@
 using Boonkrua.Data.Contexts;
+using Boonkrua.Data.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 
@@ -11,7 +12,7 @@ public static partial class ServiceExtensions
         services.AddSingleton<IMongoClient>(
             new MongoClient(Environment.GetEnvironmentVariable("MONGODB_URI"))
         );
-        services.AddSingleton(c =>
+        services.AddSingleton<IBoonkruaContext>(c =>
         {
             var client =
                 c.GetService<IMongoClient>()

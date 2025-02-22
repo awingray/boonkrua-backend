@@ -1,11 +1,11 @@
-using Boonkrua.Data.Contexts;
 using Boonkrua.Data.Features.Configs.Interfaces;
 using Boonkrua.Data.Features.Configs.Models;
+using Boonkrua.Data.Interfaces;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Features.Configs.Repositories;
 
-public sealed class ConfigRepository(BoonkruaContext context) : IConfigRepository
+public sealed class ConfigRepository(IBoonkruaContext context) : IConfigRepository
 {
     private readonly IMongoCollection<Config> _col = context.Configs;
 

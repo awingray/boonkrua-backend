@@ -1,10 +1,11 @@
 using Boonkrua.Data.Features.Configs.Models;
 using Boonkrua.Data.Features.Topics.Models;
+using Boonkrua.Data.Interfaces;
 using MongoDB.Driver;
 
 namespace Boonkrua.Data.Contexts;
 
-public sealed class BoonkruaContext(IMongoDatabase db)
+public sealed class BoonkruaContext(IMongoDatabase db) : IBoonkruaContext
 {
     private readonly IMongoCollection<Topic> _topics = db.GetCollection<Topic>(nameof(Topics));
     private readonly IMongoCollection<Config> _configs = db.GetCollection<Config>(nameof(Configs));
