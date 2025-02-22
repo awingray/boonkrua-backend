@@ -12,8 +12,8 @@ public sealed class TopicRepository(BoonkruaContext context) : ITopicRepository
     public async Task<Topic?> GetByIdAsync(string id) =>
         await _col.Find(t => t.Id == id).FirstOrDefaultAsync();
 
-    public async Task<IEnumerable<Topic>> GetAllAsync() =>
-        await (await _col.FindAsync(FilterDefinition<Topic>.Empty)).ToListAsync() ?? [];
+    public async Task<List<Topic>> GetAllAsync() =>
+        await _col.Find(FilterDefinition<Topic>.Empty).ToListAsync();
 
     public async Task CreateAsync(Topic topic) => await _col.InsertOneAsync(topic);
 
