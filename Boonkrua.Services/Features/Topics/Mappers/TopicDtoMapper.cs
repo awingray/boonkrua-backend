@@ -10,7 +10,7 @@ public static class TopicDtoMapper
         Topic.Create(
             dto.Title,
             dto.UserId,
-            dto.ChildTopics.ToMappedList(t => t.ToEntity()),
+            dto.ChildTopics.ConvertAll(t => t.ToEntity()),
             dto.Description,
             dto.Id
         );
@@ -20,7 +20,7 @@ public static class TopicDtoMapper
             entity.Id,
             entity.UserId,
             entity.Title,
-            entity.ChildTopics.ToMappedList(FromEntity),
+            entity.ChildTopics.ConvertAll(FromEntity),
             entity.Description
         );
 }

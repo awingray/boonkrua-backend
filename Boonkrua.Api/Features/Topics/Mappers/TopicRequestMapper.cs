@@ -10,7 +10,7 @@ public static class TopicRequestMapper
         TopicDto.Create(
             request.Title,
             userId,
-            request.ChildTopics?.ToMappedList(t => t.ToDto(userId)) ?? [],
+            request.ChildTopics?.ConvertAll(t => t.ToDto(userId)) ?? [],
             request.Description
         );
 
@@ -19,7 +19,7 @@ public static class TopicRequestMapper
             request.Id,
             userId,
             request.Title,
-            request.ChildTopics?.ToMappedList(t => t.ToDto(userId)) ?? [],
+            request.ChildTopics?.ConvertAll(t => t.ToDto(userId)) ?? [],
             request.Description
         );
 }

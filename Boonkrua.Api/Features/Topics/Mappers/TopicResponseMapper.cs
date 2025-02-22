@@ -7,5 +7,5 @@ namespace Boonkrua.Api.Features.Topics.Mappers;
 public static class TopicResponseMapper
 {
     public static TopicResponse FromDto(TopicDto dto) =>
-        new(dto.Id, dto.Title, dto.ChildTopics.ToMappedList(FromDto), dto.Description);
+        new(dto.Id, dto.Title, dto.ChildTopics.ConvertAll(FromDto), dto.Description);
 }
