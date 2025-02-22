@@ -6,7 +6,7 @@ public readonly struct Message
 
     private Message(string message) => Content = string.Intern(message);
 
-    public static implicit operator Message(string message) => new(message);
+    public static implicit operator Message(string message) => new(string.Intern(message));
 
     public static implicit operator string(Message message) => message.Content;
 }
