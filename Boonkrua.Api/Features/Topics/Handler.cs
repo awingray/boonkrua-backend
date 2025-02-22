@@ -3,7 +3,6 @@ using Boonkrua.Api.Features.Topics.Requests;
 using Boonkrua.Api.Helpers;
 using Boonkrua.Services.Features.Orchestrators.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;
-using Boonkrua.Shared.Extensions;
 using static Microsoft.AspNetCore.Http.Results;
 
 namespace Boonkrua.Api.Features.Topics;
