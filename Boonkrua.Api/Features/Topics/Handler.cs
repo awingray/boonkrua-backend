@@ -19,7 +19,7 @@ internal static class Handler
     internal static async Task<IResult> GetAll(ITopicService service)
     {
         var result = await service.GetAllAsync();
-        return result.Match((r) => Ok(r.ToMappedList(TopicResponseMapper.FromDto)), NotFound);
+        return result.Match((r) => Ok(r.ConvertAll(TopicResponseMapper.FromDto)), NotFound);
     }
 
     internal static async Task<IResult> Create(
