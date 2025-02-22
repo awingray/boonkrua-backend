@@ -4,7 +4,7 @@ public readonly struct Message
 {
     private string Content { get; }
 
-    private Message(string message) => Content = message;
+    private Message(string message) => Content = string.Intern(message);
 
     public static implicit operator Message(string message) => new(message);
 
