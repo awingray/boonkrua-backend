@@ -7,6 +7,6 @@ public static partial class ServiceExtensions
 {
     public static void ConfigureFactories(this IServiceCollection services)
     {
-        services.AddTransient<NotificationServiceFactory>();
+        services.AddScoped<NotificationServiceFactory>();
     }
 }

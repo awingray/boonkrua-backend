@@ -1,6 +1,5 @@
 using Boonkrua.Api.Features.Topics.Mappers;
 using Boonkrua.Api.Features.Topics.Requests;
-using Boonkrua.Api.Features.Topics.Responses;
 using Boonkrua.Api.Helpers;
 using Boonkrua.Services.Features.Orchestrators.Interfaces;
 using Boonkrua.Services.Features.Topics.Interfaces;

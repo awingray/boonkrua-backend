@@ -1,20 +1,20 @@
+using System.Collections.Immutable;
 using Boonkrua.Services.Features.Notifications.Interfaces;
 using Boonkrua.Services.Features.Notifications.Messages;
-using Boonkrua.Services.Features.Notifications.Services;
 using Boonkrua.Shared.Enums;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Boonkrua.Services.Features.Notifications.Factories;
 
-public sealed class NotificationServiceFactory(IServiceProvider provider)
+public sealed class NotificationServiceFactory(IEnumerable<INotificationService> services)
 {
-    private readonly IServiceProvider _provider = provider;
+    private readonly ImmutableDictionary<NotificationType, INotificationService> _services =
+        services.ToImmutableDictionary(s => s.Type, s => s);
 
-    public INotificationService GetService(NotificationType type) =>
-        type switch
-        {
-            NotificationType.Discord => _provider.GetRequiredService<DiscordService>(),
-            NotificationType.Line => _provider.GetRequiredService<LineService>(),
-            _ => throw new ArgumentException(NotificationMessages.Invalid.Provider, nameof(type)),
-        };
+    public INotificationService GetService(NotificationType type)
+    {
+        if (_services.TryGetValue(type, out var service))
+            return service;
+
+        throw new ArgumentException(NotificationMessages.Invalid.Provider, nameof(type));
+    }
 }
