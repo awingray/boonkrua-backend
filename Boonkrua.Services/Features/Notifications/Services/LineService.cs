@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using Boonkrua.Services.Features.Notifications.Interfaces;
 using Boonkrua.Services.Features.Notifications.Models;
 using Boonkrua.Shared.Abstractions;
+using Boonkrua.Shared.Enums;
 using Boonkrua.Shared.Models;
 using Microsoft.Extensions.Options;
 
@@ -13,6 +14,8 @@ public sealed class LineService(HttpClient client, IOptions<LineSettings> settin
 {
     private readonly HttpClient _client = client;
     private readonly LineSettings _settings = settings.Value;
+
+    public NotificationType Type => NotificationType.Line;
 
     public async Task<Result<Message, NotificationError>> SendNotificationAsync(
         NotificationPayload payload
