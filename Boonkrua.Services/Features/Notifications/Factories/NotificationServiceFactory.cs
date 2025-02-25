@@ -6,6 +6,7 @@ using Boonkrua.Shared.Enums;
 namespace Boonkrua.Services.Features.Notifications.Factories;
 
 public sealed class NotificationServiceFactory(IEnumerable<INotificationService> services)
+    : INotificationServiceFactory
 {
     private readonly ImmutableDictionary<NotificationType, INotificationService> _services =
         services.ToImmutableDictionary(s => s.Type, s => s);

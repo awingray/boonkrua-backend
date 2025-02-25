@@ -6,10 +6,10 @@ using Boonkrua.Shared.Enums;
 
 namespace Boonkrua.Services.Features.Notifications.Dispatchers;
 
-public sealed class NotificationDispatcher(NotificationServiceFactory serviceFactory)
+public sealed class NotificationDispatcher(INotificationServiceFactory serviceFactory)
     : INotificationDispatcher
 {
-    private readonly NotificationServiceFactory _serviceFactory = serviceFactory;
+    private readonly INotificationServiceFactory _serviceFactory = serviceFactory;
 
     public async Task<Result<Message, NotificationError>> DispatchAsync(
         NotificationType type,
