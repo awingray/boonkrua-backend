@@ -21,12 +21,12 @@ internal static class Handler
         return result.Match((r) => Ok(r.ConvertAll(TopicResponseMapper.FromDto)), NotFound);
     }
 
-    internal static async Task<IResult> Create(
+    internal static Task<IResult> Create(
         TopicCreateRequest request,
         ITopicService service,
         HttpContext context
     ) =>
-        await UserContextHelper
+        UserContextHelper
             .GetUserId(context)
             .Match(
                 async userId =>
@@ -39,12 +39,12 @@ internal static class Handler
                 Task.FromResult
             );
 
-    internal static async Task<IResult> Update(
+    internal static Task<IResult> Update(
         TopicUpdateRequest request,
         ITopicService service,
         HttpContext context
     ) =>
-        await UserContextHelper
+        UserContextHelper
             .GetUserId(context)
             .Match(
                 async userId =>

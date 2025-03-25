@@ -14,12 +14,12 @@ internal static class Handler
         return result.Match(Ok, NotFound);
     }
 
-    internal static async Task<IResult> Create(
+    internal static Task<IResult> Create(
         ConfigCreateRequest request,
         IConfigService configService,
         HttpContext context
     ) =>
-        await UserContextHelper
+        UserContextHelper
             .GetUserId(context)
             .Match(
                 async userId =>
