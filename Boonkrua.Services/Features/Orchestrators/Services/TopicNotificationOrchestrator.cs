@@ -39,6 +39,6 @@ public sealed class TopicNotificationOrchestrator(
         var payload = NotificationPayload.Create(title, config.Content!);
         var result = await _dispatcher.DispatchAsync(notificationType, payload);
 
-        return result.Content!;
+        return result.Content;
     }
 }
